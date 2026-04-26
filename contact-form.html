@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Inquiry</title>
+
+  <!-- CDN Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=DM+Mono:wght@300;400&display=swap"
+    rel="stylesheet" />
+
+  <!-- CDN EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="/css/global.css" />
+  <link rel="stylesheet" href="/css/contact.css" />
+
+  <!-- Custom Scripts -->
+  <script src="/components/navbar.js"></script>
+  <script src="/components/footer.js"></script>
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="/img/favicon_io/site.webmanifest">
+  <link rel="shortcut icon" href="/img/favicon_io/favicon.ico">
+
+  <!-- CDN Libraries -->
+  <script src="https://unpkg.com/lenis@1.3.18/dist/lenis.min.js"></script>
+  <script>
+    // inisialisasi Lenis
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smooth: true,
+    });
+
+    // Connect Lenis to requestAnimationFrame
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+  </script>
+
+</head>
+
+<body>
+  <nav id="mainNav"></nav>
+
+  <div class="page-wrap">
+
+    <!-- Page Header -->
+    <header class="page-header">
+      <div class="eyebrow">Project Inquiry</div>
+      <h1>If you're <em>planning a project</em>, share <br />the initial <em>details</em> below.</h1>
+      <p>This helps me understand the scope, timeline, and how I can fit into your workflow. I’ll review your submission
+        and follow up if it aligns.</p>
+    </header>
+
+    <!-- Form -->
+    <form id="inquiry-form" novalidate>
+
+      <!-- Honeypot -->
+      <div class="hp-field" aria-hidden="true">
+        <label for="hp_website">Website</label>
+        <input type="text" id="hp_website" name="hp_website" tabindex="-1" autocomplete="off" />
+      </div>
+
+      <!-- ── Section 1: Core ──────────────────────────────────────── -->
+      <div class="form-section" aria-labelledby="section-core">
+        <div class="section-label" id="section-core">
+          <span class="section-num">01</span>
+          Core
+        </div>
+
+        <div class="field-grid two-col">
+
+          <!-- Name -->
+          <div class="field" id="field-name">
+            <label for="name">Full name <span class="req" aria-hidden="true">*</span></label>
+            <input type="text" id="name" name="name" placeholder="Your name" required aria-required="true"
+              autocomplete="name" />
+            <span class="error-msg" role="alert">Name is required.</span>
+          </div>
+
+          <!-- Email -->
+          <div class="field" id="field-email">
+            <label for="email">Email address <span class="req" aria-hidden="true">*</span></label>
+            <input type="email" id="email" name="email" placeholder="you@company.com" required aria-required="true"
+              autocomplete="email" />
+            <span class="helper">I'll use this to follow up on your project.</span>
+            <span class="error-msg" role="alert">A valid email is required.</span>
+          </div>
+
+        </div>
+
+        <div class="field-grid" style="margin-top:20px;">
+
+          <!-- Project Type -->
+          <div class="field" id="field-project_type">
+            <label for="project_type">Project type <span class="req" aria-hidden="true">*</span></label>
+            <select id="project_type" name="project_type" required aria-required="true">
+              <option value="" disabled selected>Select a type</option>
+              <option value="Landing page">Landing page</option>
+              <option value="Website">Website</option>
+              <option value="Redesign">Redesign</option>
+              <option value="Other">Other</option>
+            </select>
+            <span class="helper">What are you looking to build?</span>
+            <span class="error-msg" role="alert">Please select a project type.</span>
+          </div>
+
+          <!-- Project Summary -->
+          <div class="field" id="field-project_summary">
+            <label for="project_summary">Project summary <span class="req" aria-hidden="true">*</span></label>
+            <textarea id="project_summary" name="project_summary"
+              placeholder="Briefly describe what you need, goals, and any key details" rows="4" required
+              aria-required="true"></textarea>
+            <span class="helper">Keep it short. Just enough for me to understand the scope.</span>
+            <span class="error-msg" role="alert">Project summary is required.</span>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="form-divider"></div>
+
+      <!-- ── Section 2: Qualification ──────────────────────────────── -->
+      <div class="form-section" aria-labelledby="section-qual">
+        <div class="section-label" id="section-qual">
+          <span class="section-num">02</span>
+          Qualification
+        </div>
+
+        <div class="field-grid two-col">
+
+          <!-- Budget Range -->
+          <div class="field" id="field-budget_range">
+            <label for="budget_range">Budget range <span class="req" aria-hidden="true">*</span></label>
+            <select id="budget_range" name="budget_range" required aria-required="true">
+              <option value="" disabled selected>Select a range</option>
+              <option value="< $1k">&lt; $1k</option>
+              <option value="$1k–3k">$1k–3k</option>
+              <option value="$3k–5k">$3k–5k</option>
+              <option value="$5k+">$5k+</option>
+            </select>
+            <span class="helper">Rough range is enough. Helps me scope appropriately.</span>
+            <span class="error-msg" role="alert">Please select a budget range.</span>
+          </div>
+
+          <!-- Timeline -->
+          <div class="field" id="field-timeline">
+            <label for="timeline">Timeline <span class="req" aria-hidden="true">*</span></label>
+            <select id="timeline" name="timeline" required aria-required="true">
+              <option value="" disabled selected>Select timeline</option>
+              <option value="ASAP">ASAP</option>
+              <option value="2–4 weeks">2–4 weeks</option>
+              <option value="1–2 months">1–2 months</option>
+              <option value="Flexible">Flexible</option>
+            </select>
+            <span class="helper">When are you aiming to start or launch?</span>
+            <span class="error-msg" role="alert">Please select a timeline.</span>
+          </div>
+
+        </div>
+
+        <!-- Ready to Start -->
+        <div class="field-grid" style="margin-top:20px;">
+          <div class="field" id="field-ready_to_start">
+            <label>Are you ready to start? <span class="req" aria-hidden="true">*</span></label>
+            <div class="radio-group" role="radiogroup" aria-required="true">
+              <label class="radio-option">
+                <input type="radio" name="ready_to_start" value="Yes, ready to start" />
+                Yes, ready to start
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="ready_to_start" value="No, just exploring" />
+                No, just exploring
+              </label>
+            </div>
+            <span class="helper">This helps me prioritize active projects.</span>
+            <span class="error-msg" role="alert">Please select an option.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-divider"></div>
+
+      <!-- ── Section 3: Context ────────────────────────────────────── -->
+      <div class="form-section" aria-labelledby="section-ctx">
+        <div class="section-label" id="section-ctx">
+          <span class="section-num">03</span>
+          Context
+        </div>
+
+        <div class="field-grid two-col">
+
+          <!-- Has Design -->
+          <div class="field" id="field-has_design">
+            <label for="has_design">Do you already have a design? <span class="req" aria-hidden="true">*</span></label>
+            <select id="has_design" name="has_design" required aria-required="true">
+              <option value="" disabled selected>Select current state</option>
+              <option value="No">No</option>
+              <option value="Wireframe">Wireframe</option>
+              <option value="Figma ready">Figma ready</option>
+            </select>
+            <span class="helper">Current state of your project.</span>
+            <span class="error-msg" role="alert">Please select an option.</span>
+          </div>
+
+          <!-- Reference Links -->
+          <div class="field" id="field-reference_links">
+            <label for="reference_links">Reference links <span
+                style="color:var(--gray-500);font-weight:400;font-size:12px;">(optional)</span></label>
+            <input type="text" id="reference_links" name="reference_links"
+              placeholder="Website examples, inspiration, or related links" />
+            <span class="helper">Helps me understand your direction.</span>
+          </div>
+
+        </div>
+
+        <!-- Needs Dev (checkbox) -->
+        <div class="field-grid" style="margin-top:20px;">
+          <div class="field" id="field-needs_dev">
+            <label>What do you need help with? <span class="req" aria-hidden="true">*</span></label>
+            <div class="checkbox-group" role="group" aria-required="true">
+              <label class="checkbox-option">
+                <input type="checkbox" name="needs_dev" value="Frontend (build from design)" />
+                Frontend (build from design)
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" name="needs_dev" value="Full build (design + frontend)" />
+                Full build (design + frontend)
+              </label>
+            </div>
+            <span class="helper">Select all that apply.</span>
+            <span class="error-msg" role="alert">Please select at least one option.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-divider"></div>
+
+      <!-- ── Section 4: Commitment Filter ─────────────────────────── -->
+      <div class="form-section" aria-labelledby="section-commit">
+        <div class="section-label" id="section-commit">
+          <span class="section-num">04</span>
+          Commitment
+        </div>
+
+        <!-- Decision Maker -->
+        <div class="field-grid">
+          <div class="field" id="field-decision_maker">
+            <label>Are you the decision maker for this project? <span class="req" aria-hidden="true">*</span></label>
+            <div class="radio-group" role="radiogroup" aria-required="true">
+              <label class="radio-option">
+                <input type="radio" name="decision_maker" value="Yes, I can approve budget and start" />
+                Yes, I can approve budget and start
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="decision_maker" value="No, I'm gathering info / part of a team" />
+                No, I'm gathering info / part of a team
+              </label>
+            </div>
+            <span class="helper">This helps me understand how quickly decisions can be made.</span>
+            <span class="error-msg" role="alert">Please select an option.</span>
+          </div>
+
+          <!-- Project Priority -->
+          <div class="field" id="field-project_priority" style="margin-top:20px;">
+            <label for="project_priority">Project priority <span class="req" aria-hidden="true">*</span></label>
+            <select id="project_priority" name="project_priority" required aria-required="true">
+              <option value="" disabled selected>Select priority level</option>
+              <option value="High (active, needs to move soon)">High — active, needs to move soon</option>
+              <option value="Medium (planned, not urgent)">Medium — planned, not urgent</option>
+              <option value="Low (just exploring)">Low — just exploring</option>
+            </select>
+            <span class="helper">Helps me align availability and focus.</span>
+            <span class="error-msg" role="alert">Please select a priority level.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-divider"></div>
+
+      <!-- ── Section 5: High-Quality Filter ───────────────────────── -->
+      <div class="form-section" aria-labelledby="section-hq">
+        <div class="section-label" id="section-hq">
+          <span class="section-num">05</span>
+          Fit
+        </div>
+
+        <div class="field-grid">
+          <div class="field" id="field-why_this_project">
+            <label for="why_this_project">Why are you starting this project? <span class="req"
+                aria-hidden="true">*</span></label>
+            <textarea id="why_this_project" name="why_this_project"
+              placeholder="e.g. launching a product, improving conversion, redesigning outdated site, client work, etc."
+              rows="4" required aria-required="true"></textarea>
+            <span class="helper">A short context about the goal or reason. Helps me evaluate fit.</span>
+            <span class="error-msg" role="alert">Please share the reason behind this project.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-divider"></div>
+
+      <!-- ── Section 6: Optional ───────────────────────────────────── -->
+      <div class="form-section" aria-labelledby="section-opt">
+        <div class="section-label" id="section-opt">
+          <span class="section-num">06</span>
+          Optional
+        </div>
+
+        <div class="field-grid two-col">
+
+          <!-- Company Name -->
+          <div class="field" id="field-company_name">
+            <label for="company_name">Company / team name <span
+                style="color:var(--gray-500);font-weight:400;font-size:12px;">(optional)</span></label>
+            <input type="text" id="company_name" name="company_name" placeholder="Your company or project name"
+              autocomplete="organization" />
+          </div>
+
+          <!-- How Found Me -->
+          <div class="field" id="field-how_found_me">
+            <label for="how_found_me">How did you find me? <span
+                style="color:var(--gray-500);font-weight:400;font-size:12px;">(optional)</span></label>
+            <select id="how_found_me" name="how_found_me">
+              <option value="" selected>Select an option</option>
+              <option value="Referral">Referral</option>
+              <option value="Social media">Social media</option>
+              <option value="Portfolio / website">Portfolio / website</option>
+              <option value="Marketplace (Fiverr, etc)">Marketplace (Fiverr, etc)</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ── Submit ─────────────────────────────────────────────────── -->
+      <div class="submit-area">
+        <div id="form-feedback" class="form-feedback" role="status" aria-live="polite"></div>
+        <button type="submit" id="btn-submit" class="btn purple">
+          <span class="spinner" aria-hidden="true"></span>
+          <span class="btn-text">Send inquiry</span>
+        </button>
+        <p style="font-size:12px;color:var(--gray-500);">
+          I typically respond within 1–2 business days.
+        </p>
+      </div>
+
+    </form>
+  </div>
+
+  <div id="footer"></div>
+
+  <!-- Component Scripts -->
+  <script>
+    // ── NAVBAR JS ──
+    const nav = Navbar('#mainNav');
+
+    // ── FOOTER JS ──
+    const footer = Footer("#footer", {
+      email: "vendaartdev@gmail.com"
+    });
+  </script>
+
+  <script>
+    /* ─────────────────────────────────────────────────────────────────
+       EMAILJS CONFIG — Replace these with your actual credentials
+    ───────────────────────────────────────────────────────────────── */
+    /* ═══════════════════════════════════════════════════════════════════
+     contact-form.js
+     Primary  : EmailJS  — full inquiry payload
+     Secondary: Telegram — brief notif after email success
+     ═══════════════════════════════════════════════════════════════════ */
+
+    /* ─── Credentials ────────────────────────────────────────────────── */
+    const EMAILJS_PUBLIC_KEY = "vCq2hI3JeWVXkM2nY";
+    const EMAILJS_SERVICE_ID = "service_aj7h1ib";
+    const EMAILJS_TEMPLATE_ID = "template_k0dn6nn";
+
+    const TELEGRAM_BOT_TOKEN = "8731485135:AAFzxZ9xyxgtXlnSgCIALAMego5Mk2ASMp4";
+    const TELEGRAM_CHAT_ID = "7160615126";
+
+    /* ─── Init EmailJS ───────────────────────────────────────────────── */
+    emailjs.init(EMAILJS_PUBLIC_KEY);
+
+    /* ─── Rate limit state ───────────────────────────────────────────── */
+    let lastSubmitTime = 0;
+    const RATE_LIMIT_MS = 30000;
+
+    /* ─── DOM refs ───────────────────────────────────────────────────── */
+    const form = document.getElementById("inquiry-form");
+    const submitBtn = document.getElementById("btn-submit");
+    const feedback = document.getElementById("form-feedback");
+
+    /* ═══════════════════════════════════════════════════════════════════
+       HELPERS
+       ═══════════════════════════════════════════════════════════════════ */
+
+    function sanitize(val) {
+      return (val || "").trim();
+    }
+
+    function getRadioValue(name) {
+      const checked = form.querySelector(`input[name="${name}"]:checked`);
+      return checked ? checked.value : "";
+    }
+
+    function getCheckedValues(name) {
+      return Array.from(form.querySelectorAll(`input[name="${name}"]:checked`))
+        .map(el => el.value);
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       ERROR HANDLING
+       ═══════════════════════════════════════════════════════════════════ */
+
+    function showError(fieldId, message) {
+      const wrapper = document.getElementById(`field-${fieldId}`);
+      if (!wrapper) return;
+
+      wrapper.classList.add("has-error");
+
+      const inputs = wrapper.querySelectorAll("input, select, textarea");
+      inputs.forEach(el => el.setAttribute("aria-invalid", "true"));
+
+      const errEl = wrapper.querySelector(".error-msg");
+      if (errEl && message) errEl.textContent = message;
+    }
+
+    function clearError(fieldId) {
+      const wrapper = document.getElementById(`field-${fieldId}`);
+      if (!wrapper) return;
+
+      wrapper.classList.remove("has-error");
+
+      const inputs = wrapper.querySelectorAll("input, select, textarea");
+      inputs.forEach(el => el.removeAttribute("aria-invalid"));
+    }
+
+    function showFormFeedback(type, message) {
+      feedback.className = `form-feedback ${type} show`;
+      feedback.textContent = message;
+    }
+
+    function hideFormFeedback() {
+      feedback.className = "form-feedback";
+      feedback.textContent = "";
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       VALIDATION
+       ═══════════════════════════════════════════════════════════════════ */
+
+    function validateForm() {
+      let valid = true;
+      let firstErrorId = null;
+
+      const requiredFields = [
+        { id: "name", value: () => sanitize(form.name.value), msg: "Name is required." },
+        { id: "email", value: () => sanitize(form.email.value), msg: "A valid email is required.", isEmail: true },
+        { id: "project_type", value: () => sanitize(form.project_type.value), msg: "Please select a project type." },
+        { id: "project_summary", value: () => sanitize(form.project_summary.value), msg: "Project summary is required." },
+        { id: "budget_range", value: () => sanitize(form.budget_range.value), msg: "Please select a budget range." },
+        { id: "timeline", value: () => sanitize(form.timeline.value), msg: "Please select a timeline." },
+        { id: "ready_to_start", value: () => getRadioValue("ready_to_start"), msg: "Please select an option." },
+        { id: "has_design", value: () => sanitize(form.has_design.value), msg: "Please select an option." },
+        { id: "needs_dev", value: () => getCheckedValues("needs_dev").join(","), msg: "Please select at least one option." },
+        { id: "decision_maker", value: () => getRadioValue("decision_maker"), msg: "Please select an option." },
+        { id: "project_priority", value: () => sanitize(form.project_priority.value), msg: "Please select a priority level." },
+        { id: "why_this_project", value: () => sanitize(form.why_this_project.value), msg: "Please share the reason behind this project." },
+      ];
+
+      // Clear all errors first
+      requiredFields.forEach(f => clearError(f.id));
+      hideFormFeedback();
+
+      requiredFields.forEach(f => {
+        const val = f.value();
+
+        if (!val) {
+          showError(f.id, f.msg);
+          if (!firstErrorId) firstErrorId = `field-${f.id}`;
+          valid = false;
+          return;
+        }
+
+        if (f.isEmail) {
+          const emailRx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRx.test(val)) {
+            showError(f.id, f.msg);
+            if (!firstErrorId) firstErrorId = `field-${f.id}`;
+            valid = false;
+          }
+        }
+      });
+
+      if (!valid && firstErrorId) {
+        const el = document.getElementById(firstErrorId);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth", block: "center" });
+          const firstInput = el.querySelector("input, select, textarea");
+          if (firstInput) setTimeout(() => firstInput.focus(), 400);
+        }
+      }
+
+      return valid;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       PAYLOAD
+       ═══════════════════════════════════════════════════════════════════ */
+
+    function buildPayload() {
+      return {
+        // Core
+        name: sanitize(form.name.value),
+        email: sanitize(form.email.value),
+        project_type: sanitize(form.project_type.value),
+        project_summary: sanitize(form.project_summary.value),
+
+        // Qualification
+        budget_range: sanitize(form.budget_range.value),
+        timeline: sanitize(form.timeline.value),
+        ready_to_start: getRadioValue("ready_to_start"),
+
+        // Context
+        has_design: sanitize(form.has_design.value),
+        needs_dev: getCheckedValues("needs_dev").join(", "),
+        reference_links: sanitize(form.reference_links.value),
+
+        // Commitment
+        decision_maker: getRadioValue("decision_maker"),
+        project_priority: sanitize(form.project_priority.value),
+
+        // Fit
+        why_this_project: sanitize(form.why_this_project.value),
+
+        // Optional
+        company_name: sanitize(form.company_name.value) || "—",
+        how_found_me: sanitize(form.how_found_me.value) || "—",
+      };
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       TELEGRAM NOTIF (secondary — fire and forget)
+       ═══════════════════════════════════════════════════════════════════ */
+
+    function escapeTelegramHTML(str) {
+      return String(str)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+    }
+
+    function sendTelegramNotif(p) {
+      const e = (val) => escapeTelegramHTML(val || "—");
+
+      const text =
+        `<b>📬 New Project Inquiry</b>\n\n` +
+        `<b>Name</b>      : ${e(p.name)}\n` +
+        `<b>Email</b>     : ${e(p.email)}\n` +
+        `<b>Company</b>   : ${e(p.company_name)}\n\n` +
+        `<b>Type</b>      : ${e(p.project_type)}\n` +
+        `<b>Budget</b>    : ${e(p.budget_range)}\n` +
+        `<b>Timeline</b>  : ${e(p.timeline)}\n` +
+        `<b>Priority</b>  : ${e(p.project_priority)}\n` +
+        `<b>Ready</b>     : ${e(p.ready_to_start)}\n\n` +
+        `<b>Summary</b>\n${e(p.project_summary)}`;
+
+      return fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          chat_id: TELEGRAM_CHAT_ID,
+          text: text,
+          parse_mode: "HTML",
+        }),
+      });
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       LOADING STATE
+       ═══════════════════════════════════════════════════════════════════ */
+
+    function setLoading(loading) {
+      submitBtn.disabled = loading;
+      if (loading) {
+        submitBtn.classList.add("loading");
+        submitBtn.querySelector(".btn-text").textContent = "Sending…";
+      } else {
+        submitBtn.classList.remove("loading");
+        submitBtn.querySelector(".btn-text").textContent = "Send inquiry";
+      }
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       SUBMIT
+       ═══════════════════════════════════════════════════════════════════ */
+
+    async function handleSubmit(e) {
+      e.preventDefault();
+
+      // Honeypot check
+      const hp = form.querySelector('input[name="hp_website"]');
+      if (hp && hp.value.trim() !== "") return;
+
+      // Rate limit
+      const now = Date.now();
+      if (now - lastSubmitTime < RATE_LIMIT_MS) {
+        showFormFeedback("error", "Please wait a moment before submitting again.");
+        return;
+      }
+
+      if (!validateForm()) return;
+
+      setLoading(true);
+      hideFormFeedback();
+
+      try {
+        const payload = buildPayload();
+
+        // ── Primary: EmailJS ──────────────────────────────────────────
+        await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, payload);
+
+        // ── Secondary: Telegram notif (non-blocking) ──────────────────
+        sendTelegramNotif(payload).catch(() => {
+          // Telegram failure is silent — email already sent
+        });
+
+        lastSubmitTime = Date.now();
+
+        // Success
+        form.reset();
+        showFormFeedback("success", "✓ Your inquiry was sent. I'll get back to you within 1–2 business days.");
+        window.scrollTo({ top: 0, behavior: "smooth" });
+
+      } catch (err) {
+        console.error("EmailJS error:", err);
+        showFormFeedback("error", "Something went wrong while sending. Please try again or reach out directly via email.");
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       LIVE CLEAR ERRORS
+       ═══════════════════════════════════════════════════════════════════ */
+
+    form.addEventListener("input", (e) => {
+      const wrapper = e.target.closest(".field");
+      if (wrapper?.classList.contains("has-error")) {
+        clearError(wrapper.id.replace("field-", ""));
+      }
+    });
+
+    form.addEventListener("change", (e) => {
+      const wrapper = e.target.closest(".field");
+      if (wrapper?.classList.contains("has-error")) {
+        clearError(wrapper.id.replace("field-", ""));
+      }
+    });
+
+    /* ─── Bind submit ────────────────────────────────────────────────── */
+    form.addEventListener("submit", handleSubmit);
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/anim.css">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
+    <!-- plugins GSAP -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/SplitText.min.js"></script>
+
+
+    <style>
+        body {
+            background: #000;
+        }
+        .demo {
+            display: flex;
+            flex-direction: column;
+            font-family: sans-serif;
+            color: #fff;
+        }
+
+        section {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h1 {
+            font-size: 5rem;
+        }
+
+        p {
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo">
+        <section class="set-anim-load">
+            <h1 class="slide-up-anim">Clear Process</h1>
+        </section>
+        <section class="section set-anim-scroll">
+            <p class="slide-up-anim">Revisions are tracked properly, updates are organized in Figma, and decisions are documented so nothing
+          needs to be repeated.</p>
+        </section>
+        <section class="section set-anim-scroll" style="background: #333;">
+            <p class="slide-up-anim">Revisions are tracked properly, updates are organized in Figma, and decisions are documented so nothing
+          needs to be repeated.</p>
+        </section>
+        <section class="section set-anim-scroll" style="background: #444;">
+            <p class="slide-up-anim">Revisions are tracked properly, updates are organized in Figma, and decisions are documented so nothing
+          needs to be repeated.</p>
+        </section>
+    </div>
+    <script src="/js/anim.js"></script>
+</body>
+</html>

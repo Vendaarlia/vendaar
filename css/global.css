@@ -1,0 +1,425 @@
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   GLOBAL.CSS — Design System
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* ─────────────────────────────────────────────────────────────────
+   1. TOKENS
+   ───────────────────────────────────────────────────────────────── */
+:root {
+  /* Brand */
+  --color-primary:      #9239df;
+  --color-primary-hover:#7b2cbe;
+  --color-primary-dim:  rgba(146, 57, 223, 0.12);
+  --color-primary-glow: rgba(146, 57, 223, 0.25);
+
+  /* Surfaces */
+  --bg-page:    #191d1f;
+  --bg-card:    #1e2326;
+  --bg-input:   #22282c;
+
+  /* Text */
+  --text-main:     #ffffff;
+  --text-body:     #d1d5db;
+  --text-muted:    #9ca3af;
+  --text-subtle:   #6b7280;
+
+  /* Borders */
+  --border-color:  #d1d5db;
+  --border:        #2d3438;
+  --border-focus:  #9239df;
+
+  /* Feedback */
+  --color-error:   #f87171;
+  --color-error-bg: rgba(248, 113, 113, 0.12);
+  --color-success: #34d399;
+  --color-rating:  #facc15;
+
+  /* Spacing */
+  --gap-tight:   8px;
+  --gap-base:    16px;
+  --gap-loose:   24px;
+  --gap-section: 48px;
+
+  /* Typography */
+  --font-base:   14px;
+  --font-small:  12px;
+  --font-label:  11px;
+
+  /* Radius */
+  --radius:        999px;
+  --radius-sm:     6px;
+  --radius-md:     10px;
+  --radius-lg:     14px;
+
+  /* Fonts */
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: "DM Mono", monospace;
+
+  /* Timing */
+  --transition:  0.3s ease;
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   2. RESET & BASE
+   ───────────────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  /* debug box */
+  /* outline: 1px solid red; */
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background: var(--bg-page);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  font-size: var(--font-base);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+::selection {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   3. TYPOGRAPHY
+   ───────────────────────────────────────────────────────────────── */
+
+/* Page Title */
+.heading-page {
+  width: 60%;
+  font-size: clamp(28px, 5vw, 40px);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--text-main);
+}
+
+/* Emphasis */
+em, .text-light {
+  font-weight: 100;
+  font-style: italic;
+}
+
+strong, .text-bold {
+  font-weight: 600;
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-main);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+
+/* ─────────────────────────────────────────────────────────────────
+   6. BUTTONS
+   ───────────────────────────────────────────────────────────────── */
+
+.btn {
+  max-width: fit-content;
+  max-height: fit-content;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 8px 20px;
+  background-color: transparent;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition:
+    background var(--transition),
+    color var(--transition),
+    transform var(--transition),
+    box-shadow var(--transition);
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.14);
+}
+
+.purple {
+  color: var(--text-main);
+  border: 1px solid var(--color-primary);
+  background-color: var(--color-primary);
+}
+
+.outline {
+  border: 1px solid var(--text-main);
+  color: var(--text-main);
+}
+
+.purple:hover,
+.outline:hover {
+  color: var(--text-main);
+  background: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   4. LAYOUT
+   ───────────────────────────────────────────────────────────────── */
+
+section {
+  min-height: 90vh;
+  padding: 100px clamp(24px, 10vw, 150px);
+  background: var(--bg-page);
+}
+   
+/* Container */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--gap-loose);
+}
+
+.header {
+  margin-bottom: var(--gap-loose);
+}
+
+.header p {
+  max-width: 720px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   5. FORMS
+   ───────────────────────────────────────────────────────────────── */
+
+/* Field Group */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field-label {
+  font-size: var(--font-base);
+  font-weight: 500;
+  color: var(--text-body);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.field-label .required {
+  color: var(--color-primary);
+}
+
+.field-helper {
+  font-size: var(--font-small);
+  color: var(--text-subtle);
+}
+
+.field-error {
+  font-size: var(--font-small);
+  color: var(--color-error);
+  display: none;
+}
+
+.field.has-error .field-error {
+  display: block;
+}
+
+/* Inputs */
+.input,
+.select,
+.textarea {
+  width: 100%;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  font-size: var(--font-base);
+  padding: 10px 14px;
+  transition: border-color var(--transition), box-shadow var(--transition);
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: var(--text-subtle);
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px var(--color-primary-glow);
+}
+
+.field.has-error .input,
+.field.has-error .select,
+.field.has-error .textarea {
+  border-color: var(--color-error);
+  background: var(--color-error);
+  background: rgba(248, 113, 113, 0.1);
+}
+
+/* Select */
+.select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239ca3af' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 36px;
+  cursor: pointer;
+}
+
+/* Textarea */
+.textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Radio/Checkbox */
+.choice {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: var(--font-base);
+  color: var(--text-body);
+  padding: 9px 13px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg-input);
+  transition: border-color var(--transition), background var(--transition);
+}
+
+.choice:hover {
+  border-color: var(--text-subtle);
+}
+
+.choice input {
+  width: 15px;
+  height: 15px;
+  accent-color: var(--color-primary);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.choice:has(input:checked) {
+  border-color: var(--color-primary);
+  background: var(--color-primary-dim);
+  color: var(--text-main);
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   8. UTILITIES
+   ───────────────────────────────────────────────────────────────── */
+
+/* Text */
+.text-center { text-align: center; }
+.text-left   { text-align: left; }
+.text-right  { text-align: right; }
+
+/* Spacing */
+.mt-base { margin-top: var(--gap-base); }
+.mt-loose { margin-top: var(--gap-loose); }
+.mb-base { margin-bottom: var(--gap-base); }
+.mb-loose { margin-bottom: var(--gap-loose); }
+.mb-section { margin-bottom: var(--gap-section); }
+
+/* Display */
+.hidden { display: none; }
+.block { display: block; }
+
+/* ─────────────────────────────────────────────────────────────────
+   9. PAGE HEADER
+   ───────────────────────────────────────────────────────────────── */
+
+.page-header {
+  margin-bottom: var(--gap-section);
+}
+
+.page-header .eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--font-label);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: var(--gap-base);
+  display: flex;
+  align-items: center;
+  gap: var(--gap-tight);
+}
+
+.page-header .eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 1px;
+  background: var(--color-primary);
+}
+
+.page-header p {
+  font-size: var(--font-base);
+  color: var(--text-muted);
+  line-height: 1.65;
+  max-width: 480px;
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   10. FORM SECTION
+   ───────────────────────────────────────────────────────────────── */
+
+.form-section {
+  margin-bottom: var(--gap-section);
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: var(--font-label);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-subtle);
+  margin-bottom: var(--gap-loose);
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.section-num {
+  color: var(--color-primary);
+  background: var(--color-primary-dim);
+  padding: 2px 7px;
+  border-radius: var(--radius-pill);
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   11. RESPONSIVE
+   ───────────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .page {
+    padding: 60px var(--gap-base) 80px;
+  }
+}

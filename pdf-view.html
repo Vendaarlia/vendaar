@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Full Viewer</title>
+    
+    <link rel="stylesheet" href="/css/global.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+    <style>
+        /* Menghilangkan scroll default body agar fokus ke PDF */
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            background-color: #000; /* Hitam agar fokus ke konten */
+            overflow: hidden; 
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header tetap di atas */
+        .header-viewer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--bg-page);
+            border-bottom: 1px solid var(--border);
+            z-index: 10;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .header-viewer:hover {
+            opacity: 1;
+        }
+
+        /* Area PDF Full Screen & Scrollable */
+        #pdf-scroll-container {
+            flex-grow: 1;
+            overflow-y: auto; /* Aktifkan scroll vertikal */
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 0;
+            background: #1a1a1a;
+        }
+
+        /* Canvas dibuat lebar penuh */
+        .pdf-page {
+            width: 95% !important; /* Margin tipis di kanan kiri */
+            /* max-width: 1200px; */
+            height: auto !important;
+            margin-bottom: 20px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            display: block;
+        }
+
+        .loader-box {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--color-primary);
+            font-family: var(--font-mono);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-viewer">
+        <a href="index.html" class="btn outline" style="padding: 5px 15px; font-size: 12px;">← BACK</a>
+        <div class="badge-tag" id="doc-title" style="font-size: 12px;">LOADING...</div>
+    </div>
+
+    <div id="loader" class="loader-box">
+        <p>MEMPROSES DOKUMEN...</p>
+    </div>
+
+    <div id="pdf-scroll-container"></div>
+
+    <script>
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+        async function renderPDF() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const slug = urlParams.get('project');
+            const container = document.getElementById('pdf-scroll-container');
+
+            try {
+                const res = await fetch('./projects/project-pdf/pdf-list.json');
+                const manifest = await res.json();
+                const pdfUrl = manifest[slug];
+
+                if (!pdfUrl) {
+                    document.getElementById('doc-title').innerText = "NOT FOUND";
+                    return;
+                }
+
+                document.getElementById('doc-title').innerText = slug.replace(/-/g, ' ').toUpperCase();
+
+                const loadingTask = pdfjsLib.getDocument(pdfUrl);
+                const pdf = await loadingTask.promise;
+                
+                document.getElementById('loader').style.display = 'none';
+
+                // Render setiap halaman
+                for (let i = 1; i <= pdf.numPages; i++) {
+                    const page = await pdf.getPage(i);
+                    
+                    // Scale 2 agar saat ditarik full-width tetap tajam
+                    const viewport = page.getViewport({ scale: 2 });
+                    
+                    const canvas = document.createElement('canvas');
+                    canvas.className = 'pdf-page';
+                    const context = canvas.getContext('2d', { willReadFrequently: true });
+                    
+                    canvas.height = viewport.height;
+                    canvas.width = viewport.width;
+
+                    container.appendChild(canvas);
+
+                    await page.render({
+                        canvasContext: context,
+                        viewport: viewport
+                    }).promise;
+                }
+            } catch (err) {
+                console.error(err);
+                document.getElementById('loader').innerText = "GAGAL MEMUAT PDF.";
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', renderPDF);
+    </script>
+</body>
+</html>

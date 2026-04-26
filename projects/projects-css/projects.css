@@ -1,0 +1,484 @@
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Projects List Page — style.css
+   Design system: MAXIM dark theme
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;1,100;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+/* ━━━━━━━━━━━━━━━━━
+   TOKENS
+━━━━━━━━━━━━━━━━━ */
+:root {
+    --purple: #9239df;
+    --purple-hover: #7b2cbe;
+    --purple-dim: rgba(146, 57, 223, 0.11);
+    --purple-dim-b: rgba(146, 57, 223, 0.24);
+    --bg: #191d1f;
+    --surface: #1f2427;
+    --surface-2: #252b2e;
+    --white: #ffffff;
+    --border: rgba(209, 213, 219, 0.09);
+    --border-mid: rgba(209, 213, 219, 0.14);
+    --gray-400: #9ca3af;
+    --muted: #9ca3af;
+    --muted-dim: rgba(156, 163, 175, 0.40);
+    --radius: 999px;
+    --transition: 0.3s ease;
+    --font: "Inter", sans-serif;
+}
+
+/* ━━━━━━━━━━━━━━━━━
+   RESET & BASE
+━━━━━━━━━━━━━━━━━ */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--white);
+    font-size: 14px;
+    line-height: 1.6;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* Grain overlay — sama seperti doc page */
+body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.025;
+    /* background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)'/%3E%3C/svg%3E"); */
+}
+
+/* Emphasis */
+em, .text-light {
+  font-weight: 100;
+  font-style: italic;
+}
+
+strong, .text-bold {
+  font-weight: 600;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+/* ━━━━━━━━━━━━━━━━━
+   PAGE WRAPPER
+━━━━━━━━━━━━━━━━━ */
+section {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    height: 100vh;
+    margin: 0 auto;
+    padding: 72px 48px 120px;
+
+}
+
+.projects-section {
+    margin-top: 5rem;
+    height: 100%;
+}
+
+/* ━━━━━━━━━━━━━━━━━
+   SECTION HEADING
+━━━━━━━━━━━━━━━━━ */
+.section-heading {
+    width: 60%;
+    font-size: clamp(28px, 5vw, 40px);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--text-main);
+}
+
+
+/* .section-heading {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted-dim);
+    margin-bottom: 32px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+} */
+
+/* ━━━━━━━━━━━━━━━━━
+   PROJECT LIST GRID
+━━━━━━━━━━━━━━━━━ */
+.project-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+/* ━━━━━━━━━━━━━━━━━
+   PROJECT CARD
+━━━━━━━━━━━━━━━━━ */
+.project-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--surface);
+    border: 1px solid var(--border-mid);
+    overflow: hidden;
+    cursor: pointer;
+    transition:
+        transform var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition);
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--purple-dim-b);
+    box-shadow:
+        0 0 0 1px rgba(146, 57, 223, 0.18),
+        0 20px 40px rgba(0, 0, 0, 0.45);
+}
+
+/* Purple glow accent on hover */
+.project-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 14px;
+    background: radial-gradient(ellipse at top left,
+            rgba(146, 57, 223, 0.07) 0%,
+            transparent 65%);
+    opacity: 0;
+    transition: opacity var(--transition);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.project-card:hover::before {
+    opacity: 1;
+}
+
+/* ── Cover image ── */
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    border-bottom: 1px solid var(--border);
+    transition: opacity var(--transition);
+    position: relative;
+    z-index: 1;
+}
+
+.project-card:hover img {
+    opacity: 0.92;
+}
+
+/* ── Card body ── */
+.project-card h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--white);
+    letter-spacing: -0.2px;
+    line-height: 1.35;
+    padding: 18px 20px 6px;
+    position: relative;
+    z-index: 1;
+    transition: color var(--transition);
+}
+
+.project-card:hover h3 {
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.project-card p {
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--muted);
+    letter-spacing: 0.2px;
+    padding: 0 20px 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* ── Arrow indicator ── */
+.project-card::after {
+    content: '→';
+    position: absolute;
+    bottom: 18px;
+    right: 20px;
+    font-size: 13px;
+    color: var(--purple);
+    opacity: 0;
+    transform: translateX(-6px);
+    transition:
+        opacity var(--transition),
+        transform var(--transition);
+    z-index: 2;
+}
+
+.project-card:hover::after {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* ━━━━━━━━━━━━━━━━━
+   EMPTY STATE
+   (jika belum ada project)
+━━━━━━━━━━━━━━━━━ */
+.project-list:empty::after {
+    content: 'No projects found.';
+    display: block;
+    grid-column: 1 / -1;
+    text-align: center;
+    font-size: 13px;
+    color: var(--muted-dim);
+    padding: 80px 0;
+    letter-spacing: 0.5px;
+}
+
+/* ━━━━━━━━━━━━━━━━━
+   LABS LIST GRID
+━━━━━━━━━━━━━━━━━ */
+.lab-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+/* ━━━━━━━━━━━━━━━━━
+   LABS CARD
+━━━━━━━━━━━━━━━━━ */
+.lab-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--surface);
+    border: 1px solid var(--border-mid);
+    overflow: hidden;
+    cursor: pointer;
+    transition:
+        transform var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition);
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+}
+
+.lab-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--purple-dim-b);
+    box-shadow:
+        0 0 0 1px rgba(146, 57, 223, 0.18),
+        0 20px 40px rgba(0, 0, 0, 0.45);
+}
+
+/* Purple glow accent on hover */
+.lab-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 14px;
+    background: radial-gradient(ellipse at top left,
+            rgba(146, 57, 223, 0.07) 0%,
+            transparent 65%);
+    opacity: 0;
+    transition: opacity var(--transition);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.lab-card:hover::before {
+    opacity: 1;
+}
+
+/* ── Cover image ── */
+.lab-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    border-bottom: 1px solid var(--border);
+    transition: opacity var(--transition);
+    position: relative;
+    z-index: 1;
+}
+
+.lab-card:hover img {
+    opacity: 0.92;
+}
+
+/* ── Card body ── */
+.lab-card h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--white);
+    letter-spacing: -0.2px;
+    line-height: 1.35;
+    padding: 18px 20px 6px;
+    position: relative;
+    z-index: 1;
+    transition: color var(--transition);
+}
+
+.lab-card:hover h3 {
+    color: rgba(255, 255, 255, 0.95);
+}
+
+/* ── Arrow indicator ── */
+.lab-card::after {
+    content: '→';
+    position: absolute;
+    bottom: 18px;
+    right: 20px;
+    font-size: 13px;
+    color: var(--purple);
+    opacity: 0;
+    transform: translateX(-6px);
+    transition:
+        opacity var(--transition),
+        transform var(--transition);
+    z-index: 2;
+}
+
+.lab-card:hover::after {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* ━━━━━━━━━━━━━━━━━
+   LABS EMPTY STATE
+━━━━━━━━━━━━━━━━━ */
+.labs-grid:empty::after {
+    content: 'No labs found.';
+    display: block;
+    text-align: center;
+    font-size: 13px;
+    color: var(--muted-dim);
+    padding: 80px 0;
+    letter-spacing: 0.5px;
+}
+
+/* ━━━━━━━━━━━━━━━━━
+   LABS PAGINATION
+━━━━━━━━━━━━━━━━━ */
+.labs-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 16px;
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+}
+
+.labs-pagination .btn {
+    padding: 8px 16px;
+    font-size: 12px;
+    text-transform: none;
+    letter-spacing: 0.02em;
+}
+
+.labs-pagination .btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.labs-pagination .page-info {
+    font-size: 13px;
+    color: var(--muted);
+    font-family: var(--font-mono);
+}
+
+.labs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+/* ━━━━━━━━━━━━━━━━━
+   SKELETON LOADER
+   (opsional — pakai di JS jika perlu)
+━━━━━━━━━━━━━━━━━ */
+.project-card.skeleton {
+    pointer-events: none;
+    animation: pulse 1.8s ease infinite;
+}
+
+.project-card.skeleton img {
+    background: var(--surface-2);
+    opacity: 1;
+}
+
+.project-card.skeleton h3,
+.project-card.skeleton p {
+    color: transparent;
+    background: var(--surface-2);
+    border-radius: 4px;
+}
+
+.project-card.skeleton h3 {
+    width: 70%;
+    height: 14px;
+}
+
+.project-card.skeleton p {
+    width: 45%;
+    height: 11px;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* ━━━━━━━━━━━━━━━━━
+   SCROLLBAR
+━━━━━━━━━━━━━━━━━ */
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(209, 213, 219, 0.12);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--purple);
+}

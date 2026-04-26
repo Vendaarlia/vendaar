@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service | vendaar.top</title>
+
+  <!-- Stylesheet -->
+<style>
+  /* ═══════════════════════════════════════════════════════════════════
+   legal.css — vendaar.top
+   Design system matches contact-form.html & styles.css
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ─── Reset & Base ───────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --purple:        #9239df;
+  --purple-hover:  #7b2cbe;
+  --purple-dim:    rgba(146, 57, 223, 0.12);
+  --purple-glow:   rgba(146, 57, 223, 0.25);
+
+  --bg:            #191d1f;
+  --bg-card:       #1e2326;
+
+  --white:         #ffffff;
+  --gray-300:      #d1d5db;
+  --gray-400:      #9ca3af;
+  --gray-500:      #6b7280;
+  --gray-600:      #4b5563;
+
+  --border-color:  #d1d5db;
+  --border:        #2d3438;
+  --rating:        #facc15;
+
+  --radius:        999px;
+  --radius-sm:     6px;
+  --transition:    0.3s ease;
+  --font:          "Inter", sans-serif;
+  --font-mono:     "DM Mono", monospace;
+}
+
+::selection {
+  background: var(--purple);
+  color: #fff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: var(--font);
+  font-size: 14px;
+  line-height: 1.6;
+  width: 100vw;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+em {
+  font-weight: 100;
+  font-style: italic;
+}
+
+strong {
+  font-weight: 600;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--purple);
+  outline-offset: 2px;
+}
+
+/* ─── Section ────────────────────────────────────────────────────── */
+section {
+  min-height: 90vh;
+  padding: 100px clamp(24px, 10vw, 150px);
+  background: var(--bg);
+}
+
+.section-heading {
+  font-size: clamp(36px, 4vw, 48px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  line-height: 1.2;
+}
+
+/* ─── Legal wrapper ──────────────────────────────────────────────── */
+.legal-wrapper {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+/* ─── Intro ──────────────────────────────────────────────────────── */
+.legal-intro {
+  margin-top: 20px;
+  font-size: 15px;
+  color: var(--gray-400);
+  line-height: 1.7;
+  max-width: 600px;
+}
+
+/* ─── Divider ────────────────────────────────────────────────────── */
+.legal-divider {
+  margin: 48px 0;
+  height: 1px;
+  width: 100%;
+  background: var(--border);
+}
+
+/* ─── Legal block ────────────────────────────────────────────────── */
+.legal-block {
+  margin-bottom: 52px;
+  padding-bottom: 52px;
+  border-bottom: 1px solid var(--border);
+}
+
+.legal-block:last-of-type {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+/* ─── Legal title ────────────────────────────────────────────────── */
+.legal-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+
+.legal-title::before {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 16px;
+  background: var(--purple);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+/* ─── Legal text ─────────────────────────────────────────────────── */
+.legal-text {
+  color: var(--gray-400);
+  line-height: 1.75;
+  max-width: 680px;
+}
+
+.legal-text p {
+  font-size: 14px;
+  margin-bottom: 14px;
+}
+
+.legal-text p:last-child {
+  margin-bottom: 0;
+}
+
+.legal-text ul {
+  margin-top: 10px;
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.legal-text li {
+  font-size: 14px;
+  padding-left: 16px;
+  position: relative;
+  color: var(--gray-400);
+  line-height: 1.65;
+}
+
+.legal-text li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--purple);
+  opacity: 0.6;
+}
+
+/* ─── Contact block ──────────────────────────────────────────────── */
+.legal-contact {
+  margin-top: 56px;
+  padding-top: 40px;
+  border-top: 1px solid var(--border);
+}
+
+.legal-contact .legal-title {
+  margin-bottom: 12px;
+}
+
+/* ─── Email link ─────────────────────────────────────────────────── */
+.legal-email {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  font-size: 14px;
+  font-family: var(--font-mono);
+  color: var(--white);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(146, 57, 223, 0.4);
+  padding-bottom: 2px;
+  transition: color var(--transition), border-color var(--transition);
+}
+
+.legal-email:hover {
+  color: var(--purple);
+  border-color: var(--purple);
+}
+
+/* ─── Responsive ─────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  section {
+    padding: 80px 20px;
+  }
+
+  .legal-block {
+    margin-bottom: 36px;
+    padding-bottom: 36px;
+  }
+}
+</style>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+
+  <!-- CDN Libraries -->
+  <script src="https://unpkg.com/lenis@1.3.18/dist/lenis.min.js"></script>
+  <script>
+    // inisialisasi Lenis
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smooth: true,
+    });
+
+    // Connect Lenis to requestAnimationFrame
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+  </script>
+
+
+
+  <!-- Load komponen -->
+  <script src="/components/navbar.js"></script>
+<script src="/components/footer.js"></script>
+
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="/img/favicon_io/site.webmanifest">
+  <link rel="shortcut icon" href="/img/favicon_io/favicon.ico">
+</head>
+
+<body>
+
+  <nav id="mainNav"></nav>
+
+  <section>
+
+    <div class="legal-wrapper">
+
+      <h1 class="section-heading">
+        Terms <em>of Service</em>
+      </h1>
+
+      <p class="legal-intro">
+        Vendaar.top provides professional services including website design, front-end development, and related digital production work.
+      </p>
+
+      <p class="legal-intro">
+        Specific project scope, deliverables, and timelines are defined in the project agreement or proposal.
+      </p>
+
+      <div class="legal-divider"></div>
+
+
+      <div class="legal-block">
+        <h2 class="legal-title">Project Workflow</h2>
+
+        <div class="legal-text">
+          <p>
+            Typical project phases include discovery and concept development, design exploration and approval, website development, testing and optimization, and final deployment or project handoff. Progress between phases may require client review and approval.
+          </p>
+        </div>
+      </div>
+
+
+      <div class="legal-block">
+        <h2 class="legal-title">Timeline</h2>
+
+        <div class="legal-text">
+          <p>
+            Project timelines vary depending on scope and complexity. Typical projects may take approximately 6–8 weeks.
+          </p>
+
+          <p>
+            Delays in client feedback, content delivery, or approvals may extend the timeline accordingly.
+          </p>
+        </div>
+      </div>
+
+      <div class="legal-block">
+        <h2 class="legal-title">Payment Terms</h2>
+
+        <div class="legal-text">
+          <p>
+            Projects are typically structured through milestone payments, which may include an initial project deposit, a design phase milestone, a development milestone, and a final delivery payment. Payments may be completed via bank transfer or PayPal, and work generally begins once the initial payment is received.
+          </p>
+        </div>
+      </div>
+
+
+      <div class="legal-block">
+        <h2 class="legal-title">Revisions and Scope Changes</h2>
+
+        <div class="legal-text">
+          <p>
+            Minor revisions within the agreed scope are included during project phases.
+          </p>
+
+          <p>
+            Requests that significantly alter the scope, introduce new features, or require additional production work may be quoted separately.
+          </p>
+        </div>
+      </div>
+
+
+      <div class="legal-block">
+        <h2 class="legal-title">Client Responsibilities</h2>
+
+        <div class="legal-text">
+          <p>
+            The client agrees to provide necessary content, assets, and brand materials, deliver feedback within reasonable timeframes, review deliverables during each project stage, and complete milestone payments as agreed. Failure to provide feedback or materials may impact project timelines.
+          </p>
+        </div>
+      </div>
+
+
+      <div class="legal-block">
+        <h2 class="legal-title">Contractor Responsibilities</h2>
+
+        <div class="legal-text">
+          <p>
+            Vendaar.top agrees to deliver services according to the agreed project scope, maintain professional communication throughout the collaboration, and provide organized design files and development deliverables where applicable.
+          </p>
+        </div>
+      </div>
+
+      <div class="legal-block">
+        <h2 class="legal-title">Intellectual Property Rights</h2>
+
+        <div class="legal-text">
+          <p>
+            Unless otherwise stated in writing, ownership of the final work product transfers to the client after full payment of the project.
+          </p>
+
+          <p>
+            Vendaar.top retains the right to display completed work in portfolios and promotional materials.
+          </p>
+        </div>
+      </div>
+
+      <div class="legal-block">
+        <h2 class="legal-title">Client-Provided Materials</h2>
+
+        <div class="legal-text">
+          <p>
+            The client is responsible for ensuring that all materials provided to Vendaar.top, including text, images, logos, and media assets, do not infringe upon intellectual property rights of third parties.
+          </p>
+          <p>
+            Vendaar.top is not responsible for legal claims resulting from client-supplied content.
+          </p>
+        </div>
+      </div>
+
+      <div class="legal-block">
+        <h2 class="legal-title">Confidentiality</h2>
+
+        <div class="legal-text">
+          <p>
+           Both parties agree to maintain the confidentiality of any sensitive information exchanged during the project.
+          </p>
+          <p>
+            Confidential obligations remain in effect even after the project has ended.
+          </p>
+        </div>
+      </div>
+
+      <div class="legal-block">
+        <h2 class="legal-title">Termination</h2>
+
+        <div class="legal-text">
+          <p>
+            Either party may terminate the project by written notice. Work completed up to the termination date remains payable according to the agreed milestones.
+          </p>
+        </div>
+      </div>
+
+      <div class="legal-block">
+        <h2 class="legal-title">Limitation of Liability</h2>
+
+        <div class="legal-text">
+          <p>
+            Vendaar.top shall not be held liable for indirect, incidental, or consequential damages arising from the use of delivered work or project outcomes.
+          </p>
+        </div>
+      </div>
+
+      <div class="legal-block">
+        <h2 class="legal-title">Governing Law</h2>
+
+        <div class="legal-text">
+          <p>
+            These terms are governed by applicable international commercial practices unless otherwise specified in the project agreement.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <div id="footer"></div>
+
+    <!-- Component Scripts -->
+  <script>
+    // ── NAVBAR JS ──
+    const nav = Navbar('#mainNav');
+
+    // ── FOOTER JS ──
+    const footer = Footer("#footer", {
+      email: "vendaartdev@gmail.com"
+    });
+  </script>
+
+</body>
+
+</html>

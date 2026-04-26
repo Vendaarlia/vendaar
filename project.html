@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/projects/projects-css/project.css">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="/img/favicon_io/site.webmanifest">
+    <link rel="shortcut icon" href="/img/favicon_io/favicon.ico">
+
+    <!-- CDN Libraries -->
+    <script src="https://unpkg.com/lenis@1.3.18/dist/lenis.min.js"></script>
+    <script>
+        // inisialisasi Lenis
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            smooth: true,
+        });
+
+        // Connect Lenis to requestAnimationFrame
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+    </script>
+
+</head>
+
+<body>
+    <nav id="mainNav"></nav>
+
+    <div class="main">
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <div id="toc" class="table-of-contents"></div>
+        </div>
+        <section class="project">
+
+            <div class="project-header">
+
+                <h1 id="title"></h1>
+
+                <div class="project-meta">
+                    <span id="client"></span>
+                    <span id="year"></span>
+                    <span id="role"></span>
+                </div>
+
+            </div>
+
+            <div id="project-body" class="project-content"></div>
+
+        </section>
+    </div>
+    <script type="module" src="/projects/project-loader.js"></script>
+    <script src="/components/navbar.js"></script>
+    <script>
+        // ── NAVBAR JS ──
+        const nav = Navbar('#mainNav');
+    </script>
+</body>
+
+</html>

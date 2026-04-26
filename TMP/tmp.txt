@@ -1,0 +1,424 @@
+    .hero-portrait {
+      position: relative;
+      margin-top: -280px;
+      width: 380px;
+      height: 480px;
+      overflow: hidden;
+      background: #1a1a1a;
+      z-index: 0;
+      flex-shrink: 0;
+    }
+
+    .hero-portrait img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-portrait .stripe-overlay {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.8;
+      background: repeating-linear-gradient(
+        90deg,
+        transparent 0px,
+        transparent 18px,
+        rgba(0,0,0,0.2) 18px,
+        rgba(0,0,0,0.2) 20px
+      );
+    }
+
+
+      <!-- SERVICES -->
+    <section id="services">
+      <div class="services-header">
+        <div class="badge-tag">
+          <svg viewBox="0 0 24 24" fill="#ffffff" xmlns="http://www.w3.org/2000/svg">
+              <polygon
+                points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
+            </svg>
+          what i do
+        </div>
+        <h2 class="section-heading">
+          <strong>I keep </strong><em>the process</em><strong> clear and </strong><em>professional</em><strong> so
+            collaboration </strong><em>stays calm</em><strong>.</strong>
+        </h2>
+      </div>
+
+      <div class="service-list">
+        <div class="service-item">
+          <h3>Clear Process</h3>
+          <p>Revisions are tracked properly, updates are organized in Figma, and decisions are documented so nothing
+            needs to be repeated.</p>
+          <div class="stars-row">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <polygon
+                points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
+            </svg>
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <polygon
+                points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
+            </svg>
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <polygon
+                points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
+            </svg>
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <polygon
+                points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
+            </svg>
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <polygon
+                points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
+            </svg>
+          </div>
+        </div>
+        <div class="service-item">
+          <h3>Professional Handling</h3>
+          <p>Communication stays steady and focused. Feedback is handled with care and progress is shared consistently.
+          </p>
+          <div class="stars-row">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <polygon
+                points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
+            </svg>
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <polygon
+                points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
+            </svg>
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <polygon
+                points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
+            </svg>
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <polygon
+                points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
+            </svg>
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <polygon
+                points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
+            </svg>
+          </div>
+        </div>
+        <div class="service-item">
+          <h3>Calm Collaboration</h3>
+          <p>Even when changes happen, the work remains structured and predictable, allowing the project to move forward
+            without tension.</p>
+          <div class="stars-row">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <polygon
+                points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
+            </svg>
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <polygon
+                points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
+            </svg>
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <polygon
+                points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
+            </svg>
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <polygon
+                points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
+            </svg>
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <polygon
+                points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+const slider = document.getElementById('slider-3D-img');
+    const area = document.querySelector('.area-slider-3D-img');
+
+    const initialTransform = `translate3d(-50%, -50%, 0) rotateX(0deg) rotateY(-25deg) rotateZ(-120deg)`;
+    const maxOffset = area.scrollHeight * 0.5;
+
+    // render cards
+    const CARD_GAP = 100;
+    const totalCards = Math.ceil(area.scrollHeight / CARD_GAP) + 10;
+
+    for (let i = 0; i < totalCards; i++) {
+      const item = images[i % images.length];
+      const card = document.createElement('div');
+      card.className = 'card-3d-img-slider';
+      card.style.background = item.color;
+
+      const img = document.createElement('img');
+      img.src = item.src;
+      img.alt = `img${(i % images.length) + 1}`;
+
+      card.appendChild(img);
+
+      card.addEventListener('mouseover', (e) => {
+        card.style.transform = 'rotateX(20deg) rotateY(-10deg) rotateZ(130deg) translateX(30%)';
+        const els = document.elementsFromPoint(e.clientX, e.clientY);
+        console.log(els.map(el => el.className || el.tagName));
+      });
+      card.addEventListener('mouseout', () => {
+        card.style.transform = '';
+      });
+
+      card.addEventListener('click', (e) => {
+        window.location.href = item.page;
+        console.log('element clicked:', e.target);
+        console.log('element class:', e.target.className);
+      });
+
+      slider.appendChild(card);
+    }
+
+window.addEventListener('scroll', () => {
+  const rect = document.getElementById('work').getBoundingClientRect();
+  const hasEntered = rect.top <= window.innerHeight;
+  const notExited = rect.bottom >= 0;
+  const isInsideWork = hasEntered && notExited;
+
+  slider.style.opacity = isInsideWork ? '1' : '0';
+  slider.style.pointerEvents = isInsideWork ? 'all' : 'none';
+}, { passive: true });
+
+// movement tetap GSAP
+ScrollTrigger.create({
+  trigger: '#work',
+  start: 'top top',
+  end: 'bottom bottom',
+  onEnter: () => gsap.set(slider, { zIndex: 1 }),
+  onLeave: () => gsap.set(slider, { zIndex: -1 }),
+  onEnterBack: () => gsap.set(slider, { zIndex: 1 }),
+  onLeaveBack: () => gsap.set(slider, { zIndex: -1 }),
+  scrub: 1,
+  onUpdate: (self) => {
+    const zOffset = self.progress * maxOffset;
+    slider.style.transform = `${initialTransform} translateY(${zOffset}px)`;
+  }
+});
+
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="header services-header">
+      <div class="badge-tag">
+        <svg viewBox="0 0 24 24" fill="#ffffff" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
+        </svg>
+        what i do
+      </div>
+      <h2 class="section-heading">
+        <strong>I keep </strong><em>the process</em><strong> clear and </strong><em>professional</em><strong> so
+          collaboration </strong><em>stays calm</em><strong>.</strong>
+      </h2>
+    </div>
+
+    <div class="service-list">
+      <div class="service-item card pinned">
+        <div class="service-inner-scale">
+          <h3>Clear Process</h3>
+          <p>Revisions are tracked properly, updates are organized in Figma, and decisions are documented so nothing
+            needs to be repeated.</p>
+          <div class="stars-row">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <polygon
+                points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
+            </svg>
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <polygon
+                points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
+            </svg>
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <polygon
+                points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
+            </svg>
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <polygon
+                points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
+            </svg>
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <polygon
+                points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="service-item card pinned">
+        <div class="service-inner-scale">
+          <h3>Professional Handling</h3>
+          <p>Communication stays steady and focused. Feedback is handled with care and progress is shared
+            consistently.
+          </p>
+          <div class="stars-row">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <polygon
+                points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
+            </svg>
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <polygon
+                points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
+            </svg>
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <polygon
+                points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
+            </svg>
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <polygon
+                points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
+            </svg>
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <polygon
+                points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="service-item card pinned">
+        <div class="service-inner-scale">
+          <h3>Calm Collaboration</h3>
+          <p>Even when changes happen, the work remains structured and predictable, allowing the project to move
+            forward
+            without tension.</p>
+          <div class="stars-row">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <polygon
+                points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
+            </svg>
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <polygon
+                points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
+            </svg>
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <polygon
+                points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
+            </svg>
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <polygon
+                points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
+            </svg>
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <polygon
+                points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  /* ── SERVICES ── */
+#services {
+  min-height: 100vh;
+  display: block;
+  padding-bottom: 20rem;
+  position: relative;
+}
+.stars-row {
+  display: flex;
+  gap: 8px;
+}
+.stars-row svg {
+  width: 24px;
+  height: 24px;
+  color: var(--white);
+  fill: var(--white);
+}
+
+.service-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.service-item {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 96px;
+  width: 100%;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.service-item.card.pinned {
+  top: 50px !important;
+}
+
+.service-item.card.pinned:last-child {
+  top: 50px !important;
+}
+
+.service-inner-scale {
+  padding: 50px;
+  border: 1px dashed var(--border-color);
+  background-color: var(--bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.service-item h3 {
+  font-size: clamp(28px, 3vw, 36px);
+  font-weight: 600;
+  color: var(--white);
+}
+.service-item p {
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: 400;
+  color: var(--gray-300);
+  line-height: 1.5;
+}
+
+
+
+  /* ─────────────────────────────────────────
+     Auto-init via [data-navbar] - DISABLED
+  ───────────────────────────────────────── */
+  /*
+  function autoInit() {
+    document.querySelectorAll("[data-navbar]").forEach(el => {
+      if (el._navbarInstance) return;
+
+      const d = el.dataset;
+
+      // parse links dari data-links JSON atau data-link-* attributes
+      let links;
+      try {
+        links = d.links ? JSON.parse(d.links) : [
+          { text: "About", href: "/about" },
+          { text: "Works", href: "/works.php" },
+          { text: "VR",    href: "#" },
+        ];
+      } catch (e) {
+        links = [];
+      }
+
+      el._navbarInstance = Navbar(el, {
+        logo:         d.logo         || "Studio",
+        logoHref:     d.logoHref     || "/",
+        links,
+        ctaText:      d.ctaText      || "Contact",
+        ctaHref:      d.ctaHref      || "#",
+        accentColor:  d.accentColor  || "#1a1a1a",
+        hoverColor:   d.hoverColor   || "#1a1a1a",
+        bgColor:      d.bgColor      || "rgba(245,245,243,0.96)",
+        height:       +(d.height)    || 56,
+        scrollEffect: d.scrollEffect !== "false",
+      });
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", autoInit);
+  } else {
+    autoInit();
+  }
+  */

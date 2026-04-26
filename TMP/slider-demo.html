@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>3D Slider GSAP Demo</title>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #0a0a0a;
+      color: #fff;
+      font-family: Georgia, serif;
+      overflow-x: hidden;
+    }
+
+    #before {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: #444;
+    }
+
+    #before1 {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: #fff;
+      background: #533483;
+    }
+
+    #work {
+      position: relative;
+      z-index: -9999;
+    }
+
+    .area-slider-3D-img {
+      height: 800vh;
+      position: relative;
+    }
+
+    .slider-3D-img {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate3d(-50%, -50%, 0) rotateX(0deg) rotateY(-25deg) rotateZ(-120deg);
+      transform-style: preserve-3d;
+      transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+      user-select: none;
+      visibility: hidden;
+    }
+
+    .card-3d-img-slider {
+      position: relative;
+      width: 400px;
+      height: 400px;
+      transform: rotateX(20deg) rotateY(-10deg) rotateZ(130deg);
+      border-radius: 12px;
+      overflow: hidden;
+      margin: -300px 0;
+      transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+      cursor: pointer;
+      background-color: rgb(26, 26, 26);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .card-3d-img-slider:hover {
+      transform: rotateX(20deg) rotateY(-10deg) rotateZ(130deg) translateX(30%);
+    }
+
+    .card-3d-img-slider .card-inner {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 64px;
+      font-weight: bold;
+      opacity: 0.25;
+      transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+
+    .card-3d-img-slider:hover .card-inner {
+      opacity: 1;
+    }
+
+    .card-3d-img-slider:nth-child(5n+1) { background: #1a1a2e; }
+    .card-3d-img-slider:nth-child(5n+2) { background: #16213e; }
+    .card-3d-img-slider:nth-child(5n+3) { background: #0f3460; }
+    .card-3d-img-slider:nth-child(5n+4) { background: #533483; }
+    .card-3d-img-slider:nth-child(5n+5) { background: #2b2d42; }
+
+    #after {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: #444;
+      border-top: 1px solid #1a1a1a;
+    }
+
+    #after1 {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: #444;
+      border-top: 1px solid #1a1a1a;
+      background-color: aqua;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+<section id="before1">
+    ↓ scroll to work section 1
+  </section><section id="before1">
+    ↓ scroll to work section 2
+  </section><section id="before1">
+    ↓ scroll to work section 3
+  </section><section id="before1">
+    ↓ scroll to work section 4
+  </section>
+  <section id="before">
+    ↓ scroll to work section 5
+  </section>
+
+  <section id="work">
+    <div class="area-slider-3D-img">
+      <div class="slider-3D-img" id="slider-3D-img"></div>
+    </div>
+  </section>
+
+  <section id="after1">
+    next section ↓ 1
+  </section>
+  <section id="after1">
+    next section ↓ 2
+  </section><section id="after1">
+    next section ↓ 3
+  </section><section id="after1">
+    next section ↓ 4
+  </section><section id="after1">
+    next section ↓ 5
+  </section>
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    const slider = document.getElementById('slider-3D-img');
+    const area = document.querySelector('.area-slider-3D-img');
+
+    const initialTransform = `translate3d(-50%, -50%, 0) rotateX(0deg) rotateY(-25deg) rotateZ(-120deg)`;
+    const maxOffset = area.scrollHeight * 0.5;
+
+    const images = [
+      { label: '01', color: '#1a1a2e' },
+      { label: '02', color: '#16213e' },
+      { label: '03', color: '#0f3460' },
+      { label: '04', color: '#533483' },
+      { label: '05', color: '#2b2d42' },
+      { label: '06', color: '#1a1a2e' },
+      { label: '07', color: '#16213e' },
+      { label: '08', color: '#0f3460' },
+    ];
+
+    // render cards
+    const CARD_GAP = 100;
+    const totalCards = Math.ceil(area.scrollHeight / CARD_GAP) + 10;
+
+    for (let i = 0; i < totalCards; i++) {
+      const item = images[i % images.length];
+      const card = document.createElement('div');
+      card.className = 'card-3d-img-slider';
+      card.style.background = item.color;
+
+      const inner = document.createElement('div');
+      inner.className = 'card-inner';
+      inner.textContent = item.label;
+
+      card.appendChild(inner);
+
+      card.addEventListener('mouseover', () => {
+        card.style.transform = 'rotateX(20deg) rotateY(-10deg) rotateZ(130deg) translateX(30%)';
+      });
+      card.addEventListener('mouseout', () => {
+        card.style.transform = '';
+      });
+
+      slider.appendChild(card);
+    }
+
+window.addEventListener('scroll', () => {
+  const rect = document.getElementById('work').getBoundingClientRect();
+  
+  const hasEntered = rect.top <= window.innerHeight; // sudah masuk dari bawah
+  const notExited = rect.bottom >= 0;                // belum keluar dari atas
+  
+  // keduanya harus true — instant tanpa delay
+  slider.style.visibility = (hasEntered && notExited) ? 'visible' : 'hidden';
+}, { passive: true });
+
+// movement tetap GSAP
+ScrollTrigger.create({
+  trigger: '#work',
+  start: 'top bottom',
+  end: 'bottom top',
+  scrub: 1,
+  onUpdate: (self) => {
+    const zOffset = self.progress * maxOffset;
+    slider.style.transform = `${initialTransform} translateY(${zOffset}px)`;
+  }
+});
+  </script>
+
+</body>
+</html>

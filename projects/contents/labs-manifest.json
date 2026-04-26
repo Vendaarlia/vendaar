@@ -1,0 +1,20 @@
+[
+  {
+    "id": "lab-1",
+    "title": "Lab Project 1",
+    "link": "https://example.com/lab-1",
+    "image": "/projects/projects-img/aftermove/result1.png"
+  },
+  {
+    "id": "lab-2",
+    "title": "Lab Project 2",
+    "link": "https://example.com/lab-2",
+    "image": "/projects/projects-img/height/result2.png"
+  },
+  {
+    "id": "lab-3",
+    "title": "Lab Project 3",
+    "link": "https://example.com/lab-3",
+    "image": "/projects/projects-img/gni/result3.png"
+  }
+]

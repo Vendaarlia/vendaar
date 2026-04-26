@@ -1,0 +1,722 @@
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   MAXIM — Design System Documentation Styles
+   Untuk: output HTML yang di-generate oleh project-loader.js
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;1,100;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+/* ━━━━━━━━━━━━━━━━━━━━━
+   ROOT VARIABLES
+━━━━━━━━━━━━━━━━━━━━━ */
+:root {
+  --purple:       #9239df;
+  --purple-hover: #7b2cbe;
+  --bg:           #191d1f;
+  --white:        #ffffff;
+  --border-color: #d1d5db;
+  --gray-400:     #9ca3af;
+  --rating:       #facc15;
+  --radius:       999px;
+  --transition:   0.3s ease;
+  --font:         "Inter", sans-serif;
+
+  /* Derived */
+  --surface:      #1f2427;
+  --surface-2:    #252b2e;
+  --border:       rgba(209, 213, 219, 0.09);
+  --border-mid:   rgba(209, 213, 219, 0.14);
+  --purple-dim:   rgba(146, 57, 223, 0.11);
+  --purple-dim-b: rgba(146, 57, 223, 0.24);
+  --muted:        var(--gray-400);
+  --muted-dim:    rgba(156, 163, 175, 0.40);
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━
+   RESET & BASE
+━━━━━━━━━━━━━━━━━━━━━ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--white);
+  font-size: 14px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Grain overlay */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)'/%3E%3C/svg%3E");
+}
+
+.section-spacer {
+  margin: 32px 0;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━
+   LAYOUT
+━━━━━━━━━━━━━━━━━━━━━ */
+.main {
+  margin-top: 60px;
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━
+   TOC / SIDEBAR
+━━━━━━━━━━━━━━━━━━━━━ */
+.toc {
+  width: 240px;
+  min-width: 240px;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 32px 0 48px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Mobile: Hide TOC */
+@media (max-width: 768px) {
+  .toc {
+    display: none;
+  }
+}
+
+.toc h2 {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted-dim);
+  padding: 0 24px 20px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 10px;
+}
+
+/* TOC links */
+.table-of-contents {
+  display: flex;
+  flex-direction: column;
+}
+
+.table-of-contents a {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 8px 24px;
+  border-left: 2px solid transparent;
+  transition: all var(--transition);
+  line-height: 1.4;
+}
+
+.table-of-contents a:hover {
+  color: var(--white);
+  border-left-color: var(--purple);
+  background: var(--purple-dim);
+}
+
+.table-of-contents a.active {
+  color: var(--white);
+  border-left-color: var(--purple);
+  background: var(--purple-dim);
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━
+   PROJECT SECTION
+━━━━━━━━━━━━━━━━━━━━━ */
+.project {
+  flex: 1;
+  padding: 64px 64px 100px;
+  overflow-y: auto;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━
+   PROJECT HEADER
+━━━━━━━━━━━━━━━━━━━━━ */
+.project-header {
+  min-height: 300px;
+  margin-bottom: 56px;
+  padding: 44px 48px;
+  background: linear-gradient(135deg, rgba(146, 57, 223, 0.09) 0%, transparent 55%);
+  border: 1px solid var(--border-mid);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.project-header::before {
+  content: '';
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle, rgba(146, 57, 223, 0.13) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+#title {
+  font-size: clamp(24px, 3.5vw, 38px);
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.8px;
+  line-height: 1.15;
+  margin-bottom: 20px;
+  max-width: 600px;
+}
+
+.project-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+}
+
+.project-meta span {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: 0.3px;
+  padding: 5px 16px;
+  border-right: 1px solid var(--border-mid);
+}
+
+.project-meta a {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  text-decoration: none;
+  color: var(--white);
+  background-color: var(--purple);
+  margin: 0 8px;
+  padding: 5px 15px;
+  border-radius: var(--radius);
+  transition: all 0.3s ease;
+}
+
+.project-meta a:first-of-type {
+  margin-left: 16px;
+}
+
+.project-meta a:hover {
+  background-color: var(--purple-hover);
+  transform: translateY(-2px);
+}
+
+.project-meta span:first-child { padding-left: 0; }
+.project-meta span:last-child  { border-right: none; }
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━
+   IMAGE GALLERY
+━━━━━━━━━━━━━━━━━━━━━ */
+.image-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 32px 0 48px;
+}
+
+.gallery-item {
+  flex: 1 1 260px;
+}
+
+.gallery-item img {
+  width: 100%;
+  aspect-ratio: 16/10;
+  object-fit: cover;
+  display: block;
+  border: 1px solid var(--border-mid);
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━
+   PROJECT CONTENT BODY
+━━━━━━━━━━━━━━━━━━━━━ */
+.project-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ── Headings ── */
+.project-content h1 {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted-dim);
+  margin: 40px 0 6px;
+}
+
+.project-content h2,
+.project-content .case-section {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.3px;
+  line-height: 1.2;
+  margin: 52px 0 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+  scroll-margin-top: 32px;
+}
+
+.project-content h3 {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--white);
+  margin: 28px 0 10px;
+  letter-spacing: -0.1px;
+}
+
+/* ── Paragraph ── */
+.project-content p {
+  font-size: 13px;
+  color: var(--white);
+  line-height: 1.75;
+  margin-bottom: 10px;
+}
+
+.project-content p strong,
+.project-content p em {
+  display: inline;
+}
+
+.project-content br + br {
+  font-size: 13px;
+  color: var(--white);
+  line-height: 1.75;
+  margin-bottom: 10px;
+}
+
+/* ── Blockquote ── */
+.project-content blockquote {
+  border: none;
+  border-left: 2px solid var(--purple);
+  padding: 3px 0 3px 14px;
+  margin: 4px 0;
+  background: none;
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.project-content blockquote strong {
+  color: var(--white);
+  font-weight: 600;
+}
+
+.project-content blockquote code {
+  font-family: var(--font);
+  font-size: 11px;
+  color: var(--purple);
+  background: var(--purple-dim);
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+
+/* ── Lists ── */
+.project-content ul {
+  list-style-type: disc;
+  padding-left: 24px;
+  margin: 16px 0;
+}
+
+.project-content ul li {
+  font-size: 13px;
+  color: var(--white);
+  line-height: 1.75;
+  margin-bottom: 8px;
+}
+
+.project-content ul li::marker {
+  color: var(--purple);
+}
+
+/* ── Inline code ── */
+.project-content code {
+  font-family: var(--font);
+  font-size: 11px;
+  color: var(--purple);
+  background: var(--purple-dim);
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+
+/* ── HR ── */
+.project-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 40px 0;
+}
+
+/* ── Strong ── */
+.project-content strong {
+  color: var(--white);
+  font-weight: 600;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━
+   TABLES
+━━━━━━━━━━━━━━━━━━━━━ */
+.md-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--surface);
+  border: 1px solid var(--border-mid);
+  overflow: hidden;
+  margin: 14px 0 24px;
+  font-size: 13px;
+}
+
+.md-table thead tr {
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid var(--border-mid);
+}
+
+.md-table th {
+  text-align: left;
+  padding: 11px 16px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--muted-dim);
+}
+
+.md-table td {
+  padding: 11px 16px;
+  color: var(--muted);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  vertical-align: middle;
+  line-height: 1.5;
+}
+
+.md-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.md-table tbody tr:hover td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* First column — token names */
+.md-table td:first-child {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--white);
+  white-space: nowrap;
+}
+
+/* Code inside table cells */
+.md-table td code {
+  font-family: var(--font);
+  font-size: 11px;
+  color: var(--purple);
+  background: var(--purple-dim);
+  padding: 2px 6px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━
+   TOKEN COLOR (inline swatch in table)
+━━━━━━━━━━━━━━━━━━━━━ */
+.token-color {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.token-swatch {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+
+.token-color code {
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--white);
+  background: none;
+  padding: 0;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━
+   TOKEN BLOCK (standalone)
+━━━━━━━━━━━━━━━━━━━━━ */
+.token-block {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  background: var(--surface);
+  border: 1px solid var(--border-mid);
+  border-radius: 10px;
+  margin: 6px 0;
+}
+
+.token-preview {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  flex-shrink: 0;
+}
+
+.token-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.token-info div:first-child {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+.token-info div:last-child {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--white);
+  font-family: var(--font);
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━
+   COLOR PALETTE CARDS
+━━━━━━━━━━━━━━━━━━━━━ */
+.color-palette {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 10px;
+  margin: 16px 0 24px;
+}
+
+.color-card {
+  border: 1px solid var(--border-mid);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform var(--transition), box-shadow var(--transition);
+  cursor: default;
+}
+
+.color-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.4);
+}
+
+.color-preview {
+  height: 60px;
+}
+
+.color-meta {
+  padding: 8px 10px;
+  background: var(--surface-2);
+}
+
+.color-token {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--purple);
+  margin-bottom: 3px;
+}
+
+.color-hex {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--white);
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━
+   COMPONENT PREVIEW
+━━━━━━━━━━━━━━━━━━━━━ */
+.component-preview {
+  background: #FDF5EB;
+  border: 1px solid var(--border-mid);
+  border-radius: 12px;
+  padding: 36px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 16px 0 20px;
+  min-height: 100px;
+}
+
+/* MAXIM buttons — pakai token warna MAXIM bukan --purple */
+.component-preview .btn-lg,
+.component-preview .btn-md,
+.component-preview .btn-sm {
+  background: #8B3734;
+  color: #ffffff;
+  border: none;
+  font-family: var(--font);
+  font-weight: 400;
+  text-transform: capitalize;
+  cursor: default;
+  transition: background var(--transition);
+  border-radius: 15px;
+  letter-spacing: 0.2px;
+}
+
+.component-preview .btn-lg {
+  font-size: 20px;
+  padding: 17px 32px;
+}
+
+.component-preview .btn-md {
+  font-size: 15px;
+  padding: 13px 24px;
+}
+
+.component-preview .btn-sm {
+  font-size: 12px;
+  padding: 10px 15px;
+}
+
+.component-preview .btn-lg:hover,
+.component-preview .btn-md:hover,
+.component-preview .btn-sm:hover {
+  background: #6e2c2a;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━
+   CODE BLOCK (pre)
+━━━━━━━━━━━━━━━━━━━━━ */
+.project-content pre {
+  background: #0d1012;
+  border: 1px solid var(--border-mid);
+  padding: 20px 24px;
+  overflow-x: auto;
+  margin: 14px 0 24px;
+  font-family: var(--font);
+  font-size: 12px;
+  line-height: 1.8;
+  color: #cdd6f4;
+}
+
+.project-content pre code {
+  background: none;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+  border-radius: 0;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━
+   SCROLLBAR
+━━━━━━━━━━━━━━━━━━━━━ */
+::-webkit-scrollbar         { width: 5px; height: 5px; }
+::-webkit-scrollbar-track   { background: transparent; }
+::-webkit-scrollbar-thumb   { background: rgba(209, 213, 219, 0.12); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--purple); }
+
+/* ━━━━━━━━━━━━━━━━━━━━━
+   CASE STUDY SECTIONS
+━━━━━━━━━━━━━━━━━━━━━ */
+.case-study h1 {
+  margin-bottom: 15px;
+}
+
+.case-study {
+  border-bottom: 1px solid var(--border-mid);
+  margin-bottom: 30px;
+  padding-right: 40%;
+  padding-bottom: 15px;
+}
+
+@media (max-width: 600px) {
+  .case-study {
+    padding-right: 0;
+  }
+
+  .md-table {
+    border: none;
+    background: transparent;
+  }
+
+  .md-table thead {
+    display: none;
+  }
+
+  .md-table tbody tr {
+    display: block;
+    background: var(--surface);
+    border: 1px solid var(--border-mid);
+    border-radius: 8px;
+    margin-bottom: 10px;
+    padding: 4px 0;
+    overflow: hidden;
+  }
+
+  .md-table tbody tr:last-child {
+    margin-bottom: 0;
+  }
+
+  .md-table td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 9px 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  }
+
+  .md-table tbody tr td:last-child {
+    border-bottom: none;
+  }
+
+  .md-table td::before {
+    content: attr(data-label);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted-dim);
+    flex-shrink: 0;
+    min-width: 80px;
+  }
+
+  .md-table td:first-child {
+    background: rgba(255, 255, 255, 0.03);
+  }
+}

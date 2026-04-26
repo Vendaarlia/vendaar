@@ -1,0 +1,324 @@
+    /* ─── Layout ─────────────────────────────────────────────────── */
+    .page-wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 24px 120px;
+    }
+
+    /* ─── Page Header ────────────────────────────────────────────── */
+    .page-header {
+      margin-bottom: 56px;
+    }
+
+    .page-header .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--color-primary);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .page-header .eyebrow::before {
+      content: "";
+      display: inline-block;
+      width: 20px;
+      height: 1px;
+      background: var(--color-primary);
+    }
+
+    .page-header h1 {
+      font-size: clamp(28px, 5vw, 40px);
+      font-weight: 600;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--text-main);
+      margin-bottom: 14px;
+    }
+
+    .page-header p {
+      font-size: 15px;
+      color: var(--text-subtle);
+      line-height: 1.65;
+      max-width: 480px;
+    }
+
+    /* ─── Form Sections ──────────────────────────────────────────── */
+    .form-section {
+      margin-bottom: 48px;
+    }
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-subtle);
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-label .section-num {
+      font-size: 10px;
+      color: var(--color-primary);
+      background: var(--color-primary-dim);
+      padding: 2px 7px;
+      border-radius: 999px;
+    }
+
+    /* ─── Field Grid ─────────────────────────────────────────────── */
+    .field-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .field-grid.two-col {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media (max-width: 560px) {
+      .field-grid.two-col {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ─── Field ──────────────────────────────────────────────────── */
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .field label {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-body);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .field label .req {
+      color: var(--color-primary);
+      font-size: 12px;
+      line-height: 1;
+    }
+
+    .field .helper {
+      font-size: 12px;
+      color: var(--text-subtle);
+      order: 3;
+      /* helper below input */
+    }
+
+    .field .error-msg {
+      font-size: 12px;
+      color: var(--color-error);
+      display: none;
+      order: 4;
+    }
+
+    .field.has-error .error-msg {
+      display: block;
+    }
+
+    .field.has-error input,
+    .field.has-error select,
+    .field.has-error textarea {
+      border-color: var(--color-error);
+      background: var(--color-error-bg);
+    }
+
+    /* ─── Inputs ─────────────────────────────────────────────────── */
+    input[type="text"],
+    input[type="email"],
+    select,
+    textarea {
+      width: 100%;
+      background: var(--bg-input);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      font-size: 14px;
+      padding: 10px 14px;
+      transition: border-color var(--transition), box-shadow var(--transition), background var(--transition);
+      outline: none;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    input[type="text"]::placeholder,
+    input[type="email"]::placeholder,
+    textarea::placeholder {
+      color: #4b5563;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--border-focus);
+      box-shadow: 0 0 0 3px var(--color-primary-glow);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239ca3af' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      padding-right: 36px;
+      cursor: pointer;
+    }
+
+    select option {
+      background: var(--bg-input);
+      color: var(--text-main);
+    }
+
+    /* ─── Radio Group ────────────────────────────────────────────── */
+    .radio-group,
+    .checkbox-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .radio-option,
+    .checkbox-option {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      font-size: 13px;
+      color: var(--text-body);
+      padding: 9px 13px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: var(--bg-input);
+      transition: border-color var(--transition), background var(--transition);
+      user-select: none;
+    }
+
+    .radio-option:hover,
+    .checkbox-option:hover {
+      border-color: #4b5563;
+    }
+
+    .radio-option input,
+    .checkbox-option input {
+      width: 15px;
+      height: 15px;
+      accent-color: var(--color-primary);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .radio-option:has(input:checked),
+    .checkbox-option:has(input:checked) {
+      border-color: var(--color-primary);
+      background: var(--color-primary-dim);
+      color: var(--text-main);
+    }
+
+    /* ─── Divider ────────────────────────────────────────────────── */
+    .form-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 40px 0;
+    }
+
+    /* ─── Honeypot ───────────────────────────────────────────────── */
+    .hp-field {
+      position: absolute;
+      left: -9999px;
+      top: -9999px;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    /* ─── Submit Area ────────────────────────────────────────────── */
+    .submit-area {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* Submit button uses global .btn .purple, only add larger padding for forms */
+    .btn[type="submit"] {
+      padding: 13px 32px;
+    }
+
+    /* Spinner for loading state */
+    .btn .spinner {
+      width: 14px;
+      height: 14px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      display: none;
+    }
+
+    .btn.loading .spinner {
+      display: block;
+    }
+
+    .btn.loading .btn-text {
+      opacity: 0.7;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* ─── Form Messages ──────────────────────────────────────────── */
+    .form-feedback {
+      display: none;
+      padding: 14px 18px;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      line-height: 1.5;
+      border: 1px solid;
+    }
+
+    .form-feedback.success {
+      background: var(--success-bg);
+      border-color: rgba(52, 211, 153, 0.3);
+      color: var(--success);
+    }
+
+    .form-feedback.error {
+      background: var(--error-bg);
+      border-color: rgba(248, 113, 113, 0.3);
+      color: var(--error);
+    }
+
+    .form-feedback.show {
+      display: block;
+    }
+
+    /* ─── Focus visible ──────────────────────────────────────────── */
+    :focus-visible {
+      outline: 2px solid var(--purple);
+      outline-offset: 2px;
+    }
+
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible {
+      outline: none;
+    }
