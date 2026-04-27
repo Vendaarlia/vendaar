@@ -9,6 +9,10 @@ link:
   Design Pitch: 
   Live Demo: https://www.by.vendaar.top/maxim/index.html
   Figma Design: https://www.figma.com/design/A5bn55Pre7yH4sRsuz3bfn/MAXIM-WEBSITE?node-id=166-274&t=VE1qSMqtSUuYumvg-1
+architecture:
+  Web Framework: "HTML, CSS, JavaScript"
+  UI Library: "Bootstrap"
+  Motion: "GSAP"
 ---
 ![result](/projects/projects-img/maxim/hero-section.png)
 ![result](/projects/projects-img/maxim/doctor-section.png)

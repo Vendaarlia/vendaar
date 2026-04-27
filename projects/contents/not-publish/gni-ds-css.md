@@ -9,6 +9,9 @@ link:
   Design Pitch: 
   Live Demo: https://by.vendaar.top/gni/index.html
   GitHub:
+architecture:
+  Web Framework: "HTML, CSS, JavaScript"
+  UI Library: "Bootstrap"
 ---
 ![result](/projects/projects-img/gni/result1.png)
 ![result](/projects/projects-img/gni/result2.png)

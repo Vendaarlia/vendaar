@@ -117,6 +117,64 @@ async function loadProject() {
                     });
                 }
 
+                // Render Architecture Blueprint jika ada
+                if (data.architecture) {
+                    const projectHeader = document.querySelector(".project-header");
+                    
+                    const archContainer = document.createElement("div");
+                    archContainer.className = "architecture-blueprint";
+                    
+                    const archTitle = document.createElement("div");
+                    archTitle.className = "arch-title";
+                    archTitle.textContent = "The Architecture Blueprint";
+                    archContainer.appendChild(archTitle);
+                    
+                    const archList = document.createElement("div");
+                    archList.className = "arch-list";
+                    
+                    const entries = Object.entries(data.architecture);
+                    const itemsPerGroup = 3;
+                    
+                    // Filter out empty entries first
+                    const validEntries = entries.filter(([category, technologies]) => {
+                        return technologies && typeof technologies === 'string' && technologies.trim() !== '';
+                    });
+                    
+                    const totalGroups = Math.ceil(validEntries.length / itemsPerGroup);
+                    
+                    for (let g = 0; g < totalGroups; g++) {
+                        const archGroup = document.createElement("div");
+                        archGroup.className = "arch-group";
+                        
+                        const start = g * itemsPerGroup;
+                        const end = Math.min(start + itemsPerGroup, validEntries.length);
+                        
+                        for (let i = start; i < end; i++) {
+                            const [category, technologies] = validEntries[i];
+                            
+                            const archItem = document.createElement("div");
+                            archItem.className = "arch-item";
+                            
+                            const archLabel = document.createElement("span");
+                            archLabel.className = "arch-label";
+                            archLabel.textContent = category;
+                            
+                            const archTech = document.createElement("span");
+                            archTech.className = "arch-tech";
+                            archTech.textContent = technologies;
+                            
+                            archItem.appendChild(archLabel);
+                            archItem.appendChild(archTech);
+                            archGroup.appendChild(archItem);
+                        }
+                        
+                        archList.appendChild(archGroup);
+                    }
+                    
+                    archContainer.appendChild(archList);
+                    projectHeader.appendChild(archContainer);
+                }
+
                 // --- BAGIAN SOLUSI ---
                 // Bersihkan body dari karakter NBSP sebelum diproses parser
                 const sanitizedBody = cleanMarkdownContent(body);

@@ -8,6 +8,16 @@ role: "Full-stack Developer & Designer"
 link:
   Live Demo: https://pm.vendaar.top
   GitHub: https://github.com/Vendaarlia/PM-panel
+  Demo:
+architecture:
+  Runtime: "Bun"
+  Web Framework: "Astro"
+  UI Library: "Vue"
+  Data Access: "Drizzle ORM"
+  Databas: "Turso"
+  Styling: "Css"
+  Motion: 
+  Deployment & Edge Layer: "Cloudflare Workers"
 ---
 ![result](/projects/projects-img/pm/result1.png)
 ![result](/projects/projects-img/pm/result2.png)
@@ -139,8 +149,6 @@ The platform successfully delivered a production-ready MVP that allows users to 
 ```
 
 ---
-
-
 
 ## 7. Token Usage Map
 

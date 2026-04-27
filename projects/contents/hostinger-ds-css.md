@@ -9,6 +9,16 @@ link:
   Design Pitch: ./pdf-view.html?project=hostinger-ds
   Figma Design: https://www.figma.com/design/7aTNNc2DSu7FHZalv57tqv/home-dashboard-hostinger?node-id=77-2027&t=kWAt3eNUJhKaUaf1-1
   GitHub:
+architecture:
+  Mode: "Plan: It is not the actual architecture they are use."
+  Runtime: 
+  Web Framework: "NuxJS"
+  UI Library: "Vue, Bootstrap"
+  Data Access: ""
+  Databas: "MySQL"
+  Styling: "styled components"
+  Motion: 
+  Deployment & Edge Layer: "Amazon Web Services"
 ---
 ![result](/projects/projects-img/hostinger/result1.png)
 ![result](/projects/projects-img/hostinger/result2.png)

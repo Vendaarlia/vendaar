@@ -233,6 +233,87 @@ body::after {
 .project-meta span:first-child { padding-left: 0; }
 .project-meta span:last-child  { border-right: none; }
 
+/* ━━━━━━━━━━━━━━━━━━━━━
+   ARCHITECTURE BLUEPRINT
+━━━━━━━━━━━━━━━━━━━━━ */
+.architecture-blueprint {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+}
+
+.arch-title {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted-dim);
+    margin-bottom: 20px;
+}
+
+.arch-list {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+}
+
+.arch-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 200px;
+}
+
+.arch-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    border-bottom: 1px solid var(--border-mid);
+}
+
+.arch-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.arch-tech {
+    font-size: 12px;
+    color: var(--white);
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+@media (max-width: 900px) {
+    .arch-list {
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .arch-group {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    
+    .arch-item {
+        flex: 1 1 calc(50% - 8px);
+        min-width: 140px;
+    }
+}
+
+@media (max-width: 600px) {
+    .arch-group {
+        flex-direction: column;
+    }
+    
+    .arch-item {
+        flex: none;
+    }
+}
+
 
 /* ━━━━━━━━━━━━━━━━━━━━━
    IMAGE GALLERY

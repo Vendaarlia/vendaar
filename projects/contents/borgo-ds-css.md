@@ -9,6 +9,10 @@ link:
   Design Pitch: ./pdf-view.html?project=borgo-ds
   Live Demo: https://www.by.vendaar.top/borgo/index.html
   Figma Design: https://www.figma.com/design/IJVnF6i0KIcZ48eI2eyQgX/Borgo-Tours?node-id=263-532&t=6X5NjEppCgk28cwV-1
+architecture:
+  Web Framework: "Astro"
+  UI Library: "Vue.js, Tailwind CSS"
+  Motion: "GSAP, Framer Motion"
 ---
 ![result](/projects/projects-img/borgo/service-section.png)
 ![result](/projects/projects-img/borgo/block-section.png)

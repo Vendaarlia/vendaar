@@ -9,6 +9,10 @@ link:
   Design Pitch: 
   Live Demo: https://www.by.vendaar.top/aftermove/index.html
   GitHub:
+architecture:
+  Web Framework: "HTML, CSS, JavaScript"
+  UI Library: "Custom CSS"
+  Motion: "GSAP, Custom Animations"
 ---
 ![result](/projects/projects-img/aftermove/result1.png)
 ![result](/projects/projects-img/aftermove/result2.png)

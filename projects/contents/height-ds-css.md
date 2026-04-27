@@ -9,6 +9,10 @@ link:
   Design Pitch: 
   Live Demo: https://www.by.vendaar.top/height/index.html
   Figma Design: https://www.figma.com/design/bcwApWuEhg1CutHJnAlQek/HEIGHT-LANDING-PAGE?node-id=0-1&t=jDT6YhRjEHD9atG1-1
+architecture:
+  Web Framework: "HTML, SCSS, JavaScript"
+  UI Library: "Custom CSS"
+  Motion: "GSAP"
 ---
 ![result](/projects/projects-img/height/result1.png)
 ![result](/projects/projects-img/height/result2.png)
