@@ -83,12 +83,6 @@
       grid-template-columns: 1fr 1fr;
     }
 
-    @media (max-width: 560px) {
-      .field-grid.two-col {
-        grid-template-columns: 1fr;
-      }
-    }
-
     /* ─── Field ──────────────────────────────────────────────────── */
     .field {
       display: flex;

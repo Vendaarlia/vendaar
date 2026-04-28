@@ -1,18 +1,14 @@
-// inisialisasi Lenis
-const lenis = new Lenis({
-  duration: 1.2,
-  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-  smooth: true,
-});
+// ─── SYNC LENIS DENGAN GSAP SCROLLTRIGGER ───
+// Lenis init sudah di lenis.js, ini hanya untuk sync
+if (window.lenis) {
+  window.lenis.on('scroll', ScrollTrigger.update);
 
-// sync Lenis dengan GSAP ScrollTrigger
-lenis.on('scroll', ScrollTrigger.update);
+  gsap.ticker.add((time) => {
+    window.lenis.raf(time * 1000);
+  });
 
-gsap.ticker.add((time) => {
-  lenis.raf(time * 1000);
-});
-
-gsap.ticker.lagSmoothing(0);
+  gsap.ticker.lagSmoothing(0);
+}
 
 
 // split text anim slide up WORDS
@@ -414,3 +410,77 @@ document.addEventListener("DOMContentLoaded", function() {
         });
       });
     });
+
+// ═══════════════════════════════════════════════════════════════════
+// WHAT I HANDLE — Horizontal Reveal & Scroll
+// Cards reveal from bottom-right, stagger in, then move left on scroll
+// ═══════════════════════════════════════════════════════════════════
+
+document.addEventListener('DOMContentLoaded', () => {
+  const framework = document.getElementById('framework');
+  const handleTrack = document.querySelector('.handle-track');
+  const handleCards = gsap.utils.toArray('.card-handle');
+  
+  if (!framework || !handleTrack || handleCards.length === 0) return;
+
+  // Set initial state - cards positioned below and to the right (off-screen)
+  gsap.set(handleCards, {
+    opacity: 0,
+    y: 100,
+    x: 200,
+    rotation: 5
+  });
+
+  // STAGGERED REVEAL - cards fly in from bottom-right
+  const revealTl = gsap.timeline({
+    scrollTrigger: {
+      trigger: framework,
+      start: 'top 50%',
+      end: 'top 20%',
+      scrub: 0.5,
+      markers: false
+    }
+  });
+
+  // Card 1 reveals first
+  revealTl.to(handleCards[0], {
+    opacity: 1,
+    y: 0,
+    x: 0,
+    rotation: 0,
+    duration: 0.4,
+    ease: 'power3.out'
+  }, 0);
+
+  // Card 2 follows with delay
+  revealTl.to(handleCards[1], {
+    opacity: 1,
+    y: 0,
+    x: 0,
+    rotation: 0,
+    duration: 0.4,
+    ease: 'power3.out'
+  }, 0.15);
+
+  // Card 3 last
+  revealTl.to(handleCards[2], {
+    opacity: 1,
+    y: 0,
+    x: 0,
+    rotation: 0,
+    duration: 0.4,
+    ease: 'power3.out'
+  }, 0.3);
+
+  // HORIZONTAL SCROLL - entire track moves left as user scrolls
+  gsap.to(handleTrack, {
+    x: () => -(handleTrack.scrollWidth - window.innerWidth + 100),
+    ease: 'none',
+    scrollTrigger: {
+      trigger: framework,
+      start: 'top top',
+      end: () => '+=' + handleTrack.scrollWidth,
+      scrub: 1
+    }
+  });
+});

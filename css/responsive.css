@@ -1,0 +1,865 @@
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   RESPONSIVE.CSS — All Responsive Styles
+   Grouped by Element/Section (Mobile → Tablet → Desktop)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* ═══════════════════════════════════════════════════════════════════
+   1. GLOBAL LAYOUT
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ─── Container ─────────────────────────────────────────────────── */
+/* Mobile */
+@media (max-width: 768px) {
+  .container { padding: 0; }
+}
+
+/* Tablet Portrait */
+@media (min-width: 768px) and (max-width: 991px) {
+  .container { padding: 0 32px; }
+}
+
+/* Tablet Landscape / Small Desktop */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .container { padding: 0 48px; overflow: hidden; }
+}
+
+/* ─── Page Wrapper ──────────────────────────────────────────────── */
+/* Mobile */
+@media (max-width: 768px) {
+  .page { padding: 60px var(--gap-base) 80px; }
+}
+
+/* Tablet Portrait */
+@media (min-width: 768px) and (max-width: 991px) {
+  .page-wrapper { padding: 0 40px; }
+}
+
+/* Tablet Landscape */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .page-wrapper { padding: 0 48px; }
+}
+
+/* Desktop */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .page-wrapper { padding: 0 60px; }
+}
+
+@media (min-width: 1024px) {
+  .page-wrapper { padding: 0 100px; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   2. HERO SECTION
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Mobile */
+@media (max-width: 768px) {
+  #hero {
+    justify-content: space-between;
+    padding-bottom: 100px;
+    gap: 15rem;
+  }
+
+  .hero-title {
+    margin-top: 100px;
+    padding: 0 50px;
+    font-size: 65px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .hero-sub {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-badge {
+    top: 60%;
+    left: -5%;
+  }
+
+  .hero-btns {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .frame {
+        z-index: 1;
+    }
+}
+
+/* Large Mobile / Small Tablet */
+@media (min-width: 641px) and (max-width: 767px) {
+  .hero-title {
+    font-size: 90px;
+    padding: 0 80px;
+  }
+
+  .hero-sub {
+    flex-direction: row;
+    gap: 24px;
+  }
+}
+
+/* Tablet Portrait */
+@media (min-width: 768px) and (max-width: 991px) {
+  #hero {
+    padding-bottom: 80px;
+  }
+
+  .hero-title {
+    font-size: 110px;
+    padding: 0 60px;
+    margin-top: 80px;
+  }
+
+  .hero-sub {
+    flex-direction: row;
+    gap: 32px;
+    align-items: flex-end;
+  }
+
+  .hero-badge {
+    top: 5%;
+    right: 10%;
+    left: auto;
+  }
+
+  .hero-btns {
+    justify-content: flex-start;
+  }
+
+  .frame {
+        z-index: 1;
+    }
+}
+
+/* Tablet Landscape / Small Desktop */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .hero-title {
+    font-size: 100px;
+    padding: 0 80px;
+  }
+
+  .hero-portrait {
+    margin-top: -150px;
+  }
+
+  .frame {
+        z-index: 1;
+    }
+
+  .hero-badge {
+    top: 50%;
+  }
+}
+
+/* Tablet Landscape */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .hero-portrait {
+    margin-top: -200px;
+  }
+  .frame {
+        z-index: 1;
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   3. MAIN HEADING
+   ═══════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .main-heading { font-size: 2rem; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   4. ABOUT SECTION
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Mobile */
+@media (max-width: 768px) {
+  #about {
+    padding: 80px 24px;
+    gap: 32px;
+  }
+
+  #about .section-heading {
+    font-size: 28px;
+    line-height: 1.3;
+  }
+
+  .cards-wrapper {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .card {
+    padding: 24px 20px;
+    min-height: auto;
+  }
+
+  .card-header {
+    margin-bottom: 20px;
+  }
+
+  .card-title {
+    font-size: 18px;
+    line-height: 1.4;
+    margin-bottom: 16px;
+  }
+
+  .card-desc-box p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+}
+
+/* Large Mobile / Small Tablet */
+@media (min-width: 641px) and (max-width: 767px) {
+  .cards-wrapper {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .card {
+    padding: 32px;
+  }
+
+  .card-title {
+    font-size: 22px;
+  }
+}
+
+/* Tablet Portrait */
+@media (min-width: 768px) and (max-width: 991px) {
+  #about {
+    padding: 100px 40px;
+    gap: 48px;
+  }
+
+  #about .section-heading {
+    font-size: 36px;
+  }
+
+  .cards-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .card {
+    padding: 32px;
+    min-height: 320px;
+  }
+
+  .card-title {
+    font-size: 20px;
+  }
+
+  .card-desc-box p {
+    font-size: 14px;
+  }
+}
+
+/* Tablet Landscape / Small Desktop */
+@media (min-width: 992px) and (max-width: 1199px) {
+  #about {
+    padding: 120px 60px;
+  }
+
+  .cards-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+
+  .card {
+    padding: 40px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   5. VALUE PROPOSITION (VP) CARDS
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Mobile */
+@media (max-width: 768px) {
+  .vp-cards {
+    flex-direction: column;
+    border: 1px solid var(--border-color);
+  }
+
+  .vp-card {
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .vp-card:last-child {
+    border-bottom: none;
+  }
+}
+
+/* Large Mobile / Small Tablet */
+@media (min-width: 641px) and (max-width: 767px) {
+  .vp-cards {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .vp-card {
+    padding: 32px;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+  }
+}
+
+/* Tablet Portrait */
+@media (min-width: 768px) and (max-width: 991px) {
+  .vp-cards {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .vp-card {
+    flex: 1 1 50%;
+    padding: 40px 32px;
+    border-right: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .vp-card:nth-child(2) { border-right: none; }
+  .vp-card:nth-child(3),
+  .vp-card:nth-child(4) { border-bottom: none; }
+}
+
+/* Tablet Landscape / Small Desktop */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .vp-card {
+    padding: 48px 36px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   6. FRAMEWORK HEADER
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Mobile */
+@media (max-width: 768px) {
+  .framework-header {
+    width: 100%;
+    padding: 100px clamp(24px, 10vw, 150px);
+  }
+
+  .heading-page {
+    width: 100% !important;
+  }
+
+  .heading-page br { display: none; }
+
+  .framework-header h2,
+  .framework-header p {
+    max-width: 100%;
+  }
+}
+
+/* Large Mobile / Small Tablet */
+@media (min-width: 641px) and (max-width: 767px) {
+  .framework-header {
+    padding: 80px 48px;
+  }
+
+  .heading-page {
+    font-size: 32px;
+  }
+}
+
+/* Tablet Portrait */
+@media (min-width: 768px) and (max-width: 991px) {
+  .framework-header {
+    padding: 100px 40px;
+    width: 100%;
+  }
+
+  .heading-page {
+    font-size: 40px;
+    width: 100%;
+  }
+
+  .framework-header h2,
+  .framework-header p {
+    max-width: 90%;
+  }
+}
+
+/* Tablet Landscape / Small Desktop */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .framework-header {
+    padding: 120px 60px;
+  }
+
+  .heading-page {
+    font-size: 48px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   7. SERVICES SECTION
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Mobile */
+@media (max-width: 768px) {
+  #services {
+    padding-bottom: 0;
+  }
+
+  .service-item {
+    padding: 48px 24px;
+  }
+}
+
+/* Tablet Portrait */
+@media (min-width: 768px) and (max-width: 991px) {
+  .service-item {
+    padding: 60px 40px;
+  }
+
+  .service-item h3 {
+    font-size: 28px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   8. CARD END / APPETIZERS
+   ═══════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .card-end .heading-page {
+    padding: 0 24px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   9. FRAMEWORK STEPS
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Mobile */
+@media (max-width: 768px) {
+  .fw-step {
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .fw-step-content {
+    padding: 32px;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .fw-step-img {
+    min-height: 300px;
+  }
+}
+
+/* Tablet Portrait */
+@media (min-width: 768px) and (max-width: 991px) {
+  .fw-step {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .fw-step-content {
+    padding: 48px 40px;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .fw-step-img {
+    min-height: 400px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   10. WHAT I HANDLE SECTION
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Small Mobile */
+@media (max-width: 640px) {
+  .handle-card {
+    width: 280px;
+  }
+
+  .handle-card-inner {
+    padding: 24px;
+  }
+
+  .handle-index {
+    font-size: 40px;
+  }
+
+  .handle-title {
+    font-size: 20px;
+  }
+}
+
+/* Mobile / Tablet Portrait max */
+@media (max-width: 968px) {
+  .handle-track {
+    padding: 0 24px;
+    gap: 20px;
+  }
+
+  .handle-card {
+    width: 320px;
+  }
+
+  .handle-card-inner {
+    padding: 32px;
+  }
+
+  .handle-index {
+    font-size: 48px;
+  }
+
+  .handle-title {
+    font-size: 22px;
+  }
+}
+
+/* Tablet Portrait */
+@media (min-width: 768px) and (max-width: 991px) {
+  .handle-track {
+    padding: 0 40px;
+    gap: 24px;
+  }
+
+  .handle-card {
+    width: 340px;
+  }
+
+  .handle-card-inner {
+    padding: 36px;
+  }
+
+  .handle-index {
+    font-size: 56px;
+  }
+
+  .handle-title {
+    font-size: 24px;
+  }
+}
+
+/* Tablet Landscape / Small Desktop */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .handle-track {
+    padding: 0 calc(50vw - 200px);
+  }
+
+  .handle-card {
+    width: 380px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   11. WORK BODY
+   ═══════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .work-body {
+    background-color: var(--bg-page);
+  }
+
+  .work-header br {
+    display: none;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   12. TESTIMONIALS SECTION
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Mobile */
+@media (max-width: 768px) {
+  #testimonials {
+    height: auto;
+    min-height: auto;
+    padding: 80px var(--gap-loose);
+  }
+
+  .testi-scroll > a {
+    display: flex;
+    flex-shrink: 0;
+  }
+
+  .testi-card {
+    padding: 20px;
+    width: 85vw;
+    max-width: 350px;
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .testi-inner {
+    flex-direction: column;
+    gap: 16px;
+    height: 100%;
+  }
+
+  .testi-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .testi-avatar {
+    width: 80px;
+    height: 80px;
+  }
+
+  .testi-top {
+    flex-direction: column-reverse;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .testi-top > svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .testi-name {
+    font-size: 16px;
+  }
+
+  .testi-role {
+    font-size: 13px;
+  }
+
+  .testi-text {
+    width: 100%;
+    font-size: 14px;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .testi-stars {
+    padding-top: 12px;
+    margin-top: 12px;
+  }
+
+  .testi-stars svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* Large Mobile / Small Tablet */
+@media (min-width: 641px) and (max-width: 767px) {
+  .testi-card {
+    width: 70vw;
+    max-width: 400px;
+  }
+}
+
+/* Tablet Portrait */
+@media (min-width: 768px) and (max-width: 991px) {
+  #testimonials {
+    padding: 100px 40px;
+  }
+
+  
+
+  .testi-card {
+    width: 45vw;
+    max-width: 420px;
+    padding: 28px;
+  }
+
+  .testi-avatar {
+    width: 90px;
+    height: 90px;
+  }
+
+  .testi-name {
+    font-size: 18px;
+  }
+}
+
+/* Tablet Landscape / Small Desktop */
+@media (min-width: 992px) and (max-width: 1199px) {
+  #testimonials {
+    height: 150vh;
+  }
+.testi-inner {
+    flex-direction: column;
+    gap: 16px;
+    height: 100%;
+  }
+  .testi-card {
+    width: 40vw;
+    max-width: 480px;
+    height: 100%;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   13. FAQ SECTION
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Mobile */
+@media (max-width: 768px) {
+  #faq .container {
+    flex-direction: column;
+    gap: 48px;
+  }
+}
+
+/* Tablet Portrait */
+@media (min-width: 768px) and (max-width: 991px) {
+  #faq .container {
+    flex-direction: column;
+    gap: 60px;
+    padding: 0 40px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   14. CTA SECTION
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Mobile */
+@media (max-width: 768px) {
+  #cta {
+    padding: 128px 24px;
+  }
+}
+
+/* Tablet Portrait */
+@media (min-width: 768px) and (max-width: 991px) {
+  #cta {
+    padding: 150px 40px;
+  }
+
+  #cta .heading-page {
+    font-size: 36px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   15. FOOTER
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Mobile */
+@media (max-width: 768px) {
+  .footer-brand-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+  }
+
+  .footer-links {
+    row-gap: 15px;
+  }
+}
+
+/* Tablet Portrait */
+@media (min-width: 768px) and (max-width: 991px) {
+  .footer-brand-row {
+    flex-direction: row;
+    gap: 24px;
+  }
+
+  .footer-bottom {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   16. ANIMATION COMPONENTS
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Mobile */
+@media (max-width: 768px) {
+  .slider-3D-img {
+    top: 50%;
+    left: 50%;
+  }
+
+  .head-slider {
+    width: 100vw;
+    text-wrap: wrap;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   17. CONTACT FORM
+   ═══════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 560px) {
+  .field-grid.two-col {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   18. PROJECTS PAGE
+   ═══════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 900px) {
+  .arch-list {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .arch-group {
+    flex-direction: column;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   19. PROJECT PAGE
+   ═══════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .toc {
+    display: none;
+  }
+}
+
+/* Tablet Portrait */
+@media (min-width: 768px) and (max-width: 991px) {
+  .toc {
+    width: 240px;
+  }
+}
+
+/* Tablet Landscape / Small Desktop */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .project-layout {
+    gap: 40px;
+  }
+
+  .toc {
+    width: 260px;
+  }
+
+  .project-main {
+    max-width: calc(100% - 300px);
+  }
+}
+
+@media (max-width: 600px) {
+  .case-study {
+    padding-right: 0;
+  }
+}

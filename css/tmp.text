@@ -1,0 +1,27 @@
+responsive.css
+├── 1. GLOBAL LAYOUT
+│   ├── Container (Mobile → Tablet → Desktop)
+│   └── Page Wrapper
+├── 2. HERO SECTION
+│   ├── Mobile
+│   ├── Large Mobile / Small Tablet
+│   ├── Tablet Portrait
+│   ├── Tablet Landscape
+│   └── Desktop
+├── 3. MAIN HEADING
+├── 4. ABOUT SECTION
+├── 5. VALUE PROPOSITION CARDS
+├── 6. FRAMEWORK HEADER
+├── 7. SERVICES SECTION
+├── 8. CARD END / APPETIZERS
+├── 9. FRAMEWORK STEPS
+├── 10. WHAT I HANDLE SECTION
+├── 11. WORK BODY
+├── 12. TESTIMONIALS SECTION
+├── 13. FAQ SECTION
+├── 14. CTA SECTION
+├── 15. FOOTER
+├── 16. ANIMATION COMPONENTS
+├── 17. CONTACT FORM
+├── 18. PROJECTS PAGE
+└── 19. PROJECT PAGE

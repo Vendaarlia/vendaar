@@ -44,8 +44,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 1000px;
-  height: 700px;
+  width: 80%;
 }
 
 img {
@@ -115,34 +114,4 @@ img {
   object-fit: cover;
   display: block;
   opacity: 0.4;
-}
-
-@media (max-width: 768px) {
-  .slider-3D-img {
-    top: 50%;
-    left: 50%;
-  }
-
-  .head-slider {
-    width: 100vw;
-    text-wrap: wrap;
-  }
-
-  .badge-tag.centered {
-    text-wrap: nowrap;
-  }
-
-  .img-slider {
-    width: 90vw;
-    height: 60vh;
-  }
-
-  .img-slider img {
-    width: 100%;
-    object-fit: contain;
-  }
-
-  .area-slider-3D-img {
-  height: 300vh;
-}
 }
