@@ -830,16 +830,129 @@
    19. PROJECT PAGE
    ═══════════════════════════════════════════════════════════════════ */
 
+/* Mobile */
 @media (max-width: 768px) {
+  /* TOC hidden on mobile */
   .toc {
     display: none;
+  }
+
+  /* Project Layout - single column */
+  .project-layout {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .project-main {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  /* Project Header */
+  .project-header {
+    padding: 60px 20px;
+  }
+
+  .project-title {
+    font-size: 32px;
+    margin-bottom: 24px;
+  }
+
+  /* Project Meta - fix button stacking */
+  .project-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .project-meta span {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    padding: 0 0 8px 0;
+    width: 100%;
+  }
+
+  .project-meta span:last-of-type {
+    border-bottom: none;
+  }
+
+  /* Project Links/Buttons - full width stack */
+  .project-meta a,
+  .project-links a {
+    display: block;
+    width: 100%;
+    margin: 4px 0;
+    text-align: center;
+  }
+
+  /* Project Content */
+  .project-body {
+    padding: 0 20px;
+  }
+
+  /* Case Study sections */
+  .case-study {
+    padding-right: 0;
+  }
+
+  /* Architecture Blueprint */
+  .project-arch h3 {
+    font-size: 12px;
+  }
+
+  .project-arch dl {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  /* Project Gallery */
+  .project-gallery {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  /* Pagination */
+  .project-pagination {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .project-pagination .prev,
+  .project-pagination .next {
+    width: 100%;
   }
 }
 
 /* Tablet Portrait */
 @media (min-width: 768px) and (max-width: 991px) {
   .toc {
-    width: 240px;
+    width: 200px;
+    position: relative;
+  }
+
+  .project-layout {
+    gap: 32px;
+  }
+
+  .project-main {
+    max-width: calc(100% - 232px);
+  }
+
+  .project-header {
+    padding: 80px 40px;
+  }
+
+  .project-title {
+    font-size: 42px;
+  }
+
+  .project-meta {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .project-meta a {
+    margin: 4px 8px 4px 0;
   }
 }
 
@@ -858,6 +971,7 @@
   }
 }
 
+/* Case Study Mobile */
 @media (max-width: 600px) {
   .case-study {
     padding-right: 0;

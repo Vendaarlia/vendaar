@@ -316,6 +316,7 @@ margin: 0 auto;
   width: 100%;
   height: fit-content;
   padding: 100px clamp(24px, 10vw, 150px);
+  background-color: var(--bg-page);
 }
 
 /* ── TESTIMONIALS ── */

@@ -6,7 +6,7 @@ slug: "pm-panel-ds"
 cover: "/projects/projects-img/pm/result4.png"
 role: "Full-stack Developer & Designer"
 link:
-  Live Demo: https://pm.vendaar.top
+  Live Demo: https://pm-panel.joomlacort.workers.dev/
   GitHub: https://github.com/Vendaarlia/PM-panel
   Demo:
 architecture:

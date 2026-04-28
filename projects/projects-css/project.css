@@ -221,10 +221,6 @@ body::after {
   transition: all 0.3s ease;
 }
 
-.project-meta a:first-of-type {
-  margin-left: 16px;
-}
-
 .project-meta a:hover {
   background-color: var(--purple-hover);
   transform: translateY(-2px);
