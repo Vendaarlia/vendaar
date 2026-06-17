@@ -1,5 +1,5 @@
 ---
-title: "Borgo — Design System"
+title: "Travel Agency Website Flow Audit: Reducing Cognitive Overload and Improving Navigation Clarity"
 client: "Borgo"
 year: "2025"
 slug: "borgo-ds-css"
@@ -7,13 +7,16 @@ cover: "/projects/projects-img/borgo/hero-section.png"
 role: "as Designer and Developer"
 link:
   Design Pitch: ./pdf-view.html?project=borgo-ds
-  Live Demo: https://www.by.vendaar.top/borgo/index.html
+  Live Demo: https://www.by.vendaar.top/08312/borgo/index.html
   Figma Design: https://www.figma.com/design/IJVnF6i0KIcZ48eI2eyQgX/Borgo-Tours?node-id=263-532&t=6X5NjEppCgk28cwV-1
 architecture:
-  Web Framework: "Astro"
-  UI Library: "Vue.js, Tailwind CSS"
-  Motion: "GSAP, Framer Motion"
+  Web Framework: "HTML"
+  Styling: "Css"
+  Interaction: "JavaScript"
+  Motion: "GSAP"
+  Deployment & Edge Layer: "Shared Hosting"
 ---
+
 ![result](/projects/projects-img/borgo/service-section.png)
 ![result](/projects/projects-img/borgo/block-section.png)
 ![result](/projects/projects-img/borgo/testi-section.png)
@@ -65,12 +68,12 @@ Navigation clarity improved by 40%, with no user confusion reported.
 
 ## 1. Color Tokens
 
-| Token                  | Hex         | Usage                                     |
-| ---------------------- | ----------- | ----------------------------------------- |
+| Token                | Hex       | Usage                                     |
+| -------------------- | --------- | ----------------------------------------- |
 | `color.background`   | `#fffcfb` | Main background color and navbar          |
 | `color.text-dark`    | `#19120c` | Color of main text, headings, and footers |
 | `color.text-light`   | `#fffcfb` | Color text over dark background           |
-| `color.orange`       | `#f8681f` | Brand primary — main buttons and accents |
+| `color.orange`       | `#f8681f` | Brand primary — main buttons and accents  |
 | `color.orange-hover` | `#ea580c` | Hover state for orange element            |
 | `color.card-bg`      | `#fef6f3` | Content card background color             |
 
@@ -87,8 +90,8 @@ Navigation clarity improved by 40%, with no user confusion reported.
 
 # Type Scale
 
-| Token                        | Family    | Size          | Weight | Line Height | Usage                                   |
-| ---------------------------- | --------- | ------------- | ------ | ----------- | --------------------------------------- |
+| Token                      | Family    | Size          | Weight | Line Height | Usage                                   |
+| -------------------------- | --------- | ------------- | ------ | ----------- | --------------------------------------- |
 | `typography.hero-title`    | Kodchasan | 4.5rem (72px) | 300    | 110%        | Main title in Hero section              |
 | `typography.nav-brand`     | Kodchasan | 40.5px        | 300    | 100%        | Logo/Brand on Navbar                    |
 | `typography.section-title` | Kodchasan | 36px          | 300    | 110%        | Main section title                      |
@@ -100,8 +103,8 @@ Navigation clarity improved by 40%, with no user confusion reported.
 
 ## 3. Spacing & Sizing
 
-| Token                   | Value | Tailwind       | Usage                                    |
-| ----------------------- | ----- | -------------- | ---------------------------------------- |
+| Token                 | Value | Tailwind     | Usage                                    |
+| --------------------- | ----- | ------------ | ---------------------------------------- |
 | `spacing.container`   | 15%   | `px-[15%]`   | Main horizontal padding of the container |
 | `spacing.section-gap` | 80px  | `py-[80px]`  | Vertical padding between sections        |
 | `spacing.card-gap`    | 29px  | `gap-[29px]` | Distance between cards in the wrapper    |
@@ -111,8 +114,8 @@ Navigation clarity improved by 40%, with no user confusion reported.
 
 ## 4. Border Radius
 
-| Token             | Value | Tailwind           | Usage                                   |
-| ----------------- | ----- | ------------------ | --------------------------------------- |
+| Token           | Value | Tailwind         | Usage                                   |
+| --------------- | ----- | ---------------- | --------------------------------------- |
 | `radius.card`   | 20px  | `rounded-[20px]` | Main radius for section card            |
 | `radius.image`  | 15px  | `rounded-[15px]` | Radius for image container inside card  |
 | `radius.button` | 50px  | `rounded-[50px]` | Radius untuk tombol pill-shaped         |
@@ -133,8 +136,8 @@ Navigation clarity improved by 40%, with no user confusion reported.
   --card-bg: #fef6f3;
 
   /* Typography */
-  --font-primary: 'Alegreya Sans', sans-serif;
-  --font-secondary: 'Kodchasan', sans-serif;
+  --font-primary: "Alegreya Sans", sans-serif;
+  --font-secondary: "Kodchasan", sans-serif;
 }
 ```
 
@@ -142,12 +145,12 @@ Navigation clarity improved by 40%, with no user confusion reported.
 
 ## 6. Token Usage Map
 
-| **Token**           | **Value** | **Digunakan di**         | **Tailwind**                            |
-| ------------------------- | --------------- | ------------------------------ | --------------------------------------------- |
-| `color.background`      | `#fffcfb`     | Page bg, navbar bg, section bg | `bg-[#fffcfb]`                              |
-| `color.orange`          | `#f8681f`     | Primary button, accent footer  | `bg-[#f8681f]`                              |
-| `color.text-dark`       | `#19120c`     | All headings, body text        | `text-[#19120c]`                            |
-| `typography.hero-title` | Kodchasan 72px  | Hero headline                  | `font-['Kodchasan'] text-[72px] font-light` |
-| `typography.body`       | Alegreya 16px   | Description, content paragraph | `font-['Alegreya_Sans'] text-[16px]`        |
-| `radius.button`         | 50px            | All buttons are pill-shaped    | `rounded-[50px]`                            |
-| `spacing.container`     | 15%             | Inner wrapper all sections     | `px-[15%]`                                  |
+| **Token**               | **Value**      | **Digunakan di**               | **Tailwind**                                |
+| ----------------------- | -------------- | ------------------------------ | ------------------------------------------- |
+| `color.background`      | `#fffcfb`      | Page bg, navbar bg, section bg | `bg-[#fffcfb]`                              |
+| `color.orange`          | `#f8681f`      | Primary button, accent footer  | `bg-[#f8681f]`                              |
+| `color.text-dark`       | `#19120c`      | All headings, body text        | `text-[#19120c]`                            |
+| `typography.hero-title` | Kodchasan 72px | Hero headline                  | `font-['Kodchasan'] text-[72px] font-light` |
+| `typography.body`       | Alegreya 16px  | Description, content paragraph | `font-['Alegreya_Sans'] text-[16px]`        |
+| `radius.button`         | 50px           | All buttons are pill-shaped    | `rounded-[50px]`                            |
+| `spacing.container`     | 15%            | Inner wrapper all sections     | `px-[15%]`                                  |

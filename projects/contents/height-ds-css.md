@@ -1,19 +1,22 @@
 ---
-title: "HEIGHT — Design System"
+title: "HEIGHT Landing Page System Audit: Reducing Cognitive Overload and Improving Value Proposition Clarity"
 client: "HEIGHT"
 year: "2024"
 slug: "height-ds-css"
 cover: "/projects/projects-img/height/result1.png"
 role: "Design System Documentation"
 link:
-  Design Pitch: 
-  Live Demo: https://www.by.vendaar.top/height/index.html
+  Design Pitch:
+  Live Demo: https://www.by.vendaar.top/08312/height/index.html
   Figma Design: https://www.figma.com/design/bcwApWuEhg1CutHJnAlQek/HEIGHT-LANDING-PAGE?node-id=0-1&t=jDT6YhRjEHD9atG1-1
 architecture:
-  Web Framework: "HTML, SCSS, JavaScript"
-  UI Library: "Custom CSS"
+  Web Framework: "HTML"
+  Styling: "Css"
+  Interaction: "JavaScript"
   Motion: "GSAP"
+  Deployment & Edge Layer: "Shared Hosting"
 ---
+
 ![result](/projects/projects-img/height/result1.png)
 ![result](/projects/projects-img/height/result2.png)
 ![result](/projects/projects-img/height/result3.png)
@@ -42,14 +45,14 @@ The result is a more focused and readable homepage where users can understand th
 
 ## 1. Color Tokens
 
-| Token                  | Hex         | Usage                                          |
-| ---------------------- | ----------- | ---------------------------------------------- |
+| Token                | Hex       | Usage                                         |
+| -------------------- | --------- | --------------------------------------------- |
 | `color.background`   | `#584B53` | Main page background — Deep Earth Brown       |
 | `color.primary`      | `#E4BB97` | Brand Gold — Navigation, buttons, and accents |
-| `color.primary-dark` | `#D1A781` | Hover state for Gold elements                  |
-| `color.light`        | `#FEF5EF` | Main text and Cream component background       |
-| `color.accent-blue`  | `#D6E3F8` | Secondary element background                   |
-| `color.accent-red`   | `#9D5C63` | Aksen warna kontras                            |
+| `color.primary-dark` | `#D1A781` | Hover state for Gold elements                 |
+| `color.light`        | `#FEF5EF` | Main text and Cream component background      |
+| `color.accent-blue`  | `#D6E3F8` | Secondary element background                  |
+| `color.accent-red`   | `#9D5C63` | Aksen warna kontras                           |
 
 ---
 
@@ -65,8 +68,8 @@ The result is a more focused and readable homepage where users can understand th
 
 ### Type Scale
 
-| Token                        | Family | Size (Clamp) | Weight | Line Height | Usage                           |
-| ---------------------------- | ------ | ------------ | ------ | ----------- | ------------------------------- |
+| Token                      | Family | Size (Clamp) | Weight | Line Height | Usage                           |
+| -------------------------- | ------ | ------------ | ------ | ----------- | ------------------------------- |
 | `typography.hero-title`    | Inter  | 10vw (Max)   | 800    | 110%        | Giant main title in Hero        |
 | `typography.section-title` | Inter  | 55px         | 700    | 120%        | Large section title             |
 | `typography.subtitle`      | Geist  | 16px - 20px  | 500    | 140%        | Component sub-title             |
@@ -76,8 +79,8 @@ The result is a more focused and readable homepage where users can understand th
 
 ## 3. Spacing & Sizing
 
-| Token               | Value | Tailwind      | Usage                             |
-| ------------------- | ----- | ------------- | --------------------------------- |
+| Token             | Value | Tailwind    | Usage                             |
+| ----------------- | ----- | ----------- | --------------------------------- |
 | `spacing.xs`      | 8px   | `p-[8px]`   | Micro element spacing             |
 | `spacing.sm`      | 16px  | `p-[16px]`  | Small UI element padding          |
 | `spacing.md`      | 24px  | `p-[24px]`  | Card and grid padding             |
@@ -88,8 +91,8 @@ The result is a more focused and readable homepage where users can understand th
 
 ## 4. Border Radius
 
-| Token             | Value | Tailwind           | Usage                         |
-| ----------------- | ----- | ------------------ | ----------------------------- |
+| Token           | Value | Tailwind         | Usage                         |
+| --------------- | ----- | ---------------- | ----------------------------- |
 | `radius.button` | 50px  | `rounded-[50px]` | Pill-shaped button            |
 | `radius.card`   | 30px  | `rounded-[30px]` | Main card and modal container |
 | `radius.circle` | 50%   | `rounded-full`   | Icons and circular elements   |
@@ -104,10 +107,10 @@ The result is a more focused and readable homepage where users can understand th
 
 | Property         | Value                |
 | ---------------- | -------------------- |
-| Background       | `#E4BB97`          |
-| Text Color       | `#584B53`          |
+| Background       | `#E4BB97`            |
+| Text Color       | `#584B53`            |
 | Border Radius    | 50px (radius.button) |
-| Hover Background | `#D1A781`          |
+| Hover Background | `#D1A781`            |
 
 ---
 
@@ -117,7 +120,7 @@ The result is a more focused and readable homepage where users can understand th
 
 | Property        | Value                |
 | --------------- | -------------------- |
-| Background      | `#FEF5EF`          |
+| Background      | `#FEF5EF`            |
 | Border Radius   | 30px (radius.card)   |
 | Backdrop Filter | Blur 30px (Nav Menu) |
 
@@ -134,8 +137,8 @@ The result is a more focused and readable homepage where users can understand th
   --blue-pale: #d6e3f8;
 
   /* Typography */
-  --font-primary: 'Inter', sans-serif;
-  --font-secondary: 'Geist', sans-serif;
+  --font-primary: "Inter", sans-serif;
+  --font-secondary: "Geist", sans-serif;
 
   /* Radius */
   --radius-btn: 50px;
@@ -147,13 +150,13 @@ The result is a more focused and readable homepage where users can understand th
 
 ## 7. Token Usage Map
 
-| **Token**           | **Value** | **Used in**                       | **Tailwind**                            |
-| ------------------------- | --------------- | --------------------------------------- | --------------------------------------------- |
-| `color.background`      | `#584B53`     | Page bg, all section bg, main container | `bg-[#584B53]`                              |
-| `color.primer`          | `#E4BB97`     | Navbar bg, all btn-gold, active accent  | `bg-[#E4BB97]`                              |
-| `color.light`           | `#FEF5EF`     | Body text, product card background      | `text-[#FEF5EF]`                            |
-| `typography.h1`         | Inter 800 10vw  | Hero headline                           | `font-['Inter'] text-[10vw] font-extrabold` |
-| `typography.body`       | Inter 400 16px  | Paragraph, product description          | `font-['Inter'] text-[16px]`                |
-| `radius.button`         | 50px            | All action buttons                      | `rounded-[50px]`                            |
-| `radius.card`           | 30px            | Card container, nav menu popup          | `rounded-[30px]`                            |
-| `spacing.content-width` | 1140px          | Inner wrapper for all sections          | `max-w-[1140px]`                            |
+| **Token**               | **Value**      | **Used in**                             | **Tailwind**                                |
+| ----------------------- | -------------- | --------------------------------------- | ------------------------------------------- |
+| `color.background`      | `#584B53`      | Page bg, all section bg, main container | `bg-[#584B53]`                              |
+| `color.primer`          | `#E4BB97`      | Navbar bg, all btn-gold, active accent  | `bg-[#E4BB97]`                              |
+| `color.light`           | `#FEF5EF`      | Body text, product card background      | `text-[#FEF5EF]`                            |
+| `typography.h1`         | Inter 800 10vw | Hero headline                           | `font-['Inter'] text-[10vw] font-extrabold` |
+| `typography.body`       | Inter 400 16px | Paragraph, product description          | `font-['Inter'] text-[16px]`                |
+| `radius.button`         | 50px           | All action buttons                      | `rounded-[50px]`                            |
+| `radius.card`           | 30px           | Card container, nav menu popup          | `rounded-[30px]`                            |
+| `spacing.content-width` | 1140px         | Inner wrapper for all sections          | `max-w-[1140px]`                            |

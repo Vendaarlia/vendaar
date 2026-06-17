@@ -1,14 +1,14 @@
 ---
-title: "PM-Panel — Design System"
+title: "Self-Initiated Multi-Tenant System: Designing and Engineering Isolated Client Workflows"
 client: "Personal Project / SaaS Platform"
 year: "2026"
 slug: "pm-panel-ds"
 cover: "/projects/projects-img/pm/result4.png"
-role: "Full-stack Developer & Designer"
+role: "AI Native Engineer"
 link:
   Live Demo: https://pm-panel.joomlacort.workers.dev/
   GitHub: https://github.com/Vendaarlia/PM-panel
-  Demo:
+  
 architecture:
   Runtime: "Bun"
   Web Framework: "Astro"
@@ -16,7 +16,7 @@ architecture:
   Data Access: "Drizzle ORM"
   Databas: "Turso"
   Styling: "Css"
-  Motion: 
+  Motion: "GSAP"
   Deployment & Edge Layer: "Cloudflare Workers"
 ---
 ![result](/projects/projects-img/pm/result1.png)

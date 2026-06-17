@@ -1,19 +1,22 @@
 ---
-title: "MAXIM Hair Restoration — Design System"
+title: "Medical Service Landing Page Optimization: Reorganizing Information Hierarchy and Improving Trust Signal Clarity"
 client: "MAXIM Hair Restoration"
 year: "2025"
 slug: "maxim-ds-css"
 cover: "/projects/projects-img/maxim/hero-section.png"
 role: "as Designer"
 link:
-  Design Pitch: 
-  Live Demo: https://www.by.vendaar.top/maxim/index.html
+  Design Pitch:
+  Live Demo: https://www.by.vendaar.top/08312/maxim/index.html
   Figma Design: https://www.figma.com/design/A5bn55Pre7yH4sRsuz3bfn/MAXIM-WEBSITE?node-id=166-274&t=VE1qSMqtSUuYumvg-1
 architecture:
-  Web Framework: "HTML, CSS, JavaScript"
-  UI Library: "Bootstrap"
+  Web Framework: "HTML"
+  Styling: "Css"
+  Interaction: "JavaScript"
   Motion: "GSAP"
+  Deployment & Edge Layer: "Shared Hosting"
 ---
+
 ![result](/projects/projects-img/maxim/hero-section.png)
 ![result](/projects/projects-img/maxim/doctor-section.png)
 ![result](/projects/projects-img/maxim/shop-section.png)
@@ -46,14 +49,14 @@ The redesigned structure improves clarity, prioritizes key trust signals, and ma
 
 ## 1. Color Tokens
 
-| Token                  | Hex         | Usage                                         |
-| ---------------------- | ----------- | --------------------------------------------- |
+| Token                | Hex       | Usage                                        |
+| -------------------- | --------- | -------------------------------------------- |
 | `color.background`   | `#FDF5EB` | Main background of the page — Warm cream     |
 | `color.primary`      | `#8B3A36` | Main brand colors — Navbar, buttons, borders |
 | `color.primary-soft` | `#A25957` | Soft color accents — Info & card background  |
-| `color.bg-muted`     | `#F1E2DE` | Secondary element background or hover state   |
-| `color.text`         | `#2B2B2B` | Main text color (Heading & Body)              |
-| `color.text-muted`   | `#6B6B6B` | Supporting text color and metadata            |
+| `color.bg-muted`     | `#F1E2DE` | Secondary element background or hover state  |
+| `color.text`         | `#2B2B2B` | Main text color (Heading & Body)             |
+| `color.text-muted`   | `#6B6B6B` | Supporting text color and metadata           |
 
 ---
 
@@ -67,8 +70,8 @@ The redesigned structure improves clarity, prioritizes key trust signals, and ma
 
 # Type Scale
 
-| Token                | Family | Size | Weight | Line Height | Usage                      |
-| -------------------- | ------ | ---- | ------ | ----------- | -------------------------- |
+| Token              | Family | Size | Weight | Line Height | Usage                      |
+| ------------------ | ------ | ---- | ------ | ----------- | -------------------------- |
 | `typography.h1`    | Roboto | 75px | 700    | 100%        | Main page title            |
 | `typography.h2`    | Roboto | 48px | 700    | 110%        | Large section title        |
 | `typography.h3`    | Roboto | 32px | 600    | 120%        | Card title or sub-section  |
@@ -79,8 +82,8 @@ The redesigned structure improves clarity, prioritizes key trust signals, and ma
 
 ## 3. Spacing & Sizing
 
-| Token               | Value | Tailwind       | Usage                                |
-| ------------------- | ----- | -------------- | ------------------------------------ |
+| Token             | Value | Tailwind     | Usage                                |
+| ----------------- | ----- | ------------ | ------------------------------------ |
 | `spacing.xs`      | 8px   | `gap-[8px]`  | Gap between small elements           |
 | `spacing.sm`      | 16px  | `p-[16px]`   | Button padding, list gap             |
 | `spacing.md`      | 24px  | `p-[24px]`   | Gap between cards, container padding |
@@ -92,8 +95,8 @@ The redesigned structure improves clarity, prioritizes key trust signals, and ma
 
 ## 4. Border Radius
 
-| Token           | Value | Tailwind           | Usage                               |
-| --------------- | ----- | ------------------ | ----------------------------------- |
+| Token         | Value | Tailwind         | Usage                               |
+| ------------- | ----- | ---------------- | ----------------------------------- |
 | `radius.sm`   | 12px  | `rounded-[12px]` | Buttons, form input                 |
 | `radius.md`   | 16px  | `rounded-[16px]` | Medium rounded image                |
 | `radius.lg`   | 20px  | `rounded-[20px]` | Component card & section background |
@@ -107,7 +110,7 @@ The redesigned structure improves clarity, prioritizes key trust signals, and ma
 :root {
   /* Colors */
   --primary: #8b3a36;
-  --primary-soft: #A25957;
+  --primary-soft: #a25957;
   --bg: #fdf5eb;
   --bg-muted: #f1e2de;
   --text: #2b2b2b;
@@ -131,11 +134,11 @@ The redesigned structure improves clarity, prioritizes key trust signals, and ma
 
 ## 6. Token Usage Map
 
-| **Token**      | **Value** | Used in                           | **Tailwind**                        |
-| -------------------- | --------------- | --------------------------------- | ----------------------------------------- |
-| `color.background` | `#FDF5EB`     | Main page background, section bg  | `bg-[#FDF5EB]`                          |
-| `color.primary`    | `#8B3A36`     | Navbar, primary buttons, accents  | `bg-[#8B3A36]`                          |
-| `color.text`       | `#2B2B2B`     | All headings, body text           | `text-[#2B2B2B]`                        |
-| `typography.h1`    | Roboto 75px     | Hero titles, headline             | `font-['Roboto'] text-[75px] font-bold` |
-| `radius.lg`        | 20px            | Main containers, gallery, cards   | `rounded-[20px]`                        |
-| `spacing.section`  | 80px            | Vertical padding between sections | `py-[80px]`                             |
+| **Token**          | **Value**   | Used in                           | **Tailwind**                            |
+| ------------------ | ----------- | --------------------------------- | --------------------------------------- |
+| `color.background` | `#FDF5EB`   | Main page background, section bg  | `bg-[#FDF5EB]`                          |
+| `color.primary`    | `#8B3A36`   | Navbar, primary buttons, accents  | `bg-[#8B3A36]`                          |
+| `color.text`       | `#2B2B2B`   | All headings, body text           | `text-[#2B2B2B]`                        |
+| `typography.h1`    | Roboto 75px | Hero titles, headline             | `font-['Roboto'] text-[75px] font-bold` |
+| `radius.lg`        | 20px        | Main containers, gallery, cards   | `rounded-[20px]`                        |
+| `spacing.section`  | 80px        | Vertical padding between sections | `py-[80px]`                             |

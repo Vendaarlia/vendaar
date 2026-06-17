@@ -120,9 +120,8 @@
   }
 
   .hero-badge {
-    top: 5%;
-    right: 10%;
-    left: auto;
+    top: 50%;
+    left: -20%;
   }
 
   .hero-btns {
@@ -548,11 +547,7 @@
 }
 
 /* Tablet Landscape / Small Desktop */
-@media (min-width: 992px) and (max-width: 1199px) {
-  .handle-track {
-    padding: 0 calc(50vw - 200px);
-  }
-
+@media (min-width: 992px) {
   .handle-card {
     width: 380px;
   }

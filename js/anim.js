@@ -473,14 +473,14 @@ document.addEventListener('DOMContentLoaded', () => {
   }, 0.3);
 
   // HORIZONTAL SCROLL - entire track moves left as user scrolls
-  gsap.to(handleTrack, {
-    x: () => -(handleTrack.scrollWidth - window.innerWidth + 100),
-    ease: 'none',
-    scrollTrigger: {
-      trigger: framework,
-      start: 'top top',
-      end: () => '+=' + handleTrack.scrollWidth,
-      scrub: 1
-    }
-  });
+  // gsap.to(handleTrack, {
+  //   x: () => -(handleTrack.scrollWidth - window.innerWidth + 100),
+  //   ease: 'none',
+  //   scrollTrigger: {
+  //     trigger: framework,
+  //     start: 'top top',
+  //     end: () => '+=' + handleTrack.scrollWidth,
+  //     scrub: 1
+  //   }
+  // });
 });

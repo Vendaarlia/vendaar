@@ -10,5 +10,11 @@
     "title": "LINK HOVER SCROLLUP",
     "link": "https://by.vendaar.top/labs/8_LINK_HOVER_SCROLLUP/index.html",
     "image": "/projects/projects-img/labs/8_LINK_HOVER_SCROLLUP.png"
+  },
+  {
+    "id": "lab-3",
+    "title": "BPOCKET",
+    "link": "https://by.vendaar.top/bpocket/index.html",
+    "image": "/projects/projects-img/labs/bpocket.png"
   }
 ]

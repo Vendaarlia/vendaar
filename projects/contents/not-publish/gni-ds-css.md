@@ -6,13 +6,14 @@ slug: "gni-ds"
 cover: "/projects/projects-img/gni/result1.png"
 role: "Designer"
 link:
-  Design Pitch: 
-  Live Demo: https://by.vendaar.top/gni/index.html
+  Design Pitch:
+  Live Demo: https://by.vendaar.top/08312/gni/index.html
   GitHub:
 architecture:
   Web Framework: "HTML, CSS, JavaScript"
   UI Library: "Bootstrap"
 ---
+
 ![result](/projects/projects-img/gni/result1.png)
 ![result](/projects/projects-img/gni/result2.png)
 ![result](/projects/projects-img/gni/result3.png)
@@ -23,10 +24,10 @@ architecture:
 
 This National Gallery of Indonesia website is a technical showcase that combines **editorial layout** (magazine-style) with **performant animations** using a modern yet lightweight tech stack. Built without JavaScript frameworks—only vanilla JS with GSAP for animations requiring timeline control.
 
-* Zero dependencies (except GSAP for complex animations)
-* Intersection Observer API for 60fps scroll animations
-* Modular CSS with 300+ custom properties
-* Lighthouse performance score: 95+
+- Zero dependencies (except GSAP for complex animations)
+- Intersection Observer API for 60fps scroll animations
+- Modular CSS with 300+ custom properties
+- Lighthouse performance score: 95+
 
 ---
 
@@ -40,11 +41,11 @@ This National Gallery of Indonesia website is a technical showcase that combines
 // @script.js
 function openMenu() {
   gsap.to(menuToggle, {
-    rotation: 45,           // Icon transforms to X
+    rotation: 45, // Icon transforms to X
     duration: 0.5,
   });
   gsap.to(menuToggle.querySelector("span"), {
-    color: "white",         // Color inversion
+    color: "white", // Color inversion
     duration: 0.5,
   });
   gsap.to(menu, {
@@ -68,19 +69,19 @@ function openMenu() {
 ```javascript
 // @scroll-animations.js
 const observer = new IntersectionObserver(observerCallback, {
-  threshold: 0.15,              // 15% visibility trigger
-  rootMargin: '0px 0px -50px 0px'  // Early trigger for smoother UX
+  threshold: 0.15, // 15% visibility trigger
+  rootMargin: "0px 0px -50px 0px", // Early trigger for smoother UX
 });
 ```
 
 **Animation Variants:**
 
-| Class                   | Effect                 | Use Case         |
-| ----------------------- | ---------------------- | ---------------- |
+| Class                 | Effect                | Use Case         |
+| --------------------- | --------------------- | ---------------- |
 | `scroll-fade-up`      | translateY(60px) → 0  | Content reveals  |
 | `scroll-fade-left`    | translateX(-80px) → 0 | Hero images      |
 | `scroll-scale-up`     | scale(0.85) → 1       | Feature sections |
-| `scroll-image-reveal` | Clip-path wipe         | Gallery images   |
+| `scroll-image-reveal` | Clip-path wipe        | Gallery images   |
 | `scroll-image-zoom`   | scale(1.2) → 1        | Article images   |
 
 **Stagger System:**
@@ -96,7 +97,7 @@ data-stagger="true" → generates scroll-delay-1, scroll-delay-2, etc.
 
 ```css
 .scroll-animate {
-  will-change: transform, opacity;  /* Only animated properties */
+  will-change: transform, opacity; /* Only animated properties */
 }
 ```
 
@@ -117,12 +118,16 @@ data-stagger="true" → generates scroll-delay-1, scroll-delay-2, etc.
 
 ```javascript
 let ticking = false;
-window.addEventListener('scroll', () => {
-  if (!ticking) {
-    requestAnimationFrame(updateParallax);
-    ticking = true;
-  }
-}, { passive: true });
+window.addEventListener(
+  "scroll",
+  () => {
+    if (!ticking) {
+      requestAnimationFrame(updateParallax);
+      ticking = true;
+    }
+  },
+  { passive: true },
+);
 ```
 
 ---
@@ -143,7 +148,7 @@ This layout is inspired by **print editorial design**—not using conventional 1
   flex: 1;
 }
 .about-copy .about-copy-col:nth-child(2) {
-  padding-right: 6rem;  /* Asymmetric whitespace */
+  padding-right: 6rem; /* Asymmetric whitespace */
 }
 ```
 
@@ -152,7 +157,7 @@ This layout is inspired by **print editorial design**—not using conventional 1
 ```css
 .about-hero-img {
   width: 100%;
-  height: 700px;  /* Fixed height like magazine spread */
+  height: 700px; /* Fixed height like magazine spread */
   margin: 2rem 0;
 }
 ```
@@ -170,16 +175,16 @@ This layout is inspired by **print editorial design**—not using conventional 1
 **Type Scale:**
 
 ```css
---font-size-hero: 8rem;      /* Logo/masthead */
---font-size-4xl: 4rem;       /* Section headers */
---font-size-3xl: 3rem;       /* Article titles */
---font-size-md: 1.5rem;      /* Body copy */
+--font-size-hero: 8rem; /* Logo/masthead */
+--font-size-4xl: 4rem; /* Section headers */
+--font-size-3xl: 3rem; /* Article titles */
+--font-size-md: 1.5rem; /* Body copy */
 ```
 
 **Line Height Treatment:**
 
 ```css
-line-height: 75%;  /* Tight for headlines */
+line-height: 75%; /* Tight for headlines */
 line-height: 120%; /* Relaxed for readability */
 ```
 
@@ -198,12 +203,17 @@ line-height: 120%; /* Relaxed for readability */
 
 ```css
 .tiles {
-  height: calc(95vh - 10rem);  /* Almost full viewport */
+  height: calc(95vh - 10rem); /* Almost full viewport */
   display: flex;
   gap: 1rem;
 }
-.tile-1 { background: #0a0a0a; color: white; }
-.tile-2 { border: 1.5px solid black; }
+.tile-1 {
+  background: #0a0a0a;
+  color: white;
+}
+.tile-2 {
+  border: 1.5px solid black;
+}
 ```
 
 ---
@@ -216,9 +226,12 @@ line-height: 120%; /* Relaxed for readability */
 
 ```javascript
 // Clone first/last cards for infinite illusion
-carouselChildrens.slice(-cardPerView).reverse().forEach((card) => {
-  carousel.insertAdjacentHTML("afterbegin", card.outerHTML);
-});
+carouselChildrens
+  .slice(-cardPerView)
+  .reverse()
+  .forEach((card) => {
+    carousel.insertAdjacentHTML("afterbegin", card.outerHTML);
+  });
 carouselChildrens.slice(0, cardPerView).forEach((card) => {
   carousel.insertAdjacentHTML("beforeend", card.outerHTML);
 });
@@ -246,7 +259,7 @@ const dragging = (e) => {
 .carousel {
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: calc((100% / 4) - 12px);  /* 4 cards visible */
+  grid-auto-columns: calc((100% / 4) - 12px); /* 4 cards visible */
   scroll-snap-type: x mandatory;
 }
 ```
@@ -262,7 +275,7 @@ const dragging = (e) => {
   /* Colors */
   --color-bg: #ffffff;
   --color-text: #0a0a0a;
-  
+
   /* Spacing Scale */
   --space-xs: 0.5rem;
   --space-sm: 1rem;
@@ -271,7 +284,7 @@ const dragging = (e) => {
   --space-xl: 3rem;
   --space-2xl: 4rem;
   --space-3xl: 6rem;
-  
+
   /* Transitions */
   --transition-fast: 0.3s;
   --transition-normal: 0.5s;

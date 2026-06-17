@@ -1,10 +1,10 @@
 ---
-title: "Optimizing Hostinger Dashboard"
-client: "Personal Project"
+title: "Hostinger Dashboard Optimization: Reducing Workflow Friction and Improving Operational Efficiency"
+client: "Personal Solving"
 year: "2025"
 slug: "hostinger-ds"
 cover: "/projects/projects-img/hostinger/result3.png"
-role: "Designer"
+role: "as Designer"
 link:
   Design Pitch: ./pdf-view.html?project=hostinger-ds
   Figma Design: https://www.figma.com/design/7aTNNc2DSu7FHZalv57tqv/home-dashboard-hostinger?node-id=77-2027&t=kWAt3eNUJhKaUaf1-1
