@@ -2,19 +2,13 @@
   {
     "id": "lab-1",
     "title": "VERTICAL CAROUSEL RESPONSIVE",
-    "link": "https://by.vendaar.top/labs/2_VERTICAL_CAROUSEL_RESPONSIVE/index.html",
+    "link": "https://by.vendaar.top/08312/labs/2_VERTICAL_CAROUSEL_RESPONSIVE/index.html",
     "image": "/projects/projects-img/labs/2_VERTICAL_CAROUSEL_RESPONSIVE.png"
   },
   {
     "id": "lab-2",
     "title": "LINK HOVER SCROLLUP",
-    "link": "https://by.vendaar.top/labs/8_LINK_HOVER_SCROLLUP/index.html",
+    "link": "https://by.vendaar.top/08312/labs/8_LINK_HOVER_SCROLLUP/index.html",
     "image": "/projects/projects-img/labs/8_LINK_HOVER_SCROLLUP.png"
-  },
-  {
-    "id": "lab-3",
-    "title": "BPOCKET",
-    "link": "https://by.vendaar.top/bpocket/index.html",
-    "image": "/projects/projects-img/labs/bpocket.png"
   }
 ]

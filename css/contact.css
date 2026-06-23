@@ -316,3 +316,27 @@
     textarea:focus-visible {
       outline: none;
     }
+
+    /* ─── Form Toggle ──────────────────────────────────────────── */
+    .form-toggle {
+      margin-top: 20px;
+    }
+    .form-toggle p {
+      font-size: 14px;
+      color: var(--text-subtle);
+    }
+    .toggle-link {
+      background: none;
+      border: none;
+      color: var(--color-primary);
+      cursor: pointer;
+      text-decoration: underline;
+      font-size: 14px;
+      padding: 0;
+    }
+    .toggle-link:hover {
+      color: var(--color-primary-bright);
+    }
+    .form-toggle-back {
+      margin-bottom: 24px;
+    }

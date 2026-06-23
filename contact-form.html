@@ -6,6 +6,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Project Inquiry</title>
 
+  <!-- Open Graph / Facebook, WhatsApp, LinkedIn -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vendaar.top/contact-form.html">
+  <meta property="og:title" content="Start a Project | vendaar">
+  <meta property="og:description"
+    content="Have a UI project that needs clarity? Tell me what you're working on and I'll get back to you within 24 hours.">
+  <meta property="og:image" content="https://vendaar.top/images/og-contact-cover.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="vendaar.top">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Start a Project | vendaar">
+  <meta name="twitter:description"
+    content="Have a UI project that needs clarity? Tell me what you're working on and I'll get back to you within 24 hours.">
+  <meta name="twitter:image" content="https://vendaar.top/img/index-OG.webp">
+
   <!-- CDN Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -13,13 +31,67 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=DM+Mono:wght@300;400&display=swap"
     rel="stylesheet" />
 
-  <!-- CDN EmailJS -->
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-
   <!-- Custom Styles -->
   <link rel="stylesheet" href="/css/global.css" />
   <link rel="stylesheet" href="/css/contact.css" />
   <link rel="stylesheet" href="/css/responsive.css" />
+  <style>
+    .toast {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.92);
+      background: #1a1a2e;
+      color: #e0e0e0;
+      padding: 24px 32px;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 500;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+      z-index: 99999;
+      opacity: 0;
+      transition: all 0.3s ease;
+      pointer-events: none;
+      max-width: 420px;
+      width: 90vw;
+      text-align: center;
+      border: 1px solid #2a2a3e;
+      line-height: 1.5;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+      pointer-events: auto;
+    }
+
+    .toast.success {
+      border-color: #22c55e;
+    }
+
+    .toast.error {
+      border-color: #ef4444;
+    }
+
+    .toast-close {
+      position: absolute;
+      top: 8px;
+      right: 10px;
+      background: none;
+      border: none;
+      color: #888;
+      font-size: 18px;
+      cursor: pointer;
+      padding: 2px 6px;
+      border-radius: 4px;
+      line-height: 1;
+    }
+
+    .toast-close:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.1);
+    }
+  </style>
 
   <!-- Custom Scripts -->
   <script src="/components/navbar.js"></script>
@@ -51,301 +123,353 @@
         and follow up if it aligns.</p>
     </header>
 
-    <!-- Form -->
-    <form id="inquiry-form" novalidate>
-
-      <!-- Honeypot -->
+    <!-- ── Quick Inquiry (Form A) ── -->
+    <form id="form-quick" novalidate>
       <div class="hp-field" aria-hidden="true">
-        <label for="hp_website">Website</label>
-        <input type="text" id="hp_website" name="hp_website" tabindex="-1" autocomplete="off" />
+        <label for="hp_website_quick">Website</label>
+        <input type="text" id="hp_website_quick" name="hp_website_quick" tabindex="-1" autocomplete="off" />
       </div>
-
-      <!-- ── Section 1: Core ──────────────────────────────────────── -->
-      <div class="form-section" aria-labelledby="section-core">
-        <div class="section-label" id="section-core">
-          <span class="section-num">01</span>
-          Core
+      <div class="form-section">
+        <div class="section-label">
+          <span class="section-num">Quick</span>
+          Inquiry
         </div>
-
-        <div class="field-grid two-col">
-
-          <!-- Name -->
-          <div class="field" id="field-name">
-            <label for="name">Full name <span class="req" aria-hidden="true">*</span></label>
-            <input type="text" id="name" name="name" placeholder="Your name" required aria-required="true"
-              autocomplete="name" />
+        <div class="field-grid">
+          <div class="field" id="qf-name">
+            <label for="q_name">Full name <span class="req">*</span></label>
+            <input type="text" id="q_name" name="q_name" placeholder="Your name" required autocomplete="name" />
             <span class="error-msg" role="alert">Name is required.</span>
           </div>
-
-          <!-- Email -->
-          <div class="field" id="field-email">
-            <label for="email">Email address <span class="req" aria-hidden="true">*</span></label>
-            <input type="email" id="email" name="email" placeholder="you@company.com" required aria-required="true"
+          <div class="field" id="qf-email" style="margin-top:20px;">
+            <label for="q_email">Email address <span class="req">*</span></label>
+            <input type="email" id="q_email" name="q_email" placeholder="you@company.com" required
               autocomplete="email" />
             <span class="helper">I'll use this to follow up on your project.</span>
             <span class="error-msg" role="alert">A valid email is required.</span>
           </div>
-
-        </div>
-
-        <div class="field-grid" style="margin-top:20px;">
-
-          <!-- Project Type -->
-          <div class="field" id="field-project_type">
-            <label for="project_type">Project type <span class="req" aria-hidden="true">*</span></label>
-            <select id="project_type" name="project_type" required aria-required="true">
-              <option value="" disabled selected>Select a type</option>
-              <option value="Landing page">Landing page</option>
-              <option value="Website">Website</option>
-              <option value="Redesign">Redesign</option>
-              <option value="Other">Other</option>
-            </select>
-            <span class="helper">What are you looking to build?</span>
-            <span class="error-msg" role="alert">Please select a project type.</span>
-          </div>
-
-          <!-- Project Summary -->
-          <div class="field" id="field-project_summary">
-            <label for="project_summary">Project summary <span class="req" aria-hidden="true">*</span></label>
-            <textarea id="project_summary" name="project_summary"
-              placeholder="Briefly describe what you need, goals, and any key details" rows="4" required
-              aria-required="true"></textarea>
+          <div class="field" id="qf-summary" style="margin-top:20px;">
+            <label for="q_summary">Project summary <span class="req">*</span></label>
+            <textarea id="q_summary" name="q_summary"
+              placeholder="Briefly describe what you need, goals, and any key details" rows="4" required></textarea>
             <span class="helper">Keep it short. Just enough for me to understand the scope.</span>
             <span class="error-msg" role="alert">Project summary is required.</span>
           </div>
-
         </div>
       </div>
-
-      <div class="form-divider"></div>
-
-      <!-- ── Section 2: Qualification ──────────────────────────────── -->
-      <div class="form-section" aria-labelledby="section-qual">
-        <div class="section-label" id="section-qual">
-          <span class="section-num">02</span>
-          Qualification
-        </div>
-
-        <div class="field-grid two-col">
-
-          <!-- Budget Range -->
-          <div class="field" id="field-budget_range">
-            <label for="budget_range">Budget range <span class="req" aria-hidden="true">*</span></label>
-            <select id="budget_range" name="budget_range" required aria-required="true">
-              <option value="" disabled selected>Select a range</option>
-              <option value="< $1k">&lt; $1k</option>
-              <option value="$1k–3k">$1k–3k</option>
-              <option value="$3k–5k">$3k–5k</option>
-              <option value="$5k+">$5k+</option>
-            </select>
-            <span class="helper">Rough range is enough. Helps me scope appropriately.</span>
-            <span class="error-msg" role="alert">Please select a budget range.</span>
-          </div>
-
-          <!-- Timeline -->
-          <div class="field" id="field-timeline">
-            <label for="timeline">Timeline <span class="req" aria-hidden="true">*</span></label>
-            <select id="timeline" name="timeline" required aria-required="true">
-              <option value="" disabled selected>Select timeline</option>
-              <option value="ASAP">ASAP</option>
-              <option value="2–4 weeks">2–4 weeks</option>
-              <option value="1–2 months">1–2 months</option>
-              <option value="Flexible">Flexible</option>
-            </select>
-            <span class="helper">When are you aiming to start or launch?</span>
-            <span class="error-msg" role="alert">Please select a timeline.</span>
-          </div>
-
-        </div>
-
-        <!-- Ready to Start -->
-        <div class="field-grid" style="margin-top:20px;">
-          <div class="field" id="field-ready_to_start">
-            <label>Are you ready to start? <span class="req" aria-hidden="true">*</span></label>
-            <div class="radio-group" role="radiogroup" aria-required="true">
-              <label class="radio-option">
-                <input type="radio" name="ready_to_start" value="Yes, ready to start" />
-                Yes, ready to start
-              </label>
-              <label class="radio-option">
-                <input type="radio" name="ready_to_start" value="No, just exploring" />
-                No, just exploring
-              </label>
-            </div>
-            <span class="helper">This helps me prioritize active projects.</span>
-            <span class="error-msg" role="alert">Please select an option.</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="form-divider"></div>
-
-      <!-- ── Section 3: Context ────────────────────────────────────── -->
-      <div class="form-section" aria-labelledby="section-ctx">
-        <div class="section-label" id="section-ctx">
-          <span class="section-num">03</span>
-          Context
-        </div>
-
-        <div class="field-grid two-col">
-
-          <!-- Has Design -->
-          <div class="field" id="field-has_design">
-            <label for="has_design">Do you already have a design? <span class="req" aria-hidden="true">*</span></label>
-            <select id="has_design" name="has_design" required aria-required="true">
-              <option value="" disabled selected>Select current state</option>
-              <option value="No">No</option>
-              <option value="Wireframe">Wireframe</option>
-              <option value="Figma ready">Figma ready</option>
-            </select>
-            <span class="helper">Current state of your project.</span>
-            <span class="error-msg" role="alert">Please select an option.</span>
-          </div>
-
-          <!-- Reference Links -->
-          <div class="field" id="field-reference_links">
-            <label for="reference_links">Reference links <span
-                style="color:var(--gray-500);font-weight:400;font-size:12px;">(optional)</span></label>
-            <input type="text" id="reference_links" name="reference_links"
-              placeholder="Website examples, inspiration, or related links" />
-            <span class="helper">Helps me understand your direction.</span>
-          </div>
-
-        </div>
-
-        <!-- Needs Dev (checkbox) -->
-        <div class="field-grid" style="margin-top:20px;">
-          <div class="field" id="field-needs_dev">
-            <label>What do you need help with? <span class="req" aria-hidden="true">*</span></label>
-            <div class="checkbox-group" role="group" aria-required="true">
-              <label class="checkbox-option">
-                <input type="checkbox" name="needs_dev" value="Frontend (build from design)" />
-                Frontend (build from design)
-              </label>
-              <label class="checkbox-option">
-                <input type="checkbox" name="needs_dev" value="Full build (design + frontend)" />
-                Full build (design + frontend)
-              </label>
-            </div>
-            <span class="helper">Select all that apply.</span>
-            <span class="error-msg" role="alert">Please select at least one option.</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="form-divider"></div>
-
-      <!-- ── Section 4: Commitment Filter ─────────────────────────── -->
-      <div class="form-section" aria-labelledby="section-commit">
-        <div class="section-label" id="section-commit">
-          <span class="section-num">04</span>
-          Commitment
-        </div>
-
-        <!-- Decision Maker -->
-        <div class="field-grid">
-          <div class="field" id="field-decision_maker">
-            <label>Are you the decision maker for this project? <span class="req" aria-hidden="true">*</span></label>
-            <div class="radio-group" role="radiogroup" aria-required="true">
-              <label class="radio-option">
-                <input type="radio" name="decision_maker" value="Yes, I can approve budget and start" />
-                Yes, I can approve budget and start
-              </label>
-              <label class="radio-option">
-                <input type="radio" name="decision_maker" value="No, I'm gathering info / part of a team" />
-                No, I'm gathering info / part of a team
-              </label>
-            </div>
-            <span class="helper">This helps me understand how quickly decisions can be made.</span>
-            <span class="error-msg" role="alert">Please select an option.</span>
-          </div>
-
-          <!-- Project Priority -->
-          <div class="field" id="field-project_priority" style="margin-top:20px;">
-            <label for="project_priority">Project priority <span class="req" aria-hidden="true">*</span></label>
-            <select id="project_priority" name="project_priority" required aria-required="true">
-              <option value="" disabled selected>Select priority level</option>
-              <option value="High (active, needs to move soon)">High — active, needs to move soon</option>
-              <option value="Medium (planned, not urgent)">Medium — planned, not urgent</option>
-              <option value="Low (just exploring)">Low — just exploring</option>
-            </select>
-            <span class="helper">Helps me align availability and focus.</span>
-            <span class="error-msg" role="alert">Please select a priority level.</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="form-divider"></div>
-
-      <!-- ── Section 5: High-Quality Filter ───────────────────────── -->
-      <div class="form-section" aria-labelledby="section-hq">
-        <div class="section-label" id="section-hq">
-          <span class="section-num">05</span>
-          Fit
-        </div>
-
-        <div class="field-grid">
-          <div class="field" id="field-why_this_project">
-            <label for="why_this_project">Why are you starting this project? <span class="req"
-                aria-hidden="true">*</span></label>
-            <textarea id="why_this_project" name="why_this_project"
-              placeholder="e.g. launching a product, improving conversion, redesigning outdated site, client work, etc."
-              rows="4" required aria-required="true"></textarea>
-            <span class="helper">A short context about the goal or reason. Helps me evaluate fit.</span>
-            <span class="error-msg" role="alert">Please share the reason behind this project.</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="form-divider"></div>
-
-      <!-- ── Section 6: Optional ───────────────────────────────────── -->
-      <div class="form-section" aria-labelledby="section-opt">
-        <div class="section-label" id="section-opt">
-          <span class="section-num">06</span>
-          Optional
-        </div>
-
-        <div class="field-grid two-col">
-
-          <!-- Company Name -->
-          <div class="field" id="field-company_name">
-            <label for="company_name">Company / team name <span
-                style="color:var(--gray-500);font-weight:400;font-size:12px;">(optional)</span></label>
-            <input type="text" id="company_name" name="company_name" placeholder="Your company or project name"
-              autocomplete="organization" />
-          </div>
-
-          <!-- How Found Me -->
-          <div class="field" id="field-how_found_me">
-            <label for="how_found_me">How did you find me? <span
-                style="color:var(--gray-500);font-weight:400;font-size:12px;">(optional)</span></label>
-            <select id="how_found_me" name="how_found_me">
-              <option value="" selected>Select an option</option>
-              <option value="Referral">Referral</option>
-              <option value="Social media">Social media</option>
-              <option value="Portfolio / website">Portfolio / website</option>
-              <option value="Marketplace (Fiverr, etc)">Marketplace (Fiverr, etc)</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- ── Submit ─────────────────────────────────────────────────── -->
       <div class="submit-area">
-        <div id="form-feedback" class="form-feedback" role="status" aria-live="polite"></div>
-        <button type="submit" id="btn-submit" class="btn purple">
+        <div id="qf-feedback" class="form-feedback" role="status" aria-live="polite"></div>
+        <button type="submit" id="qf-submit" class="btn purple">
           <span class="spinner" aria-hidden="true"></span>
-          <span class="btn-text">Send inquiry</span>
+          <span class="btn-text">Send quick inquiry</span>
         </button>
-        <p style="font-size:12px;color:var(--gray-500);">
-          I typically respond within 1–2 business days.
-        </p>
       </div>
-
+      <div class="form-toggle">
+        <p>Have a detailed project brief? <button type="button" class="toggle-link" onclick="toggleForms()">Switch to
+            full form</button></p>
+      </div>
     </form>
+
+    <!-- ── Full Brief (Form B) ── -->
+    <div id="form-full" style="display:none;">
+      <div class="form-toggle form-toggle-back">
+        <button type="button" class="toggle-link" onclick="toggleForms()">← Back to quick inquiry</button>
+      </div>
+      <form id="inquiry-form" novalidate>
+
+        <!-- Honeypot -->
+        <div class="hp-field" aria-hidden="true">
+          <label for="hp_website">Website</label>
+          <input type="text" id="hp_website" name="hp_website" tabindex="-1" autocomplete="off" />
+        </div>
+
+        <!-- ── Section 1: Core ──────────────────────────────────────── -->
+        <div class="form-section" aria-labelledby="section-core">
+          <div class="section-label" id="section-core">
+            <span class="section-num">01</span>
+            Core
+          </div>
+
+          <div class="field-grid two-col">
+
+            <!-- Name -->
+            <div class="field" id="field-name">
+              <label for="name">Full name <span class="req" aria-hidden="true">*</span></label>
+              <input type="text" id="name" name="name" placeholder="Your name" required aria-required="true"
+                autocomplete="name" />
+              <span class="error-msg" role="alert">Name is required.</span>
+            </div>
+
+            <!-- Email -->
+            <div class="field" id="field-email">
+              <label for="email">Email address <span class="req" aria-hidden="true">*</span></label>
+              <input type="email" id="email" name="email" placeholder="you@company.com" required aria-required="true"
+                autocomplete="email" />
+              <span class="helper">I'll use this to follow up on your project.</span>
+              <span class="error-msg" role="alert">A valid email is required.</span>
+            </div>
+
+          </div>
+
+          <div class="field-grid" style="margin-top:20px;">
+
+            <!-- Project Type -->
+            <div class="field" id="field-project_type">
+              <label for="project_type">Project type <span class="req" aria-hidden="true">*</span></label>
+              <select id="project_type" name="project_type" required aria-required="true">
+                <option value="" disabled selected>Select a type</option>
+                <option value="Landing page">Landing page</option>
+                <option value="Website">Website</option>
+                <option value="Redesign">Redesign</option>
+                <option value="Other">Other</option>
+              </select>
+              <span class="helper">What are you looking to build?</span>
+              <span class="error-msg" role="alert">Please select a project type.</span>
+            </div>
+
+            <!-- Project Summary -->
+            <div class="field" id="field-project_summary">
+              <label for="project_summary">Project summary <span class="req" aria-hidden="true">*</span></label>
+              <textarea id="project_summary" name="project_summary"
+                placeholder="Briefly describe what you need, goals, and any key details" rows="4" required
+                aria-required="true"></textarea>
+              <span class="helper">Keep it short. Just enough for me to understand the scope.</span>
+              <span class="error-msg" role="alert">Project summary is required.</span>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="form-divider"></div>
+
+        <!-- ── Section 2: Qualification ──────────────────────────────── -->
+        <div class="form-section" aria-labelledby="section-qual">
+          <div class="section-label" id="section-qual">
+            <span class="section-num">02</span>
+            Qualification
+          </div>
+
+          <div class="field-grid two-col">
+
+            <!-- Budget Range -->
+            <div class="field" id="field-budget_range">
+              <label for="budget_range">Budget range <span class="req" aria-hidden="true">*</span></label>
+              <select id="budget_range" name="budget_range" required aria-required="true">
+                <option value="" disabled selected>Select a range</option>
+                <option value="< $1k">&lt; $1k</option>
+                <option value="$1k–3k">$1k–3k</option>
+                <option value="$3k–5k">$3k–5k</option>
+                <option value="$5k+">$5k+</option>
+              </select>
+              <span class="helper">Rough range is enough. Helps me scope appropriately.</span>
+              <span class="error-msg" role="alert">Please select a budget range.</span>
+            </div>
+
+            <!-- Timeline -->
+            <div class="field" id="field-timeline">
+              <label for="timeline">Timeline <span class="req" aria-hidden="true">*</span></label>
+              <select id="timeline" name="timeline" required aria-required="true">
+                <option value="" disabled selected>Select timeline</option>
+                <option value="ASAP">ASAP</option>
+                <option value="2–4 weeks">2–4 weeks</option>
+                <option value="1–2 months">1–2 months</option>
+                <option value="Flexible">Flexible</option>
+              </select>
+              <span class="helper">When are you aiming to start or launch?</span>
+              <span class="error-msg" role="alert">Please select a timeline.</span>
+            </div>
+
+          </div>
+
+          <!-- Ready to Start -->
+          <div class="field-grid" style="margin-top:20px;">
+            <div class="field" id="field-ready_to_start">
+              <label>Are you ready to start? <span class="req" aria-hidden="true">*</span></label>
+              <div class="radio-group" role="radiogroup" aria-required="true">
+                <label class="radio-option">
+                  <input type="radio" name="ready_to_start" value="Yes, ready to start" />
+                  Yes, ready to start
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="ready_to_start" value="No, just exploring" />
+                  No, just exploring
+                </label>
+              </div>
+              <span class="helper">This helps me prioritize active projects.</span>
+              <span class="error-msg" role="alert">Please select an option.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-divider"></div>
+
+        <!-- ── Section 3: Context ────────────────────────────────────── -->
+        <div class="form-section" aria-labelledby="section-ctx">
+          <div class="section-label" id="section-ctx">
+            <span class="section-num">03</span>
+            Context
+          </div>
+
+          <div class="field-grid two-col">
+
+            <!-- Has Design -->
+            <div class="field" id="field-has_design">
+              <label for="has_design">Do you already have a design? <span class="req"
+                  aria-hidden="true">*</span></label>
+              <select id="has_design" name="has_design" required aria-required="true">
+                <option value="" disabled selected>Select current state</option>
+                <option value="No">No</option>
+                <option value="Wireframe">Wireframe</option>
+                <option value="Figma ready">Figma ready</option>
+              </select>
+              <span class="helper">Current state of your project.</span>
+              <span class="error-msg" role="alert">Please select an option.</span>
+            </div>
+
+            <!-- Reference Links -->
+            <div class="field" id="field-reference_links">
+              <label for="reference_links">Reference links <span
+                  style="color:var(--gray-500);font-weight:400;font-size:12px;">(optional)</span></label>
+              <input type="text" id="reference_links" name="reference_links"
+                placeholder="Website examples, inspiration, or related links" />
+              <span class="helper">Helps me understand your direction.</span>
+            </div>
+
+          </div>
+
+          <!-- Needs Dev (checkbox) -->
+          <div class="field-grid" style="margin-top:20px;">
+            <div class="field" id="field-needs_dev">
+              <label>What do you need help with? <span class="req" aria-hidden="true">*</span></label>
+              <div class="checkbox-group" role="group" aria-required="true">
+                <label class="checkbox-option">
+                  <input type="checkbox" name="needs_dev" value="Frontend (build from design)" />
+                  Frontend (build from design)
+                </label>
+                <label class="checkbox-option">
+                  <input type="checkbox" name="needs_dev" value="Full build (design + frontend)" />
+                  Full build (design + frontend)
+                </label>
+              </div>
+              <span class="helper">Select all that apply.</span>
+              <span class="error-msg" role="alert">Please select at least one option.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-divider"></div>
+
+        <!-- ── Section 4: Commitment Filter ─────────────────────────── -->
+        <div class="form-section" aria-labelledby="section-commit">
+          <div class="section-label" id="section-commit">
+            <span class="section-num">04</span>
+            Commitment
+          </div>
+
+          <!-- Decision Maker -->
+          <div class="field-grid">
+            <div class="field" id="field-decision_maker">
+              <label>Are you the decision maker for this project? <span class="req" aria-hidden="true">*</span></label>
+              <div class="radio-group" role="radiogroup" aria-required="true">
+                <label class="radio-option">
+                  <input type="radio" name="decision_maker" value="Yes, I can approve budget and start" />
+                  Yes, I can approve budget and start
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="decision_maker" value="No, I'm gathering info / part of a team" />
+                  No, I'm gathering info / part of a team
+                </label>
+              </div>
+              <span class="helper">This helps me understand how quickly decisions can be made.</span>
+              <span class="error-msg" role="alert">Please select an option.</span>
+            </div>
+
+            <!-- Project Priority -->
+            <div class="field" id="field-project_priority" style="margin-top:20px;">
+              <label for="project_priority">Project priority <span class="req" aria-hidden="true">*</span></label>
+              <select id="project_priority" name="project_priority" required aria-required="true">
+                <option value="" disabled selected>Select priority level</option>
+                <option value="High (active, needs to move soon)">High — active, needs to move soon</option>
+                <option value="Medium (planned, not urgent)">Medium — planned, not urgent</option>
+                <option value="Low (just exploring)">Low — just exploring</option>
+              </select>
+              <span class="helper">Helps me align availability and focus.</span>
+              <span class="error-msg" role="alert">Please select a priority level.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-divider"></div>
+
+        <!-- ── Section 5: High-Quality Filter ───────────────────────── -->
+        <div class="form-section" aria-labelledby="section-hq">
+          <div class="section-label" id="section-hq">
+            <span class="section-num">05</span>
+            Fit
+          </div>
+
+          <div class="field-grid">
+            <div class="field" id="field-why_this_project">
+              <label for="why_this_project">Why are you starting this project? <span class="req"
+                  aria-hidden="true">*</span></label>
+              <textarea id="why_this_project" name="why_this_project"
+                placeholder="e.g. launching a product, improving conversion, redesigning outdated site, client work, etc."
+                rows="4" required aria-required="true"></textarea>
+              <span class="helper">A short context about the goal or reason. Helps me evaluate fit.</span>
+              <span class="error-msg" role="alert">Please share the reason behind this project.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-divider"></div>
+
+        <!-- ── Section 6: Optional ───────────────────────────────────── -->
+        <div class="form-section" aria-labelledby="section-opt">
+          <div class="section-label" id="section-opt">
+            <span class="section-num">06</span>
+            Optional
+          </div>
+
+          <div class="field-grid two-col">
+
+            <!-- Company Name -->
+            <div class="field" id="field-company_name">
+              <label for="company_name">Company / team name <span
+                  style="color:var(--gray-500);font-weight:400;font-size:12px;">(optional)</span></label>
+              <input type="text" id="company_name" name="company_name" placeholder="Your company or project name"
+                autocomplete="organization" />
+            </div>
+
+            <!-- How Found Me -->
+            <div class="field" id="field-how_found_me">
+              <label for="how_found_me">How did you find me? <span
+                  style="color:var(--gray-500);font-weight:400;font-size:12px;">(optional)</span></label>
+              <select id="how_found_me" name="how_found_me">
+                <option value="" selected>Select an option</option>
+                <option value="Referral">Referral</option>
+                <option value="Social media">Social media</option>
+                <option value="Portfolio / website">Portfolio / website</option>
+                <option value="Marketplace (Fiverr, etc)">Marketplace (Fiverr, etc)</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ── Submit ─────────────────────────────────────────────────── -->
+        <div class="submit-area">
+          <div id="form-feedback" class="form-feedback" role="status" aria-live="polite"></div>
+          <button type="submit" id="btn-submit" class="btn purple">
+            <span class="spinner" aria-hidden="true"></span>
+            <span class="btn-text">Send inquiry</span>
+          </button>
+          <p style="font-size:12px;color:var(--gray-500);">
+            I typically respond within 1–2 business days.
+          </p>
+        </div>
+
+      </form>
+    </div><!-- /form-full -->
   </div>
 
   <div id="footer"></div>
@@ -363,7 +487,7 @@
 
   <script>
     /* ─────────────────────────────────────────────────────────────────
-       EMAILJS CONFIG — Replace these with your actual credentials
+        CREDENTIALS — Replace these with your actual credentials
     ───────────────────────────────────────────────────────────────── */
     /* ═══════════════════════════════════════════════════════════════════
      contact-form.js
@@ -372,15 +496,8 @@
      ═══════════════════════════════════════════════════════════════════ */
 
     /* ─── Credentials ────────────────────────────────────────────────── */
-    const EMAILJS_PUBLIC_KEY = "vCq2hI3JeWVXkM2nY";
-    const EMAILJS_SERVICE_ID = "service_aj7h1ib";
-    const EMAILJS_TEMPLATE_ID = "template_k0dn6nn";
-
     const TELEGRAM_BOT_TOKEN = "8731485135:AAFzxZ9xyxgtXlnSgCIALAMego5Mk2ASMp4";
     const TELEGRAM_CHAT_ID = "7160615126";
-
-    /* ─── Init EmailJS ───────────────────────────────────────────────── */
-    emailjs.init(EMAILJS_PUBLIC_KEY);
 
     /* ─── Rate limit state ───────────────────────────────────────────── */
     let lastSubmitTime = 0;
@@ -541,7 +658,22 @@
     }
 
     /* ═══════════════════════════════════════════════════════════════════
-       TELEGRAM NOTIF (secondary — fire and forget)
+       TOAST NOTIFICATION
+       ═══════════════════════════════════════════════════════════════════ */
+    function showToast(msg, type) {
+      const existing = document.querySelector('.toast');
+      if (existing) existing.remove();
+      const t = document.createElement('div');
+      t.className = 'toast ' + type;
+      t.innerHTML = msg + '<button class="toast-close">&times;</button>';
+      document.body.appendChild(t);
+      requestAnimationFrame(() => t.classList.add('show'));
+      const timer = setTimeout(() => { t.classList.remove('show'); setTimeout(() => t.remove(), 400); }, 10000);
+      t.querySelector('.toast-close').addEventListener('click', () => { clearTimeout(timer); t.classList.remove('show'); setTimeout(() => t.remove(), 400); });
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       TELEGRAM NOTIF
        ═══════════════════════════════════════════════════════════════════ */
 
     function escapeTelegramHTML(str) {
@@ -555,7 +687,7 @@
       const e = (val) => escapeTelegramHTML(val || "—");
 
       const text =
-        `<b>📬 New Project Inquiry</b>\n\n` +
+        `<b>🟢 Full Brief</b>\n\n` +
         `<b>Name</b>      : ${e(p.name)}\n` +
         `<b>Email</b>     : ${e(p.email)}\n` +
         `<b>Company</b>   : ${e(p.company_name)}\n\n` +
@@ -618,24 +750,18 @@
       try {
         const payload = buildPayload();
 
-        // ── Primary: EmailJS ──────────────────────────────────────────
-        await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, payload);
-
-        // ── Secondary: Telegram notif (non-blocking) ──────────────────
-        sendTelegramNotif(payload).catch(() => {
-          // Telegram failure is silent — email already sent
-        });
+        // ── Primary: Telegram notif ───────────────────────────────────
+        await sendTelegramNotif(payload);
 
         lastSubmitTime = Date.now();
 
         // Success
         form.reset();
-        showFormFeedback("success", "✓ Your inquiry was sent. I'll get back to you within 1–2 business days.");
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        showToast("✓ Your inquiry was sent. I'll get back to you within 1–2 business days.", "success");
 
       } catch (err) {
-        console.error("EmailJS error:", err);
-        showFormFeedback("error", "Something went wrong while sending. Please try again or reach out directly via email.");
+        console.error("Telegram error:", err);
+        showToast("Something went wrong. Please try again or email me directly.", "error");
       } finally {
         setLoading(false);
       }
@@ -661,6 +787,112 @@
 
     /* ─── Bind submit ────────────────────────────────────────────────── */
     form.addEventListener("submit", handleSubmit);
+
+    /* ═══════════════════════════════════════════════════════════════════
+       FORM TOGGLE
+       ═══════════════════════════════════════════════════════════════════ */
+    function toggleForms() {
+      const quick = document.getElementById('form-quick');
+      const full = document.getElementById('form-full');
+      const showFull = quick.style.display !== 'none';
+      quick.style.display = showFull ? 'none' : 'block';
+      full.style.display = showFull ? 'block' : 'none';
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       FORM A — QUICK INQUIRY
+       ═══════════════════════════════════════════════════════════════════ */
+    const qForm = document.getElementById('form-quick');
+    const qBtn = document.getElementById('qf-submit');
+    const qFeedback = document.getElementById('qf-feedback');
+
+    function qValidate() {
+      let valid = true;
+      [
+        { id: 'qf-name', el: qForm.q_name, msg: 'Name is required.' },
+        { id: 'qf-email', el: qForm.q_email, msg: 'A valid email is required.', email: true },
+        { id: 'qf-summary', el: qForm.q_summary, msg: 'Project summary is required.' },
+      ].forEach(f => {
+        const w = document.getElementById(f.id);
+        w.classList.remove('has-error');
+        const v = (f.el.value || '').trim();
+        if (!v || (f.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v))) {
+          w.classList.add('has-error');
+          valid = false;
+        }
+      });
+      return valid;
+    }
+
+    function qLoading(on) {
+      qBtn.disabled = on;
+      qBtn.classList.toggle('loading', on);
+      qBtn.querySelector('.btn-text').textContent = on ? 'Sending…' : 'Send quick inquiry';
+    }
+
+    async function qSubmit(e) {
+      e.preventDefault();
+      if (qForm.querySelector('input[name="hp_website_quick"]')?.value.trim() !== '') return;
+      if (!qValidate()) return;
+      qLoading(true);
+      qFeedback.className = 'form-feedback';
+      try {
+        const p = {
+          name: qForm.q_name.value.trim(),
+          email: qForm.q_email.value.trim(),
+          project_summary: qForm.q_summary.value.trim(),
+        };
+        await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            chat_id: TELEGRAM_CHAT_ID,
+            text: `<b>🟡 Quick Inquiry</b>\n\n<b>Name</b>  : ${escapeTelegramHTML(p.name)}\n<b>Email</b> : ${escapeTelegramHTML(p.email)}\n\n<b>Summary</b>\n${escapeTelegramHTML(p.project_summary)}`,
+            parse_mode: 'HTML',
+          }),
+        });
+        qForm.reset();
+        showToast("✓ Your inquiry was sent. I'll get back to you within 1–2 business days.", "success");
+      } catch (err) {
+        console.error('Quick form error:', err);
+        showToast("Something went wrong. Please try again or email me directly.", "error");
+      } finally {
+        qLoading(false);
+      }
+    }
+
+    qForm.addEventListener('submit', qSubmit);
+
+    qForm.addEventListener('input', (e) => {
+      const w = e.target.closest('.field');
+      if (w?.classList.contains('has-error')) w.classList.remove('has-error');
+    });
+
+    /* ═══════════════════════════════════════════════════════════════════
+       AUTO-FILL DUMMY DATA (form 2 — for testing)
+       ═══════════════════════════════════════════════════════════════════ */
+    (function autoFillFullForm() {
+      const f = document.getElementById('inquiry-form');
+      if (!f) return;
+      f.name.value = 'Dimas Testing';
+      f.email.value = 'dimas@test.com';
+      f.project_type.value = 'Website';
+      f.project_summary.value = 'Mau bikin company profile website buat startup tech. Butuh landing page, about, services, sama contact form. Target modern dan clean.';
+      f.budget_range.value = '$3k–5k';
+      f.timeline.value = '1–2 months';
+      const r = f.querySelector('input[name="ready_to_start"][value="Yes, ready to start"]');
+      if (r) r.checked = true;
+      f.has_design.value = 'Figma ready';
+      const fb = f.querySelector('input[name="needs_dev"][value="Full build (design + frontend)"]');
+      if (fb) fb.checked = true;
+      f.reference_links.value = 'https://example.com';
+      const dm = f.querySelector('input[name="decision_maker"][value="Yes, I can approve budget and start"]');
+      if (dm) dm.checked = true;
+      f.project_priority.value = 'High (active, needs to move soon)';
+      f.why_this_project.value = 'Company mau rebranding dan butuh web presence yang profesional buat attract clients.';
+      f.company_name.value = 'PT Test Sejahtera';
+      f.how_found_me.value = 'Portfolio / website';
+    })();
   </script>
 </body>
 
