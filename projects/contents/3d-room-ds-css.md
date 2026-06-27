@@ -1,6 +1,6 @@
 ---
 title: "3D Room Walkthrough: Let Clients Experience the Space Before It's Built"
-client: "Personal Project (Inspired by oaksun.studio)"
+client: "Personal Project"
 year: "2026"
 slug: "vr-room-3d-viewer"
 cover: "/projects/projects-img/vr-room/result1.webp"
@@ -11,9 +11,9 @@ architecture:
   Web Framework: "HTML"
   Styling: "Css"
   Interaction: "JavaScript"
+  Animation: "GSAP/DrawSVG"
   3D Engine: "Three.js"
-  3D Modeling: "Blender"
-  Asset Format: "GLB + decoupled WebP textures"
+  3D Modeling: "three.js editor"
   Deployment: "Shared Hosting"
 ---
 ![result](/projects/projects-img/vr-room/result1.webp)
@@ -22,11 +22,11 @@ architecture:
 
 ## Case Study
 
-I saw oaksun.studio and thought — what if architects had an easy way to show their designs to clients live? Not just static rendered images, but clients could walk inside the space, feel the scale, as if they're really there. That's my only motivation.
+I thought, what if architects had an easy way to show their designs to clients live? Not just static rendered images, but clients could walk inside the space, feel the scale, as if they're really there. That's my only motivation.
 
 # Problem
 
-Honestly, I thought I could just export GLB from Blender, load it into Three.js, done. Turns out no. Materials missing, textures not loading, what appears is just a lifeless grey object. Had to export textures one by one, manually wire them up in code, learn about UV maps, node graphs, sRGB color spaces — things that for a non-3D person like me felt like learning a foreign language from scratch. So naive.
+Honestly, I thought I could just load it into Three.js, done. Turns out no. Materials missing, textures not loading, what appears is just a lifeless grey object. Had to export textures one by one, manually wire them up in code, learn about UV maps, node graphs, sRGB color spaces — things that for a non-3D person like me felt like learning a foreign language from scratch. So naive.
 
 # Core 3D Experience
 
@@ -150,25 +150,9 @@ In a web-based 3D environment, abrupt camera snapping triggers immediate user fa
 
 | **Token** | **Value** | **Used on** | **Utility Method / Class Combination** |
 | --- | --- | --- | --- |
-| `color.surface` | `#ffffff`<br> | `.card`, `.btn-secondary`, `.portfolio-item`<br> | Generates clean foreground contrast layers
-
- |
-| `color.accent` | `#000000`<br> | `.btn-primary`, `.primary`<br> | High-contrast conversion trigger colors
-
- |
-| `color.muted` | `#6b6b6b`<br> | `.feature-item p`, `.stat-label`, `h6`<br> | De-emphasizes secondary helper typography
-
- |
-| `spacing.section-gap` | 120px
-
- | `.section`, `.mt-section`<br> | Establishes consistent vertical page rhythm
-
- |
-| `radius.full` | 999px
-
- | `.btn`, `.btn-sm`, `.btn-lg`<br> | Applies modern pill geometry to action triggers
-
- |
-| `spacing.container-max` | 1200px
-
- | `.container`<br> | Centers main layout columns via `margin: 0 auto`<br> |
+| `color.surface` | `#ffffff` | `.card`, `.btn-secondary`, `.portfolio-item` | Generates clean foreground contrast layers |
+| `color.accent` | `#000000` | `.btn-primary`, `.primary` | High-contrast conversion trigger colors |
+| `color.muted` | `#6b6b6b` | `.feature-item p`, `.stat-label`, `h6` | De-emphasizes secondary helper typography |
+| `spacing.section-gap` | 120px | `.section`, `.mt-section` | Establishes consistent vertical page rhythm |
+| `radius.full` | 999px | `.btn`, `.btn-sm`, `.btn-lg` | Applies modern pill geometry to action triggers |
+| `spacing.container-max` | 1200px | `.container` | Centers main layout columns via `margin: 0 auto` |

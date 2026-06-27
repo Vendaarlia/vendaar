@@ -1,6 +1,6 @@
 ---
 title: "Multi-Tenant System: Designing and Engineering Isolated Client Workflows"
-client: "Personal Project / SaaS Platform"
+client: "SaaS Platform"
 year: "2026"
 slug: "pm-panel-ds"
 cover: "/projects/projects-img/pm/result4.png"
@@ -19,7 +19,6 @@ architecture:
   Motion: "GSAP"
   Deployment & Edge Layer: "Cloudflare Workers"
 ---
-
 ![result](/projects/projects-img/pm/result1.png)
 ![result](/projects/projects-img/pm/result2.png)
 ![result](/projects/projects-img/pm/result3.png)
@@ -48,8 +47,8 @@ The platform successfully delivered a production-ready MVP that allows users to 
 
 ## 1. Color Tokens
 
-| Token                  | Hex       | Usage                                          |
-| ---------------------- | --------- | ---------------------------------------------- |
+| Token                    | Hex         | Usage                                          |
+| ------------------------ | ----------- | ---------------------------------------------- |
 | `color.background`     | `#fafafa` | Global page background color                   |
 | `color.surface`        | `#ffffff` | Card background, headers, and modal surfaces   |
 | `color.primary`        | `#171717` | Primary brand color used for text and borders  |
@@ -72,8 +71,8 @@ The platform successfully delivered a production-ready MVP that allows users to 
 
 ### Type Scale
 
-| Token                      | Family     | Size            | Weight  | Line Height | Usage                                   |
-| -------------------------- | ---------- | --------------- | ------- | ----------- | --------------------------------------- |
+| Token                        | Family     | Size            | Weight  | Line Height | Usage                                   |
+| ---------------------------- | ---------- | --------------- | ------- | ----------- | --------------------------------------- |
 | `typography.hero-title`    | Sans-Serif | 32px            | 700     | 120%        | Main titles on landing and dashboards   |
 | `typography.section-title` | Sans-Serif | 1.5rem (24px)   | 600     | 130%        | Card headings and sub-sections          |
 | `typography.body`          | Sans-Serif | 16px            | 400     | 150%        | Standard descriptive and paragraph text |
@@ -83,8 +82,8 @@ The platform successfully delivered a production-ready MVP that allows users to 
 
 ## 3. Spacing & Sizing
 
-| Token                   | Value   | Tailwind         | Usage                                |
-| ----------------------- | ------- | ---------------- | ------------------------------------ |
+| Token                     | Value   | Tailwind           | Usage                                |
+| ------------------------- | ------- | ------------------ | ------------------------------------ |
 | `spacing.container-max` | 1140px  | `max-w-[1140px]` | Maximum width for the inner wrapper  |
 | `spacing.padding-base`  | 1rem    | `p-4`            | Default mobile and component padding |
 | `spacing.padding-desk`  | 2rem    | `p-8`            | Desktop section and page padding     |
@@ -94,8 +93,8 @@ The platform successfully delivered a production-ready MVP that allows users to 
 
 ## 4. Border Radius
 
-| Token         | Value   | Tailwind       | Usage                                |
-| ------------- | ------- | -------------- | ------------------------------------ |
+| Token           | Value   | Tailwind         | Usage                                |
+| --------------- | ------- | ---------------- | ------------------------------------ |
 | `radius.md`   | 0.5rem  | `rounded-lg`   | Buttons, badges, and input fields    |
 | `radius.lg`   | 0.75rem | `rounded-xl`   | Main dashboard cards and popup menus |
 | `radius.full` | 9999px  | `rounded-full` | Profile avatars and status pills     |
@@ -108,13 +107,13 @@ The platform successfully delivered a production-ready MVP that allows users to 
 
 **Status:** Stable
 
-| Property        | Value            |
-| --------------- | ---------------- |
-| Display         | Grid             |
+| Property        | Value              |
+| --------------- | ------------------ |
+| Display         | Grid               |
 | Desktop Columns | `repeat(3, 1fr)` |
 | Tablet Columns  | `repeat(2, 1fr)` |
 | Mobile Columns  | `1fr`            |
-| Gap             | 1.5rem           |
+| Gap             | 1.5rem             |
 
 ---
 
@@ -122,12 +121,12 @@ The platform successfully delivered a production-ready MVP that allows users to 
 
 **Status:** Stable
 
-| Property      | Value                           |
-| ------------- | ------------------------------- |
+| Property      | Value                             |
+| ------------- | --------------------------------- |
 | Background    | `var(--color-surface)`          |
 | Border Bottom | `1px solid var(--color-border)` |
-| Padding       | 1rem 2rem                       |
-| Align Items   | Center (Flex)                   |
+| Padding       | 1rem 2rem                         |
+| Align Items   | Center (Flex)                     |
 
 ---
 
@@ -153,11 +152,11 @@ The platform successfully delivered a production-ready MVP that allows users to 
 
 ## 7. Token Usage Map
 
-| **Token**               | **Value**       | **Used In**                            | **Tailwind**              |
-| ----------------------- | --------------- | -------------------------------------- | ------------------------- |
-| `color.background`      | `#fafafa`       | Main body, section backgrounds         | `bg-[#fafafa]`            |
-| `color.primary`         | `#171717`       | Buttons, main text, active icons       | `bg-[#171717]`            |
-| `color.surface`         | `#ffffff`       | Dashboard cards, header navigation     | `bg-white`                |
+| **Token**           | **Value** | **Used In**                      | **Tailwind**          |
+| ------------------------- | --------------- | -------------------------------------- | --------------------------- |
+| `color.background`      | `#fafafa`     | Main body, section backgrounds         | `bg-[#fafafa]`            |
+| `color.primary`         | `#171717`     | Buttons, main text, active icons       | `bg-[#171717]`            |
+| `color.surface`         | `#ffffff`     | Dashboard cards, header navigation     | `bg-white`                |
 | `typography.h1`         | Sans-Serif 32px | Hero headlines, page headers           | `text-[32px] font-bold`   |
 | `typography.body`       | Sans-Serif 16px | Descriptions, chat notes, instructions | `text-[16px] font-normal` |
 | `radius.lg`             | 0.75rem         | Project cards, navigation dropdowns    | `rounded-xl`              |

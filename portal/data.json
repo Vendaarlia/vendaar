@@ -1,0 +1,33 @@
+{
+  "profile": {
+    "name": "Vendaar",
+    "bio": "ini adalah list tool dari aku untuk kamu gunakan sesukamu, buat semua yang bisa akses IG ku yang private ini. tapi kalian juga bisa sharing ke orang lain kok, bebaskan ajah. semua tools ini gratis, tanpa iklan, dan tanpa tracking. jadi kamu bisa pakai dengan tenang tanpa khawatir data kamu disalahgunakan. 'Radhiyallāhu 'an 'amalī'",
+    "avatar_url": "./pp.png"
+  },
+  "links": [
+    {
+      "title": "Image Editor Tools",
+      "url": "https://img.vendaar.top/",
+      "description": "image Compress, convert, resize, crop, and more — all processed privately on your device.",
+      "icon_class": "fa-solid fa-file-image"
+    },
+    {
+      "title": "PDF Editor Tools",
+      "url": "https://pdf.vendaar.top/",
+      "description": "PDF Merge, split, rotate, and convert PDFs — all processed privately on your device.",
+      "icon_class": "fa-solid fa-file-pdf"
+    },
+    {
+      "title": "Rateway",
+      "url": "https://cal.vendaar.top/",
+      "description": "Rate jasamu jangan sampai dapet client 'kok malah boncos, mental aman???'",
+      "icon_class": "fa-solid fa-calculator"
+    },
+    {
+      "title": "Project Management Panel",
+      "url": "https://pm-panel.joomlacort.workers.dev/",
+      "description": "PM-Panel is the all-in-one client project management platform built for freelancers and agencies who want to eliminate endless email threads, missed deadlines, and scope creep.",
+      "icon_class": "fa-solid fa-user"
+    }
+  ]
+}

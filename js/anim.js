@@ -462,7 +462,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ease: 'power3.out'
   }, 0.15);
 
-  // Card 3 last
+  // Card 3
   revealTl.to(handleCards[2], {
     opacity: 1,
     y: 0,
@@ -471,6 +471,16 @@ document.addEventListener('DOMContentLoaded', () => {
     duration: 0.4,
     ease: 'power3.out'
   }, 0.3);
+
+  // Card 4
+  revealTl.to(handleCards[3], {
+    opacity: 1,
+    y: 0,
+    x: 0,
+    rotation: 0,
+    duration: 0.4,
+    ease: 'power3.out'
+  }, 0.45);
 
   // HORIZONTAL SCROLL - entire track moves left as user scrolls
   // gsap.to(handleTrack, {
