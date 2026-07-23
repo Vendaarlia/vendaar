@@ -644,9 +644,13 @@
     margin-bottom: 12px;
   }
 
-  .testi-top>svg {
+  .testi-top>div>svg {
     width: 32px;
     height: 32px;
+  }
+
+  .testi-platform-link {
+    font-size: 10px;
   }
 
   .testi-name {

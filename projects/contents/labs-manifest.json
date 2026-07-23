@@ -1,14 +1,20 @@
 [
   {
     "id": "lab-1",
-    "title": "VERTICAL CAROUSEL RESPONSIVE",
+    "title": "Vertical Carousel Responsive",
     "link": "https://by.vendaar.top/08312/labs/2_VERTICAL_CAROUSEL_RESPONSIVE/index.html",
     "image": "/projects/projects-img/labs/2_VERTICAL_CAROUSEL_RESPONSIVE.png"
   },
   {
     "id": "lab-2",
-    "title": "LINK HOVER SCROLLUP",
+    "title": "Link Hover Scrollup",
     "link": "https://by.vendaar.top/08312/labs/8_LINK_HOVER_SCROLLUP/index.html",
     "image": "/projects/projects-img/labs/8_LINK_HOVER_SCROLLUP.png"
+  },
+  {
+    "id": "lab-3",
+    "title": "The Gallery That Marches Like a Legion",
+    "link": "https://by.vendaar.top/08312/labs/The_Gallery_That_Marches_Like_a_Legion/index.html",
+    "image": "/projects/projects-img/labs/The_Gallery_That_Marches_Like_a_Legion.jpg"
   }
 ]

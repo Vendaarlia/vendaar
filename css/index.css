@@ -436,6 +436,26 @@
   display: none;
 }
 
+.testi-platform {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.testi-platform-link {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--purple);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity 0.2s;
+}
+
+.testi-platform-link:hover {
+  opacity: 0.7;
+}
+
 .testi-monogram {
   width: 48px;
   height: 48px;
