@@ -1,59 +1,61 @@
 :root {
   /* Brand */
-  --color-primary:      #9239df;
-  --color-primary-hover:#7b2cbe;
-  --color-primary-dim:  rgba(146, 57, 223, 0.12);
+  --color-primary: #9239df;
+  --color-primary-hover: #7b2cbe;
+  --color-primary-dim: rgba(146, 57, 223, 0.12);
   --color-primary-glow: rgba(146, 57, 223, 0.25);
 
   /* Surfaces */
-  --bg-page:    #191d1f;
-  --bg-card:    #1e2326;
-  --bg-input:   #22282c;
+  --bg-page: #191d1f;
+  --bg-card: #1e2326;
+  --bg-input: #22282c;
 
   /* Text */
-  --text-main:     #ffffff;
-  --text-body:     #d1d5db;
-  --text-muted:    #9ca3af;
-  --text-subtle:   #6b7280;
+  --text-main: #ffffff;
+  --text-body: #d1d5db;
+  --text-muted: #9ca3af;
+  --text-subtle: #6b7280;
 
   /* Borders */
-  --border-color:  #d1d5db;
-  --border:        #2d3438;
-  --border-focus:  #9239df;
+  --border-color: #d1d5db;
+  --border: #2d3438;
+  --border-focus: #9239df;
 
   /* Feedback */
-  --color-error:   #f87171;
+  --color-error: #f87171;
   --color-error-bg: rgba(248, 113, 113, 0.12);
   --color-success: #34d399;
-  --color-rating:  #facc15;
+  --color-rating: #facc15;
 
   /* Spacing */
-  --gap-tight:   8px;
-  --gap-base:    16px;
-  --gap-loose:   24px;
+  --gap-tight: 8px;
+  --gap-base: 16px;
+  --gap-loose: 24px;
   --gap-section: 48px;
 
   /* Typography */
-  --font-base:   14px;
-  --font-small:  12px;
-  --font-label:  11px;
+  --font-base: 14px;
+  --font-small: 12px;
+  --font-label: 11px;
 
   /* Radius */
-  --radius:        999px;
-  --radius-sm:     6px;
-  --radius-md:     10px;
-  --radius-lg:     14px;
+  --radius: 999px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
 
   /* Fonts */
   --font-sans: "Inter", system-ui, sans-serif;
   --font-mono: "DM Mono", monospace;
 
   /* Timing */
-  --transition:  0.3s ease;
+  --transition: 0.3s ease;
 }
 
 /* Reset / Base */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -421,5 +423,23 @@ footer {
   .links-feed {
     flex: 1;
     max-width: 620px;
+  }
+}
+
+@media (max-width: 768px) {
+  .master-wrapper {
+    flex-direction: column-reverse;
+  }
+
+  .identity-panel {
+    text-align: center;
+  }
+
+  .badge-row {
+    justify-content: center;
+  }
+
+  .profile-meta {
+    justify-content: center;
   }
 }

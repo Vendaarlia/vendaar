@@ -3,7 +3,7 @@ title: "Hostinger Dashboard Optimization: Reducing Workflow Friction and Improvi
 client: "Personal Solving"
 year: "2025"
 slug: "hostinger-ds"
-cover: "/projects/projects-img/hostinger/result3.png"
+cover: "/projects/projects-img/hostinger/result4.png"
 role: "as Designer"
 link:
   Design Pitch: ./pdf-view.html?project=hostinger-ds

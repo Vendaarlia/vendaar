@@ -1,10 +1,16 @@
 {
   "profile": {
     "name": "Vendaar",
-    "bio": "ini adalah list tool dari aku untuk kamu gunakan sesukamu, buat semua yang bisa akses IG ku yang private ini. tapi kalian juga bisa sharing ke orang lain kok, bebaskan ajah. semua tools ini gratis, tanpa iklan, dan tanpa tracking. jadi kamu bisa pakai dengan tenang tanpa khawatir data kamu disalahgunakan. 'Radhiyallāhu 'an 'amalī'",
+    "bio": "ini adalah list tool dari aku untuk kamu gunakan sesukamu, buat semua yang bisa akses IG ku yang private ini. tapi kalian juga bisa sharing ke orang lain kok, bebaskan ajah. semua tools ini gratis, tanpa iklan, dan tanpa tracking. jadi kamu bisa pakai dengan tenang tanpa khawatir privasi-mu. 'Radhiyallāhu 'an 'amalī'",
     "avatar_url": "./pp2.png"
   },
   "links": [
+    {
+      "title": "Vendaar.top × Lordicon (Architects Daughter)",
+      "url": "https://vendaar.top/project.html?slug=Architects-Daughter",
+      "description": "Landing page concept exploring how Lordicon Doodle icons can support typography (not compete with it) in a story-led font experience.",
+      "icon_class": "fa-solid fa-pen-nib"
+    },
     {
       "title": "Image Editor Tools",
       "url": "https://img.vendaar.top/",
