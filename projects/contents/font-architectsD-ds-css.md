@@ -6,7 +6,7 @@ slug: "Architects-Daughter"
 cover: "/projects/projects-img/font-ad/result1.webp"
 role: "as Designer"
 link:
-  The Design: https://www.figma.com/design/ce8LwG4ag0SUnOdyUDRhJK/architects_daughterv2?node-id=62807-2590&t=UBnq7BoQbGZvTwJT-1
+  The Design: https://www.figma.com/design/t4psecYcwDkSwRUFOgJ3eP/architects_daughterv2?node-id=7402-421&t=9xvhkx6hZN3oijNu-1
   The Presentation: https://www.figma.com/deck/lYJQLUGJA7fAdiOhAtznKR/DOC-architects_daughter?node-id=1-514&t=vMSoyXsEJu4A8O9U-1
 ---
 ![result](/projects/projects-img/font-ad/result1.webp)
